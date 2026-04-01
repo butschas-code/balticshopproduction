@@ -1,0 +1,101 @@
+{
+  "nav": {
+    "home": "Home",
+    "shop": "Shop",
+    "artisans": "Artisans",
+    "stories": "Stories",
+    "theBaltic": "The Baltic",
+    "journal": "Journal",
+    "about": "About",
+    "contact": "Contact",
+    "brand": "Baltic Artisan",
+    "cart": "Cart",
+    "menu": "Menu"
+  },
+  "hero": {
+    "title": "Crafted by Baltic Hands",
+    "subtitle": "Objects shaped by forests, sea and tradition.",
+    "cta": "Explore the collection"
+  },
+  "collections": {
+    "title": "Featured Collections",
+    "subtitle": "Curated categories of Baltic craft",
+    "explore": "Explore",
+    "amber": "Amber",
+    "amberDesc": "Baltic gold from ancient forests",
+    "linen": "Linen",
+    "linenDesc": "Pure Nordic textiles",
+    "woodcraft": "Woodcraft",
+    "woodcraftDesc": "Forest-born objects",
+    "woolFelt": "Wool & Felt",
+    "woolFeltDesc": "Warmth from the land",
+    "ceramics": "Ceramics",
+    "ceramicsDesc": "Earth and fire"
+  },
+  "artisans": {
+    "title": "Artisans",
+    "subtitle": "The hands and hearts behind every object.",
+    "meetAll": "Meet all artisans"
+  },
+  "products": {
+    "signatureTitle": "Signature Products",
+    "signatureSubtitle": "Objects that carry the soul of the Baltic.",
+    "addToCart": "Add to cart",
+    "artisan": "Artisan",
+    "materials": "Materials",
+    "technique": "Technique",
+    "meetArtisan": "Meet the Artisan",
+    "viewProfile": "View profile"
+  },
+  "story": {
+    "quote": "Born from forests, sea and quiet hands.",
+    "subtitle": "Baltic Artisan"
+  },
+  "journal": {
+    "title": "Journal",
+    "subtitle": "Stories about craft traditions, Baltic nature and slow living.",
+    "viewAll": "View all",
+    "amberCoast": "The Amber Coast",
+    "amberCoastExcerpt": "A journey along the Baltic shore where amber washes up like gold from the sea.",
+    "linenTraditions": "Linen Traditions",
+    "linenTraditionsExcerpt": "How generations of Baltic weavers have kept linen alive in every home.",
+    "forestHands": "Hands in the Forest",
+    "forestHandsExcerpt": "Meeting the woodcarvers who turn fallen oak and birch into lasting objects.",
+    "categoryBaltic": "The Baltic",
+    "categoryCraft": "Craft",
+    "categoryArtisans": "Artisans"
+  },
+  "footer": {
+    "tagline": "Objects shaped by forests, sea and tradition. Handcrafted in Latvia, Lithuania and Estonia.",
+    "explore": "Explore",
+    "support": "Support",
+    "shipping": "Shipping",
+    "returns": "Returns",
+    "privacy": "Privacy",
+    "rights": "All rights reserved."
+  },
+  "shop": {
+    "title": "Shop",
+    "subtitle": "Handcrafted objects from Baltic artisans."
+  },
+  "artisansPage": {
+    "title": "Artisans",
+    "subtitle": "The hands and hearts behind every object."
+  },
+  "product": {
+    "defaultStory": "A story of craft and place.",
+    "defaultCraft": "Craft",
+    "defaultLocation": "The Baltic"
+  },
+  "artisanPage": {
+    "workshop": "The workshop",
+    "atWork": "At work",
+    "videoLabel": "Video: artisan at work",
+    "worksBy": "Works by"
+  },
+  "common": {
+    "comingSoon": "Coming soon.",
+    "cartEmpty": "Your cart is empty.",
+    "infoSoon": "Information coming soon."
+  }
+}

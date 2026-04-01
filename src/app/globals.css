@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --forest: #0F2A24;
+  --amber: #C89A4B;
+  --linen: #F6F3EE;
+  --driftwood: #8A857A;
+  --fog: #D9D6CF;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-linen text-forest antialiased;
+}
+
+/* Subtle selection */
+::selection {
+  @apply bg-amber/20 text-forest;
+}
+
+/* Refined focus for accessibility */
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-amber;
+}
+
+/* Nav: light over hero, dark when scrolled */
+header.nav-scrolled .nav-link {
+  @apply text-forest hover:text-amber;
+}
+
+/* Smooth image loading */
+img {
+  @apply transition-opacity duration-500;
+}
+
+img[data-loaded="false"] {
+  @apply opacity-0;
+}
+
+img[data-loaded="true"] {
+  @apply opacity-100;
+}
+
+@keyframes slowZoom {
+  0%, 100% { transform: scale(1.05); }
+  50% { transform: scale(1.12); }
+}

@@ -1,0 +1,101 @@
+{
+  "nav": {
+    "home": "Start",
+    "shop": "Shop",
+    "artisans": "Handwerker",
+    "stories": "Geschichten",
+    "theBaltic": "Das Baltikum",
+    "journal": "Journal",
+    "about": "Über uns",
+    "contact": "Kontakt",
+    "brand": "Baltic Artisan",
+    "cart": "Warenkorb",
+    "menu": "Menü"
+  },
+  "hero": {
+    "title": "Gefertigt von baltischen Händen",
+    "subtitle": "Objekte geformt von Wald, Meer und Tradition.",
+    "cta": "Kollektion entdecken"
+  },
+  "collections": {
+    "title": "Ausgewählte Kollektionen",
+    "subtitle": "Kuratierte Kategorien baltischen Handwerks",
+    "explore": "Entdecken",
+    "amber": "Bernstein",
+    "amberDesc": "Baltisches Gold aus uralten Wäldern",
+    "linen": "Leinen",
+    "linenDesc": "Reine nordische Textilien",
+    "woodcraft": "Holzarbeiten",
+    "woodcraftDesc": "Objekte aus dem Wald",
+    "woolFelt": "Wolle & Filz",
+    "woolFeltDesc": "Wärme vom Land",
+    "ceramics": "Keramik",
+    "ceramicsDesc": "Erde und Feuer"
+  },
+  "artisans": {
+    "title": "Handwerker",
+    "subtitle": "Die Hände und Herzen hinter jedem Objekt.",
+    "meetAll": "Alle Handwerker"
+  },
+  "products": {
+    "signatureTitle": "Signaturen",
+    "signatureSubtitle": "Objekte, die die Seele des Baltikums tragen.",
+    "addToCart": "In den Warenkorb",
+    "artisan": "Handwerker",
+    "materials": "Materialien",
+    "technique": "Technik",
+    "meetArtisan": "Den Handwerker kennenlernen",
+    "viewProfile": "Profil ansehen"
+  },
+  "story": {
+    "quote": "Entstanden aus Wald, Meer und stillen Händen.",
+    "subtitle": "Baltic Artisan"
+  },
+  "journal": {
+    "title": "Journal",
+    "subtitle": "Geschichten über Handwerkstraditionen, baltische Natur und entschleunigtes Leben.",
+    "viewAll": "Alle anzeigen",
+    "amberCoast": "Die Bernsteinküste",
+    "amberCoastExcerpt": "Eine Reise entlang der Ostseeküste, wo Bernstein wie Gold aus dem Meer angespült wird.",
+    "linenTraditions": "Leinentraditionen",
+    "linenTraditionsExcerpt": "Wie Generationen baltischer Weber Leinen in jedem Zuhause lebendig halten.",
+    "forestHands": "Hände im Wald",
+    "forestHandsExcerpt": "Begegnungen mit Holzbildhauern, die gefallene Eichen und Birken zu dauerhaften Objekten formen.",
+    "categoryBaltic": "Das Baltikum",
+    "categoryCraft": "Handwerk",
+    "categoryArtisans": "Handwerker"
+  },
+  "footer": {
+    "tagline": "Objekte geformt von Wald, Meer und Tradition. Handgefertigt in Lettland, Litauen und Estland.",
+    "explore": "Entdecken",
+    "support": "Support",
+    "shipping": "Versand",
+    "returns": "Rückgaben",
+    "privacy": "Datenschutz",
+    "rights": "Alle Rechte vorbehalten."
+  },
+  "shop": {
+    "title": "Shop",
+    "subtitle": "Handgefertigte Objekte von baltischen Handwerkern."
+  },
+  "artisansPage": {
+    "title": "Handwerker",
+    "subtitle": "Die Hände und Herzen hinter jedem Objekt."
+  },
+  "product": {
+    "defaultStory": "Eine Geschichte von Handwerk und Ort.",
+    "defaultCraft": "Handwerk",
+    "defaultLocation": "Das Baltikum"
+  },
+  "artisanPage": {
+    "workshop": "Die Werkstatt",
+    "atWork": "Bei der Arbeit",
+    "videoLabel": "Video: Handwerker bei der Arbeit",
+    "worksBy": "Werke von"
+  },
+  "common": {
+    "comingSoon": "Demnächst.",
+    "cartEmpty": "Ihr Warenkorb ist leer.",
+    "infoSoon": "Informationen folgen in Kürze."
+  }
+}
