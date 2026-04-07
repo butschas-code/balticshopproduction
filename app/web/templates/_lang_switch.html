@@ -1,0 +1,5 @@
+<div class="lang-switch" role="group" aria-label="{{ t('lang.switch_label') }}">
+    <a href="/lv{{ path_without_lang }}{{ query_string }}" class="lang-link {% if lang == 'lv' %}lang-link-active{% endif %}" aria-current="{% if lang == 'lv' %}true{% else %}false{% endif %}">LV</a>
+    <span aria-hidden="true" class="lang-sep">|</span>
+    <a href="/en{{ path_without_lang }}{{ query_string }}" class="lang-link {% if lang == 'en' %}lang-link-active{% endif %}" aria-current="{% if lang == 'en' %}true{% else %}false{% endif %}">EN</a>
+</div>

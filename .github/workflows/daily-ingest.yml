@@ -1,0 +1,58 @@
+# Runs full retailer scrape into a remote Postgres database.
+# Requires repository secret DATABASE_URL (e.g. Neon, Supabase, Railway).
+# Vercel cannot run this job (timeouts + Playwright); use Actions or a VPS.
+
+name: Daily ingest
+
+on:
+  schedule:
+    - cron: "0 5 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: daily-ingest-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check DATABASE_URL secret
+        id: db
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          if [ -z "$DATABASE_URL" ]; then
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::DATABASE_URL is not set. Add a Postgres connection string under Settings → Secrets and variables → Actions."
+          else
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Set up Python
+        if: steps.db.outputs.configured == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        if: steps.db.outputs.configured == 'true'
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install "playwright>=1.40.0"
+
+      - name: Install Playwright Chromium
+        if: steps.db.outputs.configured == 'true'
+        run: playwright install chromium
+
+      - name: Run daily ingest
+        if: steps.db.outputs.configured == 'true'
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          LOG_LEVEL: INFO
+        run: python run_daily_ingest.py

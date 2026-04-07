@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#fbfbfd">
+    <title>{{ t("search.title", query=query) }}</title>
+    <link rel="alternate" hreflang="lv" href="{{ hreflang_lv_url }}">
+    <link rel="alternate" hreflang="en" href="{{ hreflang_en_url }}">
+    <link rel="alternate" hreflang="x-default" href="{{ hreflang_lv_url }}">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="page-search">
+    <div class="app-wrap">
+        <header class="site-header">
+            <a href="{{ lang_prefix }}/" class="site-logo">{{ t("site.name") }}</a>
+            <div class="site-header-right">
+                {% include "_lang_switch.html" %}
+                <button type="button" class="basket-trigger" id="basket-trigger" aria-label="{{ t('basket.sidebar_label') }}">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    <span class="basket-count" id="basket-trigger-count" aria-hidden="true">0</span>
+                </button>
+                <nav class="site-nav" aria-label="{{ t('nav.aria') }}">
+                    <a href="{{ lang_prefix }}/search">{{ t("nav.search") }}</a>
+                    <a href="{{ lang_prefix }}/admin">{{ t("nav.admin") }}</a>
+                </nav>
+            </div>
+        </header>
+        <header class="search-header">
+            <h1 class="search-results-label">{{ t("search.results_for") }} <strong>{{ query }}</strong></h1>
+        </header>
+
+        <main class="search-main">
+            <a class="back" href="{{ lang_prefix }}/">{{ t("nav.back_home") }}</a>
+
+            <section class="search-form-section">
+                <form action="{{ lang_prefix }}/search" method="get" class="search-form-inline">
+                    <label for="search-q" class="sr-only">{{ t("search.button") }}</label>
+                    <input type="search" id="search-q" name="q" value="{{ query }}" placeholder="{{ t('search.placeholder') }}" class="search-input" required autocomplete="off">
+                    <button type="submit" class="search-submit">{{ t("search.button") }}</button>
+                </form>
+            </section>
+
+            {% if query_product_type %}
+            <nav class="search-mode" aria-label="{{ t('search.mode_strict_label', product=query) }}">
+                <a href="{{ lang_prefix }}/search?q={{ query|urlencode }}&sort={{ sort_mode }}&mode=strict" class="search-mode-link {% if search_mode == 'strict' %}is-active{% endif %}">{{ t("search.exact_product") }}</a>
+                <a href="{{ lang_prefix }}/search?q={{ query|urlencode }}&sort={{ sort_mode }}&mode=all" class="search-mode-link {% if search_mode == 'all' %}is-active{% endif %}">{{ t("search.include_related") }}</a>
+            </nav>
+            {% endif %}
+
+            {% if results_by_retailer and all_hits_sorted is defined %}
+                {% if search_fallback_message %}
+                <p class="search-fallback-msg">{{ t("search.fallback_similar") }}</p>
+                {% endif %}
+
+                {% if comparison_data %}
+                <!---------- 1. Comparison summary card (top) ---------->
+                <section class="comparison-block" aria-labelledby="comparison-heading">
+                    <h2 id="comparison-heading" class="comparison-heading">{{ (query_product_type_display or query)|upper }} — {{ t("search.best_prices_today") }}</h2>
+                    <ul class="comparison-rows">
+                        {% for r in comparison_data.retailers %}
+                        <li class="comparison-row {% if r.retailer_id == comparison_data.summary.cheapest_retailer_id %}comparison-row-cheapest{% endif %}">
+                            <span class="comparison-retailer">{{ r.retailer_name }}</span>
+                            <span class="comparison-price">€{{ '%.2f'|format(r.best_price) }}{% if r.retailer_id == comparison_data.summary.cheapest_retailer_id %} <span class="comparison-cheapest-badge">{{ t("search.cheapest_badge") }}</span>{% endif %}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </section>
+
+                <nav class="search-mode-inline" aria-label="{{ t('search.mode_strict_label', product=query) }}">
+                    <a href="{{ lang_prefix }}/search?q={{ query|urlencode }}&sort=price&mode=strict" class="search-mode-link {% if search_mode == 'strict' %}is-active{% endif %}">{{ t("search.exact_product") }}</a>
+                    <a href="{{ lang_prefix }}/search?q={{ query|urlencode }}&sort=price&mode=all" class="search-mode-link {% if search_mode == 'all' %}is-active{% endif %}">{{ t("search.include_related") }}</a>
+                    <span class="search-sort-inline">{{ t("search.sort_by") }}: <a href="{{ lang_prefix }}/search?q={{ query|urlencode }}&sort=price&mode={{ search_mode }}" class="search-sort-link is-active">{{ t("search.sort_price") }}</a></span>
+                </nav>
+
+                <!---------- 2. Best options per store (top 3 per retailer) ---------->
+                <section class="best-per-store" aria-labelledby="best-per-store-heading">
+                    <h2 id="best-per-store-heading" class="best-per-store-heading">{{ t("search.best_per_store") }}</h2>
+                    {% for r in comparison_data.retailers %}
+                    <div class="best-per-store-retailer">
+                        <h3 class="best-per-store-retailer-name">{{ r.retailer_name }}</h3>
+                        <ul class="best-per-store-list">
+                            {% for h in r.top_items %}
+                            <li class="best-per-store-item">
+                                <a href="{{ h.url }}" target="_blank" rel="noopener" class="best-per-store-title">{{ h.title }}</a>
+                                {% if h.size %}<span class="best-per-store-size">{{ h.size }}</span>{% endif %}
+                                <span class="best-per-store-price">€{{ '%.2f'|format(h.price) }}</span>
+                                <button type="button" class="product-add-btn" data-product-id="{{ h.product_id }}" data-retailer-id="{{ h.retailer_id }}" data-retailer-name="{{ r.retailer_name }}" data-title="{{ h.title }}" data-price="{{ h.price }}" data-url="{{ h.url }}">{{ t("search.add_to_basket") }}</button>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endfor %}
+                </section>
+
+                <!---------- 3. Expandable: See all results ---------->
+                <section class="see-all-results" aria-labelledby="see-all-heading">
+                    <button type="button" class="see-all-btn" id="see-all-results-btn" aria-expanded="false" aria-controls="see-all-results-content">
+                        <span class="see-all-label">{{ t("search.see_all_results") }} ({{ comparison_data.total_items }})</span>
+                    </button>
+                    <div id="see-all-results-content" class="see-all-content" hidden>
+                        <ul class="results-cards-grid results-cards-grid-full">
+                            {% for r in comparison_data.retailers %}
+                            {% for h in r.all_items %}
+                            <li class="product-card-premium">
+                                <span class="product-card-retailer retailer-pill">{{ r.retailer_name }}</span>
+                                <a href="{{ h.url }}" target="_blank" rel="noopener" class="product-card-title">{{ h.title }}</a>
+                                {% if h.size %}<p class="product-card-size">{{ h.size }}</p>{% endif %}
+                                <span class="product-card-price">€{{ '%.2f'|format(h.price) }}</span>
+                                <button type="button" class="product-add-btn" data-product-id="{{ h.product_id }}" data-retailer-id="{{ h.retailer_id }}" data-retailer-name="{{ r.retailer_name }}" data-title="{{ h.title }}" data-price="{{ h.price }}" data-url="{{ h.url }}">{{ t("search.add_to_basket") }}</button>
+                            </li>
+                            {% endfor %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </section>
+                {% elif comparison_rows %}
+                <!---------- Fallback: no comparison block (e.g. free-text search) ---------->
+                <p class="search-meta">{{ t("found_results", n=total_results, m=retailer_count) }}</p>
+                <nav class="search-sort" aria-label="{{ t('search.sort_by') }}">
+                    <span class="search-sort-label">{{ t("search.sort_by") }}:</span>
+                    <a href="{{ lang_prefix }}/search?q={{ query|urlencode }}&sort=relevance&mode={{ search_mode }}" class="search-sort-link {% if sort_mode == 'relevance' %}is-active{% endif %}">{{ t("search.sort_relevance") }}</a>
+                    <span class="search-sort-sep" aria-hidden="true">|</span>
+                    <a href="{{ lang_prefix }}/search?q={{ query|urlencode }}&sort=price&mode={{ search_mode }}" class="search-sort-link {% if sort_mode == 'price' %}is-active{% endif %}">{{ t("search.sort_price") }}</a>
+                </nav>
+                <div class="results-product-type">
+                    <h2 class="results-product-type-title">{{ query|upper }}</h2>
+                    <ul class="results-cards-grid">
+                        {% for h in all_hits_sorted[:15] %}
+                        {% set meta = retailer_meta.get(h.retailer_id) %}
+                        <li class="product-card-premium">
+                            <span class="product-card-retailer retailer-pill">{{ meta.display_name if meta else h.retailer_name }}</span>
+                            <a href="{{ h.url }}" target="_blank" rel="noopener" class="product-card-title">{{ h.title }}</a>
+                            {% if h.size %}<p class="product-card-size">{{ h.size }}</p>{% endif %}
+                            <span class="product-card-price">&euro;{{ '%.2f'|format(h.price) }}</span>
+                            <button type="button" class="product-add-btn" data-product-id="{{ h.product_id }}" data-retailer-id="{{ h.retailer_id }}" data-retailer-name="{{ meta.display_name if meta else h.retailer_name }}" data-title="{{ h.title }}" data-price="{{ h.price }}" data-url="{{ h.url }}">{{ t("search.add_to_basket") }}</button>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% if all_hits_sorted|length > 15 %}
+                    <div class="results-show-all-wrap">
+                        <button type="button" class="results-show-all-btn" id="results-show-all-btn" aria-expanded="false" aria-controls="results-cards-grid-more">
+                            <span class="show-all-label-initial">{{ t("search.show_all") }} ({{ all_hits_sorted|length - 15 }})</span>
+                            <span class="show-all-label-expanded">{{ t("search.show_less") }}</span>
+                        </button>
+                    </div>
+                    <ul class="results-cards-grid" id="results-cards-grid-more" hidden>
+                        {% for h in all_hits_sorted[15:] %}
+                        {% set meta = retailer_meta.get(h.retailer_id) %}
+                        <li class="product-card-premium">
+                            <span class="product-card-retailer retailer-pill">{{ meta.display_name if meta else h.retailer_name }}</span>
+                            <a href="{{ h.url }}" target="_blank" rel="noopener" class="product-card-title">{{ h.title }}</a>
+                            {% if h.size %}<p class="product-card-size">{{ h.size }}</p>{% endif %}
+                            <span class="product-card-price">&euro;{{ '%.2f'|format(h.price) }}</span>
+                            <button type="button" class="product-add-btn" data-product-id="{{ h.product_id }}" data-retailer-id="{{ h.retailer_id }}" data-retailer-name="{{ meta.display_name if meta else h.retailer_name }}" data-title="{{ h.title }}" data-price="{{ h.price }}" data-url="{{ h.url }}">{{ t("search.add_to_basket") }}</button>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+                {% endif %}
+
+            {% elif results_by_retailer %}
+                {% if search_fallback_message %}
+                <p class="search-fallback-msg">{{ t("search.fallback_similar") }}</p>
+                {% endif %}
+                <p class="search-meta">{{ t("found_results", n=total_results, m=retailer_count) }}</p>
+                <nav class="search-sort" aria-label="{{ t('search.sort_by') }}">
+                    <span class="search-sort-label">{{ t("search.sort_by") }}:</span>
+                    <a href="{{ lang_prefix }}/search?q={{ query|urlencode }}&sort=relevance&mode={{ search_mode }}" class="search-sort-link {% if sort_mode == 'relevance' %}is-active{% endif %}">{{ t("search.sort_relevance") }}</a>
+                    <span class="search-sort-sep" aria-hidden="true">|</span>
+                    <a href="{{ lang_prefix }}/search?q={{ query|urlencode }}&sort=price&mode={{ search_mode }}" class="search-sort-link {% if sort_mode == 'price' %}is-active{% endif %}">{{ t("search.sort_price") }}</a>
+                </nav>
+                {% for retailer_id, hits in results_by_retailer.items() %}
+                {% set meta = retailer_meta.get(retailer_id) %}
+                <section class="retailer-results" aria-labelledby="retailer-{{ retailer_id }}">
+                    <h2 id="retailer-{{ retailer_id }}" class="retailer-name">{{ meta.display_name if meta else retailer_id }}</h2>
+                    <ul class="product-card-list">
+                        {% for h in hits %}
+                        <li class="product-card">
+                            <div class="product-card-body">
+                                <a href="{{ h.url }}" target="_blank" rel="noopener" class="product-card-title">{{ h.title }}</a>
+                                {% if h.size %}<p class="product-card-size">{{ h.size }}</p>{% endif %}
+                                <div class="product-card-prices">
+                                    <span class="product-price">&euro;{{ '%.2f'|format(h.price) }}</span>
+                                    {% if h.unit_price and h.unit %}<span class="product-unit-price">&euro;{{ '%.2f'|format(h.unit_price) }}/{{ h.unit }}</span>{% endif %}
+                                </div>
+                                <button type="button" class="product-add-btn" data-product-id="{{ h.product_id }}" data-retailer-id="{{ h.retailer_id }}" data-retailer-name="{{ meta.display_name if meta else h.retailer_name }}" data-title="{{ h.title }}" data-price="{{ h.price }}" data-url="{{ h.url }}">{{ t("search.add_to_basket") }}</button>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </section>
+                {% endfor %}
+
+            {% else %}
+                <div class="search-empty card">
+                    {% if query %}
+                    <p class="search-not-found">{{ t("search.not_found") }}</p>
+                    {% if suggestions %}
+                    <p class="search-did-you-mean">{{ t("search.did_you_mean", suggestions=suggestions|join(', ')) }}</p>
+                    <p class="search-suggest-links">
+                        {% for s in suggestions %}
+                        <a href="{{ lang_prefix }}/search?q={{ s|urlencode }}">{{ s }}</a>{% if not loop.last %} · {% endif %}
+                        {% endfor %}
+                    </p>
+                    {% else %}
+                    <p class="search-try-different">{{ t("try_different") }}</p>
+                    {% endif %}
+                    {% else %}
+                    <p>{{ t("enter_search") }}</p>
+                    {% endif %}
+                </div>
+            {% endif %}
+
+            {% if last_updated %}
+            <div class="meta">
+                {{ t("last_updated") }}
+                {% for rid, ts in last_updated.items() %}
+                {{ rid }}: {{ ts }}{% if not loop.last %} · {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+        </main>
+    </div>
+
+    <aside id="basket-sidebar" class="basket-sidebar" aria-label="{{ t('basket.sidebar_label') }}" hidden>
+        <div class="basket-sidebar-inner">
+            <h3 class="basket-sidebar-title">{{ t("basket.sidebar_title") }}</h3>
+            <ul id="basket-sidebar-list" class="basket-sidebar-list"></ul>
+            <div id="basket-sidebar-totals" class="basket-sidebar-totals" hidden>
+                <p class="basket-sidebar-totals-title">{{ t("basket.total_per_store") }}</p>
+                <div id="basket-sidebar-totals-rows"></div>
+            </div>
+            <p id="basket-sidebar-total" class="basket-sidebar-total"></p>
+            <form id="basket-sidebar-form" action="{{ lang_prefix }}/basket" method="post" class="basket-sidebar-form">
+                <input type="hidden" name="items" id="basket-sidebar-items-input" value="">
+                <button type="submit" id="basket-sidebar-compare" class="basket-sidebar-compare">{{ t("basket.compare_prices") }}</button>
+            </form>
+            <button type="button" id="basket-sidebar-close" class="basket-sidebar-close" aria-label="{{ t('sr.close') }}">×</button>
+        </div>
+    </aside>
+    <div id="basket-sidebar-backdrop" class="basket-sidebar-backdrop" hidden aria-hidden="true"></div>
+
+    <script src="/static/lang.js"></script>
+    <script src="/static/search-basket.js"></script>
+    <script>
+    (function () {
+        var seeAllBtn = document.getElementById("see-all-results-btn");
+        var seeAllContent = document.getElementById("see-all-results-content");
+        if (seeAllBtn && seeAllContent) {
+            seeAllBtn.addEventListener("click", function () {
+                var expanded = this.getAttribute("aria-expanded") === "true";
+                this.setAttribute("aria-expanded", !expanded);
+                seeAllContent.hidden = expanded;
+            });
+        }
+        var showAllBtn = document.getElementById("results-show-all-btn");
+        var showAllMore = document.getElementById("results-cards-grid-more");
+        if (showAllBtn && showAllMore) {
+            showAllBtn.addEventListener("click", function () {
+                var expanded = this.getAttribute("aria-expanded") === "true";
+                this.setAttribute("aria-expanded", !expanded);
+                showAllMore.hidden = expanded;
+            });
+        }
+    })();
+    </script>
+</body>
+</html>

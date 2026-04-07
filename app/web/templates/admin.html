@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ t("admin.title") }}</title>
+    <link rel="alternate" hreflang="lv" href="{{ hreflang_lv_url }}">
+    <link rel="alternate" hreflang="en" href="{{ hreflang_en_url }}">
+    <link rel="alternate" hreflang="x-default" href="{{ hreflang_lv_url }}">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="admin-page app-wrap">
+    {% include "_lang_switch.html" %}
+    <header>
+        <h1><a href="{{ lang_prefix }}/">{{ t("site.name") }}</a></h1>
+        <p>{{ t("admin.dashboard") }}</p>
+    </header>
+
+    <main>
+        <a class="back" href="{{ lang_prefix }}/">{{ t("nav.back_home") }}</a>
+        <p style="margin-bottom:1rem;"><a href="{{ lang_prefix }}/admin/newsletter">{{ t("admin.newsletter_link") }}</a></p>
+
+        <section class="card">
+            <h2>{{ t("admin.retailer_status") }}</h2>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>{{ t("table.retailer") }}</th>
+                        <th>{{ t("table.catalog_type") }}</th>
+                        <th>{{ t("table.products_tracked") }}</th>
+                        <th>{{ t("table.last_update") }}</th>
+                        <th>{{ t("table.status") }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for r in retailers %}
+                    <tr>
+                        <td>
+                            <strong>{{ r.display_name }}</strong>
+                            <br><span class="admin-desc">{{ r.description }}</span>
+                        </td>
+                        <td>
+                            {% if r.catalog_type == 'full_catalog' %}
+                                <span class="catalog-badge catalog-full">{{ t("catalog.full") }}</span>
+                            {% elif r.catalog_type == 'promo_only' %}
+                                <span class="catalog-badge catalog-promo">{{ t("catalog.promo_only") }}</span>
+                            {% else %}
+                                <span class="catalog-badge catalog-partial">{{ t("catalog.partial") }}</span>
+                            {% endif %}
+                            {% if r.basket_eligible %}
+                                <br><span style="font-size:.75rem;color:var(--gray-500);">{{ t("admin.basket_eligible") }}</span>
+                            {% else %}
+                                <br><span style="font-size:.75rem;color:var(--warn);">{{ t("admin.not_in_basket") }}</span>
+                            {% endif %}
+                        </td>
+                        <td style="font-weight:600;">
+                            {{ "{:,}".format(r.product_count) }}
+                        </td>
+                        <td>{{ r.last_updated }}</td>
+                        <td>
+                            {% if r.product_count > 100 %}
+                                <span class="status-ok">{{ t("status.ok") }}</span>
+                            {% elif r.product_count > 0 %}
+                                <span class="status-warn">{{ t("status.low") }}</span>
+                            {% else %}
+                                <span class="status-none">{{ t("status.none") }}</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+        <section class="card">
+            <h2>{{ t("admin.actions") }}</h2>
+            <p style="font-size:.9rem;color:var(--gray-500);margin-bottom:.75rem;">
+                {{ t("admin.trigger_ingest") }}
+            </p>
+            <form method="post" action="/admin/run-ingest" id="ingest-form">
+                <button type="submit" id="ingest-btn">{{ t("admin.run_ingest") }}</button>
+                <span id="ingest-status" style="margin-left:.75rem;font-size:.85rem;"></span>
+            </form>
+            <script>
+                (function() {
+                    var runIngest = "{{ t('admin.run_ingest') }}";
+                    var running = "{{ t('admin.running') }}";
+                    var done = "{{ t('admin.done') }}";
+                    var errLabel = "{{ t('admin.error') }}";
+                    document.getElementById('ingest-form').addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        var btn = document.getElementById('ingest-btn');
+                        var status = document.getElementById('ingest-status');
+                        btn.disabled = true;
+                        btn.textContent = running;
+                        status.textContent = '';
+                        fetch('/admin/run-ingest', { method: 'POST', credentials: 'same-origin' })
+                            .then(function(r) { return r.json(); })
+                            .then(function(data) {
+                                btn.disabled = false;
+                                btn.textContent = runIngest;
+                                status.textContent = done + ' ' + JSON.stringify(data.summary);
+                                status.style.color = 'var(--success)';
+                                setTimeout(function() { location.reload(); }, 2000);
+                            })
+                            .catch(function(err) {
+                                btn.disabled = false;
+                                btn.textContent = runIngest;
+                                status.textContent = errLabel + ' ' + err;
+                                status.style.color = '#991b1b';
+                            });
+                    });
+                })();
+            </script>
+        </section>
+
+        <div class="meta">
+            {{ t("admin.meta") }}
+        </div>
+    </main>
+    <script src="/static/lang.js"></script>
+</body>
+</html>

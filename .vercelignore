@@ -1,0 +1,12 @@
+.venv
+.pytest_cache
+tests
+backups
+logs
+*.db
+.env
+.git
+**/__pycache__
+*.pyc
+.cursor
+agent-tools

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ t("admin_newsletter.title") }}</title>
+    <link rel="alternate" hreflang="lv" href="{{ hreflang_lv_url }}">
+    <link rel="alternate" hreflang="en" href="{{ hreflang_en_url }}">
+    <link rel="alternate" hreflang="x-default" href="{{ hreflang_lv_url }}">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="admin-page app-wrap">
+    {% include "_lang_switch.html" %}
+    <header>
+        <h1><a href="{{ lang_prefix }}/">{{ t("site.name") }}</a></h1>
+        <p>{{ t("admin_newsletter.heading") }}</p>
+    </header>
+
+    <main>
+        <a class="back" href="{{ lang_prefix }}/admin">{{ t("nav.back_admin") }}</a>
+
+        <section class="card">
+            <h2>{{ t("admin_newsletter.stats") }}</h2>
+            <table class="admin-table">
+                <tbody>
+                    <tr>
+                        <td><strong>{{ t("total_subscribers") }}</strong></td>
+                        <td>{{ "{:,}".format(total_subscribers) }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>{{ t("new_this_week") }}</strong></td>
+                        <td>{{ "{:,}".format(new_this_week) }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>{{ t("confirmation_rate") }}</strong></td>
+                        <td>{{ confirmation_rate }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>{{ t("emails_sent") }}</strong></td>
+                        <td>{{ "{:,}".format(emails_sent) }} <span class="admin-desc">{{ t("weekly_total") }}</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>{{ t("top_signup_source") }}</strong></td>
+                        <td>
+                            {% if top_signup_source %}
+                                {% for source, count in top_signup_source %}
+                                    <span class="source-badge">{{ source }}</span> {{ "{:,}".format(count) }}{% if not loop.last %}, {% endif %}
+                                {% endfor %}
+                            {% else %}
+                                —
+                            {% endif %}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <div class="meta">
+            {{ t("admin_newsletter.meta") }}
+        </div>
+    </main>
+    <script src="/static/lang.js"></script>
+</body>
+</html>

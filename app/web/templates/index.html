@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#fbfbfd">
+    <title>{{ t("home.title") }}</title>
+    <link rel="alternate" hreflang="lv" href="{{ hreflang_lv_url }}">
+    <link rel="alternate" hreflang="en" href="{{ hreflang_en_url }}">
+    <link rel="alternate" hreflang="x-default" href="{{ hreflang_lv_url }}">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="page-home">
+    <main class="home-main app-wrap">
+        <header class="site-header">
+            <a href="{{ lang_prefix }}/" class="site-logo">{{ t("site.name") }}</a>
+            <div class="site-header-right">
+                {% include "_lang_switch.html" %}
+                <button type="button" class="basket-trigger" id="basket-trigger" aria-label="{{ t('basket.sidebar_label') }}">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    <span class="basket-count" id="basket-trigger-count" aria-hidden="true">0</span>
+                </button>
+                <nav class="site-nav" aria-label="{{ t('nav.aria') }}">
+                    <a href="{{ lang_prefix }}/search">{{ t("nav.search") }}</a>
+                    <a href="{{ lang_prefix }}/admin">{{ t("nav.admin") }}</a>
+                </nav>
+            </div>
+        </header>
+
+        <section class="hero">
+            <p class="hero-label">{{ t("hero.credibility") }}</p>
+            <h1 class="hero-headline">{{ t("hero.headline") }}</h1>
+            <p class="hero-subline">{{ t("hero.subline") }}</p>
+            {% if updated_today_label != "—" %}
+            <p class="hero-updated" aria-label="{{ t('sr.data_freshness') }}">
+                {% if updated_date_is_today %}{{ t("hero.updated_today", time=updated_today_label) }}{% else %}{{ t("hero.updated_at", time=updated_today_label) }}{% endif %}
+            </p>
+            {% endif %}
+        </section>
+
+        <section class="cheapest-section" aria-label="{{ t('sr.cheapest_today') }}">
+            <div class="cheapest-card">
+                <p class="cheapest-label">{{ t("cheapest.label") }}</p>
+                <p class="cheapest-store">
+                    {% if cheapest_retailer_name %}{{ cheapest_retailer_name }}{% else %}—{% endif %}
+                </p>
+                <div class="cheapest-basket">
+                    <p class="cheapest-basket-title">{{ t("cheapest.basket_title") }}</p>
+                    <ul class="cheapest-basket-list">
+                        {% for rid, name, total in today_basket_totals %}
+                        <li><span class="retailer-name">{{ name }}</span> <span class="retailer-total">€{{ "%.2f"|format(total) }}</span></li>
+                        {% else %}
+                        <li class="no-data">{{ t("no_basket_data") }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% if savings and savings > 0 %}
+                <p class="cheapest-savings">{{ t("cheapest.savings") }} €{{ "%.2f"|format(savings) }}</p>
+                {% endif %}
+                <p class="cheapest-updated">{% if total_products %}{{ t("cheapest.products_tracked", n=total_products) }}{% else %}{{ t("products_tracked_fallback") }}{% endif %}</p>
+            </div>
+        </section>
+
+        <section class="search-first-section" aria-labelledby="search-first-heading">
+            <h2 id="search-first-heading" class="search-first-heading">{{ t("shopping.search_first_heading") }}</h2>
+            <form action="{{ lang_prefix }}/search" method="get" class="search-first-form">
+                <label for="home-search-q" class="sr-only">{{ t("search.button") }}</label>
+                <input type="search" id="home-search-q" name="q" class="search-first-input" placeholder="{{ t('search.placeholder') }}" required>
+                <button type="submit" class="search-first-btn">{{ t("search.button") }}</button>
+            </form>
+            <p class="search-first-micro">{{ t("shopping.search_first_micro") }}</p>
+        </section>
+
+        <section class="shopping-section" aria-labelledby="shopping-heading">
+            <h2 id="shopping-heading" class="shopping-heading">{{ t("shopping.heading") }}</h2>
+            <form action="{{ lang_prefix }}/basket" method="post" class="shopping-form">
+                <label for="items" class="sr-only">{{ t("shopping.label") }}</label>
+                <textarea id="items" name="items" class="shopping-input" placeholder="{{ t('shopping.placeholder') }}" rows="6" autofocus></textarea>
+                <button type="submit" class="shopping-btn">{{ t("shopping.submit") }}</button>
+                <p class="shopping-microcopy">{{ t("shopping.microcopy") }}</p>
+            </form>
+        </section>
+
+        <section class="newsletter-section" id="newsletter" aria-labelledby="newsletter-heading">
+            {% if newsletter_flash == 'subscribed' %}
+            <p class="newsletter-flash newsletter-flash-success">{{ t("newsletter.flash_check_email") }}</p>
+            {% elif newsletter_flash == 'already' %}
+            <p class="newsletter-flash newsletter-flash-info">{{ t("newsletter.flash_already") }}</p>
+            {% elif newsletter_flash == 'error' %}
+            <p class="newsletter-flash newsletter-flash-error">{{ t("newsletter.flash_error") }}</p>
+            {% elif newsletter_flash == 'confirmed' %}
+            <p class="newsletter-flash newsletter-flash-success">{{ t("newsletter.flash_confirmed") }}</p>
+            {% elif newsletter_flash == 'confirm_invalid' %}
+            <p class="newsletter-flash newsletter-flash-error">{{ t("newsletter.flash_confirm_invalid") }}</p>
+            {% endif %}
+            <div class="newsletter-card">
+                <h2 id="newsletter-heading" class="newsletter-heading">{{ t("newsletter.heading") }}</h2>
+                <p class="newsletter-subtext">{{ t("newsletter.subtext") }}</p>
+                <form action="{{ lang_prefix }}/newsletter" method="post" class="newsletter-form">
+                    <label for="newsletter_email" class="sr-only">{{ t("sr.email") }}</label>
+                    <input type="email" id="newsletter_email" name="newsletter_email" class="newsletter-input" placeholder="{{ t('newsletter.email_placeholder') }}" required autocomplete="email">
+                    <div class="newsletter-checkboxes">
+                        <label class="newsletter-check"><input type="checkbox" name="weekly_report" value="1" checked> {{ t("newsletter.weekly_report") }}</label>
+                        <label class="newsletter-check"><input type="checkbox" name="price_alerts" value="1" checked> {{ t("newsletter.price_alerts") }}</label>
+                        <label class="newsletter-check"><input type="checkbox" name="big_price_drops" value="1" checked> {{ t("newsletter.big_drops") }}</label>
+                    </div>
+                    <button type="submit" class="newsletter-btn">{{ t("newsletter.submit") }}</button>
+                    <p class="newsletter-nospam">{{ t("newsletter.nospam") }}</p>
+                </form>
+            </div>
+        </section>
+
+        <section class="how-section" aria-labelledby="how-title">
+            <h2 id="how-title" class="how-title">{{ t("how.title") }}</h2>
+            <ol class="how-steps">
+                <li class="how-step">
+                    <span class="how-num" aria-hidden="true">1</span>
+                    <span class="how-text">{{ t("how.step1") }}</span>
+                </li>
+                <li class="how-step">
+                    <span class="how-num" aria-hidden="true">2</span>
+                    <span class="how-text">{{ t("how.step2") }}</span>
+                </li>
+                <li class="how-step">
+                    <span class="how-num" aria-hidden="true">3</span>
+                    <span class="how-text">{{ t("how.step3") }}</span>
+                </li>
+            </ol>
+        </section>
+
+        <section class="newsletter-inline" aria-labelledby="newsletter-inline-heading">
+            <h2 id="newsletter-inline-heading" class="newsletter-inline-heading">{{ t("newsletter.inline_heading") }}</h2>
+            <p class="newsletter-inline-subtext">{{ t("newsletter.inline_subtext") }}</p>
+            <form action="{{ lang_prefix }}/newsletter" method="post" class="newsletter-inline-form">
+                <label for="newsletter_email_inline" class="sr-only">{{ t("sr.email_savings") }}</label>
+                <input type="email" id="newsletter_email_inline" name="newsletter_email" class="newsletter-inline-input" placeholder="{{ t('newsletter.email_placeholder') }}" required autocomplete="email">
+                <input type="hidden" name="weekly_report" value="1">
+                <input type="hidden" name="price_alerts" value="1">
+                <input type="hidden" name="big_price_drops" value="1">
+                <button type="submit" class="newsletter-inline-btn">{{ t("newsletter.submit") }}</button>
+            </form>
+            <p class="newsletter-inline-nospam">{{ t("newsletter.inline_nospam") }}</p>
+        </section>
+
+        <footer class="home-footer">
+            <a href="{{ lang_prefix }}/search">{{ t("nav.search") }}</a>
+            <span class="footer-sep">·</span>
+            <a href="#about">{{ t("nav.about") }}</a>
+            <span class="footer-sep">·</span>
+            <a href="#privacy">{{ t("nav.privacy") }}</a>
+            <span class="footer-sep">·</span>
+            <a href="#contact">{{ t("nav.contact") }}</a>
+            <span class="footer-sep">·</span>
+            <a href="{{ lang_prefix }}/admin">{{ t("nav.admin") }}</a>
+        </footer>
+    </main>
+
+    <aside id="basket-sidebar" class="basket-sidebar" aria-label="{{ t('basket.sidebar_label') }}" hidden>
+        <div class="basket-sidebar-inner">
+            <h3 class="basket-sidebar-title">{{ t("basket.sidebar_title") }}</h3>
+            <ul id="basket-sidebar-list" class="basket-sidebar-list"></ul>
+            <div id="basket-sidebar-totals" class="basket-sidebar-totals" hidden>
+                <p class="basket-sidebar-totals-title">{{ t("basket.total_per_store") }}</p>
+                <div id="basket-sidebar-totals-rows"></div>
+            </div>
+            <p id="basket-sidebar-total" class="basket-sidebar-total"></p>
+            <form id="basket-sidebar-form" action="{{ lang_prefix }}/basket" method="post" class="basket-sidebar-form">
+                <input type="hidden" name="items" id="basket-sidebar-items-input" value="">
+                <button type="submit" id="basket-sidebar-compare" class="basket-sidebar-compare">{{ t("basket.compare_prices") }}</button>
+            </form>
+            <button type="button" id="basket-sidebar-close" class="basket-sidebar-close" aria-label="{{ t('sr.close') }}">×</button>
+        </div>
+    </aside>
+    <div id="basket-sidebar-backdrop" class="basket-sidebar-backdrop" hidden aria-hidden="true"></div>
+
+    <div id="exit-popup" class="exit-popup" role="dialog" aria-labelledby="exit-popup-heading" aria-modal="true" hidden>
+        <div class="exit-popup-backdrop"></div>
+        <div class="exit-popup-card">
+            <button type="button" class="exit-popup-close" aria-label="{{ t('sr.close') }}">×</button>
+            <h2 id="exit-popup-heading" class="exit-popup-heading">{{ t("exit_popup.heading") }}</h2>
+            <p class="exit-popup-subtext">{{ t("exit_popup.subtext") }}</p>
+            <form id="exit-popup-form" class="exit-popup-form">
+                <label for="exit-popup-email" class="sr-only">{{ t("sr.email_savings") }}</label>
+                <input type="email" id="exit-popup-email" class="exit-popup-input" placeholder="{{ t('newsletter.email_placeholder') }}" required autocomplete="email">
+                <button type="submit" class="exit-popup-btn">{{ t("exit_popup.submit") }}</button>
+            </form>
+            <p id="exit-popup-success" class="exit-popup-success" hidden>{{ t("exit_popup.success") }}</p>
+        </div>
+    </div>
+    <script src="/static/exit-popup.js"></script>
+    <script src="/static/lang.js"></script>
+    <script src="/static/search-basket.js"></script>
+</body>
+</html>

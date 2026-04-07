@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#fbfbfd">
+    <title>{{ t("basket.title") }}</title>
+    <link rel="alternate" hreflang="lv" href="{{ hreflang_lv_url }}">
+    <link rel="alternate" hreflang="en" href="{{ hreflang_en_url }}">
+    <link rel="alternate" hreflang="x-default" href="{{ hreflang_lv_url }}">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="app-wrap">
+        <header class="site-header">
+            <a href="{{ lang_prefix }}/" class="site-logo">{{ t("site.name") }}</a>
+            <div class="site-header-right">
+                {% include "_lang_switch.html" %}
+                <nav class="site-nav" aria-label="{{ t('nav.aria') }}">
+                    <a href="{{ lang_prefix }}/search">{{ t("nav.search") }}</a>
+                    <a href="{{ lang_prefix }}/admin">{{ t("nav.admin") }}</a>
+                </nav>
+            </div>
+        </header>
+        <main>
+        <a class="back" href="{{ lang_prefix }}/">{{ t("nav.back_home") }}</a>
+        <h1 class="page-title">{{ t("basket.subtitle") }}</h1>
+
+        <section class="card">
+            <h2>{{ t("basket.your_basket") }}</h2>
+            <form action="{{ lang_prefix }}/basket" method="post">
+                <textarea name="items">{{ items }}</textarea>
+                <button type="submit">{{ t("basket.recompare") }}</button>
+            </form>
+        </section>
+
+        {% if results %}
+            {% set eligible = results|selectattr('basket_eligible')|list %}
+            {% set promo = results|rejectattr('basket_eligible')|list %}
+
+            {% set ns = namespace(cheapest_total=None, cheapest_id=None) %}
+            {% for r in eligible %}
+                {% if r.found_count > 0 %}
+                    {% if ns.cheapest_total is none or r.total < ns.cheapest_total %}
+                        {% set ns.cheapest_total = r.total %}
+                        {% set ns.cheapest_id = r.retailer_id %}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+
+            <p style="color:var(--gray-500);font-size:.9rem;margin-bottom:1rem;">
+                {{ t("comparing", n=item_list|length, m=eligible|length) }}
+            </p>
+
+            {% for r in eligible %}
+            <div class="basket-card {% if r.retailer_id == ns.cheapest_id %}cheapest{% endif %}">
+                <div class="retailer-header">
+                    <h3>
+                        {{ r.retailer_name }}
+                        <span class="catalog-badge catalog-full">{{ t("catalog.full") }}</span>
+                        {% if r.retailer_id == ns.cheapest_id %}
+                            <span class="cheapest-badge">{{ t("cheapest.badge") }}</span>
+                        {% endif %}
+                    </h3>
+                    <span class="basket-total">&euro;{{ '%.2f'|format(r.total) }}</span>
+                </div>
+                <p class="catalog-note">{{ r.catalog_description }}</p>
+
+                {% if r.items %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>{{ t("table.you_asked") }}</th>
+                            <th>{{ t("table.best_match") }}</th>
+                            <th>{{ t("table.price") }}</th>
+                            <th>{{ t("table.match") }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in r.items %}
+                        <tr>
+                            <td>{{ item.query }}</td>
+                            <td>{{ item.title }}</td>
+                            <td class="price">&euro;{{ '%.2f'|format(item.price) }}</td>
+                            <td>
+                                {% if item.confidence == 'strong' %}
+                                    <span class="confidence-badge confidence-strong">{{ '%.0f'|format(item.score * 100) }}%</span>
+                                {% elif item.confidence == 'ok' %}
+                                    <span class="confidence-badge confidence-ok">{{ '%.0f'|format(item.score * 100) }}%</span>
+                                {% else %}
+                                    <span class="confidence-badge confidence-low">{{ '%.0f'|format(item.score * 100) }}%</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                {% endif %}
+
+                {% if r.missing %}
+                <div class="missing-list">
+                    {{ t("not_found") }} {{ r.missing|join(', ') }}
+                </div>
+                {% endif %}
+
+                {% if not r.items and not r.missing %}
+                <div class="empty-state">
+                    <p>{{ t("no_offers") }}</p>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+
+            {% if promo %}
+            <h3 style="margin:1.5rem 0 .75rem;color:var(--gray-700);font-size:1rem;">{{ t("promo_section_heading") }}</h3>
+            {% for r in promo %}
+            <div class="basket-card promo-card">
+                <div class="retailer-header">
+                    <h3>
+                        {{ r.retailer_name }}
+                        <span class="catalog-badge catalog-promo">{{ t("catalog.promo_only") }}</span>
+                    </h3>
+                    <span class="basket-total" style="color:var(--gray-500);">&euro;{{ '%.2f'|format(r.total) }}</span>
+                </div>
+                <div class="promo-warning">
+                    {{ t("promo_warning") }}
+                </div>
+
+                {% if r.items %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>{{ t("table.you_asked") }}</th>
+                            <th>{{ t("table.best_match_promo") }}</th>
+                            <th>{{ t("table.promo_price") }}</th>
+                            <th>{{ t("table.match") }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in r.items %}
+                        <tr>
+                            <td>{{ item.query }}</td>
+                            <td>{{ item.title }}</td>
+                            <td class="price">&euro;{{ '%.2f'|format(item.price) }}</td>
+                            <td>
+                                {% if item.confidence == 'strong' %}
+                                    <span class="confidence-badge confidence-strong">{{ '%.0f'|format(item.score * 100) }}%</span>
+                                {% elif item.confidence == 'ok' %}
+                                    <span class="confidence-badge confidence-ok">{{ '%.0f'|format(item.score * 100) }}%</span>
+                                {% else %}
+                                    <span class="confidence-badge confidence-low">{{ '%.0f'|format(item.score * 100) }}%</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                {% endif %}
+
+                {% if r.missing %}
+                <div class="missing-list">
+                    {{ t("not_in_promo") }} {{ r.missing|join(', ') }}
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+            {% endif %}
+
+        {% elif items %}
+            <div class="empty-state card">
+                <p>{{ t("no_data_run_ingest") }}</p>
+                <p style="margin-top:.5rem;font-size:.9rem;">
+                    <code>python -m app.ingest_cli run</code>
+                </p>
+            </div>
+        {% else %}
+            <div class="empty-state card">
+                <p>{{ t("enter_items") }}</p>
+            </div>
+        {% endif %}
+
+        {% if last_updated %}
+        <div class="meta">
+            {{ t("last_updated") }}
+            {% for rid, ts in last_updated.items() %}
+                {{ rid }}: {{ ts }}{% if not loop.last %} &middot; {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+        </main>
+    </div>
+    <script src="/static/lang.js"></script>
+</body>
+</html>
