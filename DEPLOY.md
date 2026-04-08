@@ -21,7 +21,7 @@ In **Settings → Secrets and variables → Actions**:
 ## 3. Vercel project
 
 1. Import the GitHub repo at [vercel.com/new](https://vercel.com/new).
-2. Framework: **Other** or auto-detect (Python / FastAPI).
+2. Framework: **Other** or auto-detect (Python / FastAPI). The serverless entry is [`api/index.py`](api/index.py) (Vercel only matches Python functions under `api/` when using `vercel.json` `functions`).
 3. **Environment variables** (Production + Preview if you want):
 
 | Variable | Example | Notes |
