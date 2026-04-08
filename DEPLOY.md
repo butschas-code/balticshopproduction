@@ -1,5 +1,7 @@
 # Deploy to Vercel (free tier) + daily scrape (free)
 
+**Canonical repo:** [butschas-code/shoppinghelperproduction](https://github.com/butschas-code/shoppinghelperproduction) — use this single repository for **Vercel** (deploy) and **GitHub Actions** (daily ingest + CI). Both only need the same Neon `DATABASE_URL`; they do not connect to each other.
+
 The web app runs on **Vercel**. Scraping is too long for serverless, so **GitHub Actions** runs **`run_daily_ingest.py` daily** into a free **Postgres** database (e.g. Neon). Vercel reads the same database.
 
 ## 1. Neon Postgres (free)
@@ -20,7 +22,7 @@ In **Settings → Secrets and variables → Actions**:
 
 ## 3. Vercel project
 
-1. Import the GitHub repo at [vercel.com/new](https://vercel.com/new).
+1. Import **shoppinghelperproduction** at [vercel.com/new](https://vercel.com/new) (or **Settings → Git** on an existing project → **Connected Git Repository** → connect `butschas-code/shoppinghelperproduction`).
 2. Framework: **Other** or auto-detect (Python / FastAPI). The serverless entry is [`api/index.py`](api/index.py) (Vercel only matches Python functions under `api/` when using `vercel.json` `functions`).
 3. **Environment variables** (Production + Preview if you want):
 
