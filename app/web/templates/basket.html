@@ -24,6 +24,9 @@
         </header>
         <main>
         <a class="back" href="{{ lang_prefix }}/">{{ t("nav.back_home") }}</a>
+        {% if latest_pricing_update %}
+        <p class="data-freshness-line" role="status">{{ latest_pricing_update }}</p>
+        {% endif %}
         <h1 class="page-title">{{ t("basket.subtitle") }}</h1>
 
         <section class="card">

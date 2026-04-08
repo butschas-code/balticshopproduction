@@ -41,6 +41,10 @@
                 </form>
             </section>
 
+            {% if latest_pricing_update %}
+            <p class="data-freshness-line" role="status">{{ latest_pricing_update }}</p>
+            {% endif %}
+
             {% if query_product_type %}
             <nav class="search-mode" aria-label="{{ t('search.mode_strict_label', product=query) }}">
                 <a href="{{ lang_prefix }}/search?q={{ query|urlencode }}&sort={{ sort_mode }}&mode=strict" class="search-mode-link {% if search_mode == 'strict' %}is-active{% endif %}">{{ t("search.exact_product") }}</a>

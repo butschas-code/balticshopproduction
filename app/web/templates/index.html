@@ -143,6 +143,9 @@
         </section>
 
         <footer class="home-footer">
+            {% if latest_pricing_update %}
+            <p class="footer-data-freshness">{{ latest_pricing_update }}</p>
+            {% endif %}
             <a href="{{ lang_prefix }}/search">{{ t("nav.search") }}</a>
             <span class="footer-sep">·</span>
             <a href="#about">{{ t("nav.about") }}</a>

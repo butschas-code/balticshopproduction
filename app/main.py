@@ -27,7 +27,12 @@ from app.services.basket_index import (
 from app.services.history import get_price_history, get_price_stats
 from app.services.ingest import run_full_ingest
 from app.services.newsletter import confirm_subscriber, get_newsletter_admin_stats, subscribe as newsletter_subscribe
-from app.services.pricing import compute_basket, get_last_updated, search_products
+from app.services.pricing import (
+    compute_basket,
+    get_last_updated,
+    get_latest_pricing_update_label,
+    search_products,
+)
 from app.services.product_search import search_products_multi
 from app.services.search_synonyms import get_search_suggestions
 from app.services.search_intent import classify_query
@@ -225,6 +230,7 @@ def home(
             request,
             lang=lang,
             path_without_lang_override="/",
+            latest_pricing_update=get_latest_pricing_update_label(db, lang),
             last_updated=updated,
             retailer_meta=all_meta,
             today_basket_totals=today_totals,
@@ -372,6 +378,7 @@ def search(
             request,
             lang=lang,
             path_without_lang_override="/search",
+            latest_pricing_update=get_latest_pricing_update_label(db, lang),
             query=q,
             results_by_retailer=ordered,
             sort_mode=sort,
@@ -411,6 +418,7 @@ def basket(
             request,
             lang=lang,
             path_without_lang_override="/basket",
+            latest_pricing_update=get_latest_pricing_update_label(db, lang),
             items=items,
             item_list=item_list,
             results=results,

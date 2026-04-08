@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+from datetime import timezone
+from zoneinfo import ZoneInfo
+
 from sqlalchemy import func
 from sqlalchemy.orm import Session
 
@@ -59,6 +62,20 @@ def get_last_updated(db: Session) -> dict[str, str]:
         .all()
     )
     return {rid: ts.strftime("%Y-%m-%d %H:%M") if ts else "never" for rid, ts in rows}
+
+
+def get_latest_pricing_update_label(db: Session, lang: str) -> str | None:
+    """Single line for UI: latest `scraped_at` in DB (Europe/Riga). None if empty."""
+    from app.core.i18n import t
+
+    ts = db.query(func.max(ProductOffer.scraped_at)).scalar()
+    if not ts:
+        return None
+    if ts.tzinfo is None:
+        ts = ts.replace(tzinfo=timezone.utc)
+    local = ts.astimezone(ZoneInfo("Europe/Riga"))
+    when = local.strftime("%Y-%m-%d %H:%M")
+    return t("footer.last_prices_update", lang, when=when)
 
 
 # ------------------------------------------------------------------
