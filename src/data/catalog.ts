@@ -41,10 +41,10 @@ export const artisans = [
     "location": "Riga, Latvia",
     "craft": "Handwoven linen textiles",
     "isPartner": true,
-    "portrait": "https://www.studionatural.lv/cdn/shop/files/1_6a42e69a-7033-4419-8dec-741c2f529db3_1600x.jpg?v=1652790117",
+    "portrait": "/catalog/asset-ae953a857c67.jpg",
     "workshopImages": [
-      "https://www.studionatural.lv/cdn/shop/files/2_b146d559-ba9c-4bb9-a1bf-30c3a067846b_1600x.jpg?v=1652790116",
-      "https://www.studionatural.lv/cdn/shop/files/3.11jpg_effa5c9e-cb25-46b7-9f4f-523f56c07f53_1600x.jpg?v=1652790117"
+      "/catalog/asset-7a9c425b08c0.jpg",
+      "/catalog/asset-9d8ee8e63cf4.jpg"
     ],
     "bio": "Linen is a lifestyle has been the motto of Studio Natural since its establishment in 1990 by the acclaimed textile artist Laima Kaugure. Studio Natural hand crafted luxury linen is woven in Latvia on traditional wooden looms in limited quantities, endowing textiles with superior quality.",
     "craftDe": "Handgewebte Leinentextilien",
@@ -56,9 +56,9 @@ export const artisans = [
     "location": "Odukalns, Ķekava, Latvia",
     "craft": "End-grain cutting boards and wooden objects",
     "isPartner": true,
-    "portrait": "https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?w=1200&q=80",
+    "portrait": "/catalog/asset-5daf5216e3a4.jpg",
     "workshopImages": [
-      "https://images.unsplash.com/photo-1565538420870-da08ff96a261?w=1200&q=80"
+      "/catalog/asset-32cd44f13a57.jpg"
     ],
     "bio": "Raibi Koki makes colourful wooden kitchen boards, jewellery, care products and other wooden objects. Their shop is in Odukalns, Ķekava, where internet orders can be collected and the full product range can be seen by appointment.",
     "craftDe": "Hirnholz-Schneidebretter und Holzobjekte",
@@ -70,10 +70,10 @@ export const artisans = [
     "location": "Latvia",
     "craft": "Latvian clay and ceramic marketplace",
     "isPartner": true,
-    "portrait": "https://www.latvijaslabumstirgus.lv/pictures/scsd-5f2e4f650ec7d.jpg",
+    "portrait": "/catalog/asset-1b4d6b6d1f1f.jpg",
     "workshopImages": [
-      "https://www.latvijaslabumstirgus.lv/pictures/scsd-61a224ba01640.jpg",
-      "https://www.latvijaslabumstirgus.lv/pictures/scsd-5f8e062de95c2.jpg"
+      "/catalog/asset-3de5ca8e8e58.jpg",
+      "/catalog/asset-b6995a1401f4.jpg"
     ],
     "bio": "Latvijas Labumu Tirgus gathers Latvian makers in one catalog. The clay section includes pottery, black ceramics, serving pieces, vases, mugs and decorative ceramics from individual studios across Latvia.",
     "craftDe": "Lettischer Ton und Keramikmarktplatz",
@@ -85,10 +85,10 @@ export const artisans = [
     "location": "Tukums, Latvia",
     "craft": "Handmade porcelain mugs",
     "isPartner": true,
-    "portrait": "https://site-2141663.mozfiles.com/files/2141663/inlinepicturesbox/medium/215902030_10223384337911088_5391095339784461632_n-1.jpg",
+    "portrait": "/catalog/asset-4ee0ceae13e4.jpg",
     "workshopImages": [
-      "https://site-2141663.mozfiles.com/files/2141663/catcategories/thumb/9e52ff336db1672509972b1abadc259b.jpg?399991",
-      "https://site-2141663.mozfiles.com/files/2141663/catcategories/thumb/0f29b1e8f1698558c7db6913f187147a.jpg?399807"
+      "/catalog/asset-a8b8d49898f2.jpg",
+      "/catalog/asset-dc256c991202.jpg"
     ],
     "bio": "Annija Kanska is the maker behind cerannic, a porcelain cup studio built around the idea of a slower way of life. Each cup is made as a small invitation to a calmer everyday moment.",
     "craftDe": "Handgemachte Porzellantassen",
@@ -100,10 +100,10 @@ export const artisans = [
     "location": "Skulte parish, Limbaži region, Latvia",
     "craft": "Black ceramics and stoneware",
     "isPartner": true,
-    "portrait": "https://www.cepli.lv/wp-content/uploads/2024/01/WhatsApp-Image-2024-01-15-at-11.54.38-1024x681.jpeg",
+    "portrait": "/catalog/asset-492275668909.jpg",
     "workshopImages": [
-      "https://www.cepli.lv/wp-content/uploads/2020/06/Keramikas_darbnica_Cepli_logo-1-1.png",
-      "https://www.cepli.lv/wp-content/uploads/2019/07/output-onlinepngtools-5.png"
+      "/catalog/asset-7b2ef1d972de.png",
+      "/catalog/asset-fd1d9bff3006.png"
     ],
     "bio": "My name is Ingrīda Žagata, and I first encountered clay when I was 12 years old. Since then, ceramics have been not only my work but also my way of life. Since 1985 I have run my ceramics workshop close to the Baltic Sea.",
     "craftDe": "Schwarze Keramik und Steinzeug",
@@ -115,10 +115,10 @@ export const artisans = [
     "location": "Vaidava, Latvia",
     "craft": "Handcrafted Latvian ceramics",
     "isPartner": true,
-    "portrait": "https://vaidava.com/cdn/shop/files/01.07.2022_VAIDAVA_323_of_376.jpg?v=1739278644&width=1500",
+    "portrait": "/catalog/asset-fabcbbc8c7fa.jpg",
     "workshopImages": [
-      "https://vaidava.com/cdn/shop/files/clay-craftsman-working.jpg?v=1679904289&width=3840",
-      "https://vaidava.com/cdn/shop/files/ceramic-bowl-sculpting.jpg?v=1681718822&width=3840"
+      "/catalog/asset-959c6861d25e.jpg",
+      "/catalog/asset-44cc73eb1abb.jpg"
     ],
     "bio": "Vaidava Ceramics is the story of how a small workshop in Northern Europe radiates its heritage, craftsmanship and devotion to embrace the world. For nearly 45 years, the team has produced artisanal creations made to enrich everyday life and celebration.",
     "craftDe": "Handgefertigte lettische Keramik",
@@ -132,9 +132,9 @@ export const products = [
     "name": "Double layer scarf in linengold 50x200cm",
     "description": "This handwoven double layer linen scarf is the perfect accessory for any look. Crafted from natural material and detailed with hand-twisted fringes, it is both stylish and sustainable accessory. Its unique chameleon color will make you stand out in the crowd. Color: Linengold Dimensions: width 50cm, length 200cm Composition: 100% linen Product reference: Dub",
     "price": "€ 120.00",
-    "image": "https://cdn.shopify.com/s/files/1/0506/6516/0878/files/StudioNatural-2_6c46eb3b-2c58-452a-90f7-612d05f8a0ae.jpg?v=1783330631",
+    "image": "/catalog/asset-d08ca675ba67.jpg",
     "images": [
-      "https://cdn.shopify.com/s/files/1/0506/6516/0878/files/StudioNatural-2_6c46eb3b-2c58-452a-90f7-612d05f8a0ae.jpg?v=1783330631"
+      "/catalog/asset-d08ca675ba67.jpg"
     ],
     "artisanSlug": "studio-natural",
     "artisanName": "Studio Natural",
@@ -156,9 +156,9 @@ export const products = [
     "name": "Double layer linen scarf",
     "description": "This handwoven double layer linen scarf is the perfect accessory for any look. Crafted from natural material and detailed with hand-twisted fringes, it is both stylish and sustainable accessory. Its unique chameleon color will make you stand out in the crowd. Color: pastel rose Dimensions:width 50cm, length 200cm Composition: 100% linen Product reference: Du",
     "price": "€ 120.00",
-    "image": "https://cdn.shopify.com/s/files/1/0506/6516/0878/files/Noformejumsbeznosaukuma_5.png?v=1780471285",
+    "image": "/catalog/asset-e7d15b1ce607.png",
     "images": [
-      "https://cdn.shopify.com/s/files/1/0506/6516/0878/files/Noformejumsbeznosaukuma_5.png?v=1780471285"
+      "/catalog/asset-e7d15b1ce607.png"
     ],
     "artisanSlug": "studio-natural",
     "artisanName": "Studio Natural",
@@ -180,9 +180,9 @@ export const products = [
     "name": "Double layer linen scarf",
     "description": "This handwoven double layer linen scarf is the perfect accessory for any look. Crafted from natural material and detailed with hand-twisted fringes, it is both stylish and sustainable accessory. Its unique chameleon color will make you stand out in the crowd. Color: light gray Dimensions:width 30cm, length 170cm Composition: 100% linen Product reference: Dub",
     "price": "€ 96.00",
-    "image": "https://cdn.shopify.com/s/files/1/0506/6516/0878/files/Noformejums_bez_nosaukuma_3.png?v=1780320630",
+    "image": "/catalog/asset-aadf50d87f80.png",
     "images": [
-      "https://cdn.shopify.com/s/files/1/0506/6516/0878/files/Noformejums_bez_nosaukuma_3.png?v=1780320630"
+      "/catalog/asset-aadf50d87f80.png"
     ],
     "artisanSlug": "studio-natural",
     "artisanName": "Studio Natural",
@@ -204,9 +204,9 @@ export const products = [
     "name": "Kimono Dress in grey",
     "description": "Hand woven linen kimono dress with pure highest quality silk lining. In grey color. Unique and highest quality designer's work. Limited edition. Color: Grey Size: Women's M / EU 40-42 / UK 12-14 Composition: 100 % linen, lining 100% silk Product reference: TR Mix Antr+W+Silk Care instructions: Dry clean only. Iron at different temperatures suitable for linen",
     "price": "€ 880.00",
-    "image": "https://cdn.shopify.com/s/files/1/0506/6516/0878/files/WhatsAppImage2026-05-11at14.48.20.jpg?v=1778504883",
+    "image": "/catalog/asset-dd3882a96fb1.jpg",
     "images": [
-      "https://cdn.shopify.com/s/files/1/0506/6516/0878/files/WhatsAppImage2026-05-11at14.48.20.jpg?v=1778504883"
+      "/catalog/asset-dd3882a96fb1.jpg"
     ],
     "artisanSlug": "studio-natural",
     "artisanName": "Studio Natural",
@@ -228,9 +228,9 @@ export const products = [
     "name": "Linen coat Kazaku M",
     "description": "Hand woven Kazaku style linen coat with wool crochet. This coat has special wool buttons. Natural crumpled linen plays beautifully with sequin ornaments. Unique and very high-quality designer's work. Limited edition. Color: Dark brown Size: Women's M / EU 40-42 / UK 12-14 Composition: 100% linen, lining 100% silk Product reference: Kazaku Ieva M Antr+Brown+t",
     "price": "€ 950.00",
-    "image": "https://cdn.shopify.com/s/files/1/0506/6516/0878/files/WhatsAppImage2026-05-11at14.48.20_1.jpg?v=1778501108",
+    "image": "/catalog/asset-e4ed32438aba.jpg",
     "images": [
-      "https://cdn.shopify.com/s/files/1/0506/6516/0878/files/WhatsAppImage2026-05-11at14.48.20_1.jpg?v=1778501108"
+      "/catalog/asset-e4ed32438aba.jpg"
     ],
     "artisanSlug": "studio-natural",
     "artisanName": "Studio Natural",
@@ -252,9 +252,9 @@ export const products = [
     "name": "Table runner Primit 40x105cm",
     "description": "Dense hand woven linen table runner for a modern holiday table. It has a particularly timeless design. Color: Black Dimensions: width 40cm, length 105cm Composition: 100% linen Product reference: Primit Black +Dažw+zigsp Care instructions: Machine washed (max 30 ° C) using a gentle cycle, hand wash (max 30 ° C) or dry clean. Wash separately. Iron at maximum",
     "price": "€ 98.00",
-    "image": "https://cdn.shopify.com/s/files/1/0506/6516/0878/files/WhatsAppImage2026-05-05at15.02.30_1.jpg?v=1777982797",
+    "image": "/catalog/asset-ad4fde5b6c93.jpg",
     "images": [
-      "https://cdn.shopify.com/s/files/1/0506/6516/0878/files/WhatsAppImage2026-05-05at15.02.30_1.jpg?v=1777982797"
+      "/catalog/asset-ad4fde5b6c93.jpg"
     ],
     "artisanSlug": "studio-natural",
     "artisanName": "Studio Natural",
@@ -276,9 +276,9 @@ export const products = [
     "name": "Placemat Double 45x35cm",
     "description": "Unique, reversible handwoven linen placemat created using a special author’s technique. Featuring a refined palette of powder, light blue, and grey tones, it is perfect for everyday use. Color: Puder, Light blue, Grey Dimensions: width 45cm, length 35cm Composition: 100% linen Product reference: Dubl w+puder+3colors+5mzigsp Care instructions: Hand wash (ma",
     "price": "€ 45.00",
-    "image": "https://cdn.shopify.com/s/files/1/0506/6516/0878/files/WhatsAppImage2026-05-05at14.53.54_1.jpg?v=1777982387",
+    "image": "/catalog/asset-e17129397f15.jpg",
     "images": [
-      "https://cdn.shopify.com/s/files/1/0506/6516/0878/files/WhatsAppImage2026-05-05at14.53.54_1.jpg?v=1777982387"
+      "/catalog/asset-e17129397f15.jpg"
     ],
     "artisanSlug": "studio-natural",
     "artisanName": "Studio Natural",
@@ -300,9 +300,9 @@ export const products = [
     "name": "Placemat Boucle 50x36cm",
     "description": "A new approach to placemat weaving. The special boucle (linen thread forming a loop) linen creates a rough yet refined impression. This placemat has small fringes. Excellent for daily use. Color: White Dimensions: width 50cm, length 36cm Composition: 100% linen Product reference: PLACE w+w+buckle+g5 Care instructions: Machine wash (max 30°C) using a gentle ",
     "price": "€ 45.00",
-    "image": "https://cdn.shopify.com/s/files/1/0506/6516/0878/files/WhatsAppImage2026-04-21at12.36.47_11.jpg?v=1776764382",
+    "image": "/catalog/asset-c2ff4af985df.jpg",
     "images": [
-      "https://cdn.shopify.com/s/files/1/0506/6516/0878/files/WhatsAppImage2026-04-21at12.36.47_11.jpg?v=1776764382"
+      "/catalog/asset-c2ff4af985df.jpg"
     ],
     "artisanSlug": "studio-natural",
     "artisanName": "Studio Natural",
@@ -324,9 +324,9 @@ export const products = [
     "name": "Linen scarf Tinita in khaki 50x200 cm",
     "description": "Sheer handwoven linen scarf. Lightweight and sheer fabric - perfect for warm weather. This scarf is sure to make a fashionable statement. Excellent for everyday use or for an evening out. Color: Khaki, natural Dimensions: length 200cm, width 50cm Composition: 100% linen Product reference: Tinita w+nat+haki+seidg1 Care instructions: Hand wash (max 30°C) or dr",
     "price": "€ 150.00",
-    "image": "https://cdn.shopify.com/s/files/1/0506/6516/0878/files/WhatsAppImage2026-04-14at13.57.01_1.jpg?v=1776164889",
+    "image": "/catalog/asset-13049c9150ae.jpg",
     "images": [
-      "https://cdn.shopify.com/s/files/1/0506/6516/0878/files/WhatsAppImage2026-04-14at13.57.01_1.jpg?v=1776164889"
+      "/catalog/asset-13049c9150ae.jpg"
     ],
     "artisanSlug": "studio-natural",
     "artisanName": "Studio Natural",
@@ -348,9 +348,9 @@ export const products = [
     "name": "Linen scarf Transparent in black 70x250 cm",
     "description": "Sheer handwoven linen scarf in black with hand-twisted fringes. Excellent for everyday use or an evening out. Color: Black Dimensions: width 70cm, length 250cm Composition: Linen Product reference: Transp black+lfr Care instructions: Hand wash (max 30°C) or dry clean. If hand-washed, do not wring or twist - remove excess water by shaking it out. Do not tumbl",
     "price": "€ 170.00",
-    "image": "https://cdn.shopify.com/s/files/1/0506/6516/0878/files/WhatsAppImage2026-04-14at16.17.27_1aefc79e-9e9a-4973-8f6c-477f7c302f48.jpg?v=1776327364",
+    "image": "/catalog/asset-1ad9007a04dc.jpg",
     "images": [
-      "https://cdn.shopify.com/s/files/1/0506/6516/0878/files/WhatsAppImage2026-04-14at16.17.27_1aefc79e-9e9a-4973-8f6c-477f7c302f48.jpg?v=1776327364"
+      "/catalog/asset-1ad9007a04dc.jpg"
     ],
     "artisanSlug": "studio-natural",
     "artisanName": "Studio Natural",
@@ -372,9 +372,9 @@ export const products = [
     "name": "Chopstick holder",
     "description": "Give your chopsticks a place to rest. Crafted by hand from red and white clay, these holders bring the same quiet elegance to your table as the rest of the Vaidava Ceramics products. Small in size, but considered in every detail. The outside is left partially unglazed, revealing the natural texture and colour of the clay body, while the top is glazed in your",
     "price": "€ 3.00",
-    "image": "https://cdn.shopify.com/s/files/1/0729/2370/9747/files/20260531_175134_1_1_1_7b9b4e05-8170-416d-8eca-16b90d973afe.jpg?v=1781613539",
+    "image": "/catalog/asset-4774e6d78e7a.jpg",
     "images": [
-      "https://cdn.shopify.com/s/files/1/0729/2370/9747/files/20260531_175134_1_1_1_7b9b4e05-8170-416d-8eca-16b90d973afe.jpg?v=1781613539"
+      "/catalog/asset-4774e6d78e7a.jpg"
     ],
     "artisanSlug": "vaidava-ceramics",
     "artisanName": "VAIDAVA CERAMICS",
@@ -396,9 +396,9 @@ export const products = [
     "name": "Candle holder · Eclipse",
     "description": "Complement your evening rituals with the soft, subtle glow of candlelight, beautifully showcased on ceramic candle holder. Its simple, clean lines bring a natural, rustic charm to your home, and it is perfect for pillar candles.",
     "price": "€ 16.50",
-    "image": "https://cdn.shopify.com/s/files/1/0729/2370/9747/files/PillarcandleholderEclipse.jpg?v=1779709406",
+    "image": "/catalog/asset-ccd37b819264.jpg",
     "images": [
-      "https://cdn.shopify.com/s/files/1/0729/2370/9747/files/PillarcandleholderEclipse.jpg?v=1779709406"
+      "/catalog/asset-ccd37b819264.jpg"
     ],
     "artisanSlug": "vaidava-ceramics",
     "artisanName": "VAIDAVA CERAMICS",
@@ -420,9 +420,9 @@ export const products = [
     "name": "Mug glazed moss green · Earth",
     "description": "Add a touch of comfort to your morning routine. Enjoy your solitary coffee moments or tea times with friends using our exquisite terracotta mug. A splendid and practical enhancement for any kitchen space. Designed by our team of artisans. Simplicity and clean lines make any piece in this collection a masterpiece of timeless design. The outside is partially g",
     "price": "€ 14.50",
-    "image": "https://cdn.shopify.com/s/files/1/0729/2370/9747/files/untitled_008.jpg?v=1779709184",
+    "image": "/catalog/asset-8ced3d81d24f.jpg",
     "images": [
-      "https://cdn.shopify.com/s/files/1/0729/2370/9747/files/untitled_008.jpg?v=1779709184"
+      "/catalog/asset-8ced3d81d24f.jpg"
     ],
     "artisanSlug": "vaidava-ceramics",
     "artisanName": "VAIDAVA CERAMICS",
@@ -444,9 +444,9 @@ export const products = [
     "name": "Mug glazed white · Earth",
     "description": "Add a touch of comfort to your morning routine. Enjoy your solitary coffee moments or tea times with friends using our exquisite terracotta mug. A splendid and practical enhancement for any kitchen space. Designed by our team of artisans. Simplicity and clean lines make any piece in this collection a masterpiece of timeless design. The outside is partially g",
     "price": "€ 14.50",
-    "image": "https://cdn.shopify.com/s/files/1/0729/2370/9747/files/untitled_001.jpg?v=1779708931",
+    "image": "/catalog/asset-f325c406503b.jpg",
     "images": [
-      "https://cdn.shopify.com/s/files/1/0729/2370/9747/files/untitled_001.jpg?v=1779708931"
+      "/catalog/asset-f325c406503b.jpg"
     ],
     "artisanSlug": "vaidava-ceramics",
     "artisanName": "VAIDAVA CERAMICS",
@@ -468,9 +468,9 @@ export const products = [
     "name": "Small plate set x 2 · Earth",
     "description": "Whether you're serving up an appetizer or a scrumptious dessert, this duo is perfect for adding a touch of rustic elegance to any dining experience. Designed by our team of artisans. Simplicity and clean lines make any piece in this collection a masterpiece of timeless design. The outside is left unglazed. It's leveled and thoroughly polished to disclose the",
     "price": "€ 16.50",
-    "image": "https://cdn.shopify.com/s/files/1/0729/2370/9747/products/Setof2smallterracottaplates1_63b4680e-3941-4ed2-9718-0cc4f12665b1.jpg?v=1679913443",
+    "image": "/catalog/asset-7aa41edbd3c0.jpg",
     "images": [
-      "https://cdn.shopify.com/s/files/1/0729/2370/9747/products/Setof2smallterracottaplates1_63b4680e-3941-4ed2-9718-0cc4f12665b1.jpg?v=1679913443"
+      "/catalog/asset-7aa41edbd3c0.jpg"
     ],
     "artisanSlug": "vaidava-ceramics",
     "artisanName": "VAIDAVA CERAMICS",
@@ -492,9 +492,9 @@ export const products = [
     "name": "Centerpiece bowl · Earth RAW",
     "description": "The Centrepiece bowl is a beautiful choice for those who love gathering family and friends around the table. Its generous size makes it perfect for serving large salads, fresh seasonal dishes, or sharing meals during special occasions. Designed to stand out, it also works wonderfully as an elegant table centerpiece or as a graceful bowl for displaying fresh ",
     "price": "€ 75.00",
-    "image": "https://cdn.shopify.com/s/files/1/0729/2370/9747/files/VaidavaCeramicsprodukcija24_10_2024_040.jpg?v=1777298026",
+    "image": "/catalog/asset-f691be2cebfa.jpg",
     "images": [
-      "https://cdn.shopify.com/s/files/1/0729/2370/9747/files/VaidavaCeramicsprodukcija24_10_2024_040.jpg?v=1777298026"
+      "/catalog/asset-f691be2cebfa.jpg"
     ],
     "artisanSlug": "vaidava-ceramics",
     "artisanName": "VAIDAVA CERAMICS",
@@ -516,9 +516,9 @@ export const products = [
     "name": "Bowl 4.0L white · Earth",
     "description": "This bowl is a perfect choice for cooking lovers who enjoy preparing generous meals with care and style. Its spacious size makes it ideal for mixing dough, tossing salads, or presenting warm homemade dishes at the table. Whether you are cooking for a big family dinner or hosting friends for a special gathering, this bowl offers both practicality and timeless",
     "price": "€ 55.00",
-    "image": "https://cdn.shopify.com/s/files/1/0729/2370/9747/files/untitled_023.jpg?v=1777288533",
+    "image": "/catalog/asset-ad1bd548648d.jpg",
     "images": [
-      "https://cdn.shopify.com/s/files/1/0729/2370/9747/files/untitled_023.jpg?v=1777288533"
+      "/catalog/asset-ad1bd548648d.jpg"
     ],
     "artisanSlug": "vaidava-ceramics",
     "artisanName": "VAIDAVA CERAMICS",
@@ -540,9 +540,9 @@ export const products = [
     "name": "Bowl 2.0L curved moss green · Earth",
     "description": "Meet a bowl where every leafy green and plump tomato is celebrated in a feast for the senses. Designed by our team of artisans. Simplicity and clean lines make any piece in this collection a masterpiece of timeless design. The outside is left unglazed. It's leveled and thoroughly polished to disclose the clay's smoothness and prevent water and dirt absorptio",
     "price": "€ 26.00",
-    "image": "https://cdn.shopify.com/s/files/1/0729/2370/9747/products/Curvedmossgreenterracottasaladbowl24cm1_a6371808-45d8-4d85-8325-f0e041dfd75a.jpg?v=1679903839",
+    "image": "/catalog/asset-216a73700a15.jpg",
     "images": [
-      "https://cdn.shopify.com/s/files/1/0729/2370/9747/products/Curvedmossgreenterracottasaladbowl24cm1_a6371808-45d8-4d85-8325-f0e041dfd75a.jpg?v=1679903839"
+      "/catalog/asset-216a73700a15.jpg"
     ],
     "artisanSlug": "vaidava-ceramics",
     "artisanName": "VAIDAVA CERAMICS",
@@ -564,9 +564,9 @@ export const products = [
     "name": "Bowl 2.0L salad green · Earth",
     "description": "Let the bright colors and fresh flavors of crisp and juicy greens come together in a masterpiece of healthy indulgence. Designed by our team of artisans. Simplicity and clean lines make any piece in this collection a masterpiece of timeless design. The outside is left unglazed. It's leveled and thoroughly polished to disclose the clay's smoothness and preven",
     "price": "€ 22.50",
-    "image": "https://cdn.shopify.com/s/files/1/0729/2370/9747/files/021V-bowl2l_green.jpg?v=1685607714",
+    "image": "/catalog/asset-c1c0c178beea.jpg",
     "images": [
-      "https://cdn.shopify.com/s/files/1/0729/2370/9747/files/021V-bowl2l_green.jpg?v=1685607714"
+      "/catalog/asset-c1c0c178beea.jpg"
     ],
     "artisanSlug": "vaidava-ceramics",
     "artisanName": "VAIDAVA CERAMICS",
@@ -588,9 +588,9 @@ export const products = [
     "name": "Bowl 3.0L moss green · Earth",
     "description": "This large terracotta fruit bowl is the perfect display for an abundance of colorful fruit or veggies. Designed by our team of artisans. Simplicity and clean lines make any piece in this collection a masterpiece of timeless design. The outside is left unglazed. It's leveled and thoroughly polished to disclose the clay's smoothness and prevent water and dirt ",
     "price": "€ 49.00",
-    "image": "https://cdn.shopify.com/s/files/1/0729/2370/9747/products/Largemossgreenterracottabowl30cm1.jpg?v=1679928024",
+    "image": "/catalog/asset-4b637440889a.jpg",
     "images": [
-      "https://cdn.shopify.com/s/files/1/0729/2370/9747/products/Largemossgreenterracottabowl30cm1.jpg?v=1679928024"
+      "/catalog/asset-4b637440889a.jpg"
     ],
     "artisanSlug": "vaidava-ceramics",
     "artisanName": "VAIDAVA CERAMICS",
@@ -612,9 +612,9 @@ export const products = [
     "name": "Salad bowls",
     "description": "Hand-thrown on a potter’s wheel from white stoneware and fired at 1250°C. From the Monohroms collection, finished with a matte black glaze that is safe for people and the environment.",
     "price": "€ 42.00",
-    "image": "https://www.cepli.lv/wp-content/uploads/2026/03/IMG_0822.jpg",
+    "image": "/catalog/asset-7c6884bc6a67.jpg",
     "images": [
-      "https://www.cepli.lv/wp-content/uploads/2026/03/IMG_0822.jpg"
+      "/catalog/asset-7c6884bc6a67.jpg"
     ],
     "artisanSlug": "cepli",
     "artisanName": "Cepļi",
@@ -636,9 +636,9 @@ export const products = [
     "name": "Plate 24.5 cm",
     "description": "Hand-built from white stoneware using slab technique and fired at 1250°C. The glaze plays in tones from sandy beige to bluish shades and is safe for everyday table use.",
     "price": "€ 36.00",
-    "image": "https://www.cepli.lv/wp-content/uploads/2026/03/IMG_0769.jpg",
+    "image": "/catalog/asset-544745097361.jpg",
     "images": [
-      "https://www.cepli.lv/wp-content/uploads/2026/03/IMG_0769.jpg"
+      "/catalog/asset-544745097361.jpg"
     ],
     "artisanSlug": "cepli",
     "artisanName": "Cepļi",
@@ -660,9 +660,9 @@ export const products = [
     "name": "Plate 24.5 cm",
     "description": "Hand-built from white stoneware using slab technique and fired at 1250°C. The glaze plays in tones from sandy beige to bluish shades and is safe for everyday table use.",
     "price": "€ 42.00",
-    "image": "https://www.cepli.lv/wp-content/uploads/2026/03/IMG_0774.jpg",
+    "image": "/catalog/asset-b3e8df57daff.jpg",
     "images": [
-      "https://www.cepli.lv/wp-content/uploads/2026/03/IMG_0774.jpg"
+      "/catalog/asset-b3e8df57daff.jpg"
     ],
     "artisanSlug": "cepli",
     "artisanName": "Cepļi",
@@ -684,9 +684,9 @@ export const products = [
     "name": "Bowl 2L",
     "description": "Hand-thrown on a potter’s wheel from white stoneware and fired at 1250°C. From the Siltums collection, made for serving and everyday use.",
     "price": "€ 82.00",
-    "image": "https://www.cepli.lv/wp-content/uploads/2026/03/IMG_0757.jpg",
+    "image": "/catalog/asset-0df657281734.jpg",
     "images": [
-      "https://www.cepli.lv/wp-content/uploads/2026/03/IMG_0757.jpg"
+      "/catalog/asset-0df657281734.jpg"
     ],
     "artisanSlug": "cepli",
     "artisanName": "Cepļi",
@@ -708,9 +708,9 @@ export const products = [
     "name": "Vase",
     "description": "Hand-thrown on a potter’s wheel from white stoneware and fired at 1260°C. Finished with a transparent matte glaze and decorated with silver-coloured decal drawings.",
     "price": "€ 62.00",
-    "image": "https://www.cepli.lv/wp-content/uploads/2026/03/IMG_0751.jpg",
+    "image": "/catalog/asset-562a7a1f08f9.jpg",
     "images": [
-      "https://www.cepli.lv/wp-content/uploads/2026/03/IMG_0751.jpg"
+      "/catalog/asset-562a7a1f08f9.jpg"
     ],
     "artisanSlug": "cepli",
     "artisanName": "Cepļi",
@@ -732,9 +732,9 @@ export const products = [
     "name": "Vase",
     "description": "Hand-thrown on a potter’s wheel from white stoneware and fired at 1260°C. Finished with a transparent matte glaze and decorated with silver-coloured decal drawings.",
     "price": "€ 70.00",
-    "image": "https://www.cepli.lv/wp-content/uploads/2026/03/IMG_0747.jpg",
+    "image": "/catalog/asset-1ca387037210.jpg",
     "images": [
-      "https://www.cepli.lv/wp-content/uploads/2026/03/IMG_0747.jpg"
+      "/catalog/asset-1ca387037210.jpg"
     ],
     "artisanSlug": "cepli",
     "artisanName": "Cepļi",
@@ -756,9 +756,9 @@ export const products = [
     "name": "Vase",
     "description": "Hand-thrown on a potter’s wheel from white stoneware and fired at 1260°C. Finished with a transparent matte glaze and decorated with silver-coloured decal drawings.",
     "price": "€ 54.00",
-    "image": "https://www.cepli.lv/wp-content/uploads/2026/03/IMG_0744.jpg",
+    "image": "/catalog/asset-3b8ce82a32a2.jpg",
     "images": [
-      "https://www.cepli.lv/wp-content/uploads/2026/03/IMG_0744.jpg"
+      "/catalog/asset-3b8ce82a32a2.jpg"
     ],
     "artisanSlug": "cepli",
     "artisanName": "Cepļi",
@@ -780,9 +780,9 @@ export const products = [
     "name": "Serving plate on feet in gift box",
     "description": "Hand-built from Latvian clay and fired in an open-flame kiln using black pottery technique. Decorated by engraving with natural pattern motifs.",
     "price": "€ 72.00",
-    "image": "https://www.cepli.lv/wp-content/uploads/2026/03/IMG_0613.jpg",
+    "image": "/catalog/asset-e69b8c100357.jpg",
     "images": [
-      "https://www.cepli.lv/wp-content/uploads/2026/03/IMG_0613.jpg"
+      "/catalog/asset-e69b8c100357.jpg"
     ],
     "artisanSlug": "cepli",
     "artisanName": "Cepļi",
@@ -804,9 +804,9 @@ export const products = [
     "name": "Serving plate on feet in gift box",
     "description": "Hand-built from Latvian clay and fired in an open-flame kiln using black pottery technique. Decorated by engraving with natural pattern motifs.",
     "price": "€ 72.00",
-    "image": "https://www.cepli.lv/wp-content/uploads/2026/03/IMG_0615.jpg",
+    "image": "/catalog/asset-98dcfa43a399.jpg",
     "images": [
-      "https://www.cepli.lv/wp-content/uploads/2026/03/IMG_0615.jpg"
+      "/catalog/asset-98dcfa43a399.jpg"
     ],
     "artisanSlug": "cepli",
     "artisanName": "Cepļi",
@@ -828,9 +828,9 @@ export const products = [
     "name": "Sugar bowl",
     "description": "Hand-thrown on a potter’s wheel from grey stoneware and fired at 1250°C. From the Monohroms collection, finished with a matte black glaze.",
     "price": "€ 47.00",
-    "image": "https://www.cepli.lv/wp-content/uploads/2026/03/IMG_0580-scaled.jpg",
+    "image": "/catalog/asset-fa41d8824f80.jpg",
     "images": [
-      "https://www.cepli.lv/wp-content/uploads/2026/03/IMG_0580-scaled.jpg"
+      "/catalog/asset-fa41d8824f80.jpg"
     ],
     "artisanSlug": "cepli",
     "artisanName": "Cepļi",
@@ -852,9 +852,9 @@ export const products = [
     "name": "Leo",
     "description": "Leo from the mug with lines collection. This is a made-to-order platform rather than a classic online shop; production time is up to three weeks.",
     "price": "€ 25,00",
-    "image": "https://site-2141663.mozfiles.com/files/2141663/catitems/thumb/WhatsApp_Image_2024-01-27_at_16_42_57-751b5dbdd8abb5271e98ed063d0407b0.jpeg?5897235",
+    "image": "/catalog/asset-63ce110d4c41.jpg",
     "images": [
-      "https://site-2141663.mozfiles.com/files/2141663/catitems/thumb/WhatsApp_Image_2024-01-27_at_16_42_57-751b5dbdd8abb5271e98ed063d0407b0.jpeg?5897235"
+      "/catalog/asset-63ce110d4c41.jpg"
     ],
     "artisanSlug": "cerannic",
     "artisanName": "cerannic",
@@ -876,9 +876,9 @@ export const products = [
     "name": "Reinis",
     "description": "Reinis from the mug with lines collection. This is a made-to-order platform rather than a classic online shop; production time is up to three weeks.",
     "price": "€ 25,00",
-    "image": "https://site-2141663.mozfiles.com/files/2141663/catitems/thumb/IMG-20231208-WA0004-dd78b5aea0c7c81fa259574626694482.jpg?5903378",
+    "image": "/catalog/asset-747bfda7c03e.jpg",
     "images": [
-      "https://site-2141663.mozfiles.com/files/2141663/catitems/thumb/IMG-20231208-WA0004-dd78b5aea0c7c81fa259574626694482.jpg?5903378"
+      "/catalog/asset-747bfda7c03e.jpg"
     ],
     "artisanSlug": "cerannic",
     "artisanName": "cerannic",
@@ -900,9 +900,9 @@ export const products = [
     "name": "Hugo",
     "description": "Hugo from the mug with lines collection. This is a made-to-order platform rather than a classic online shop; production time is up to three weeks.",
     "price": "€ 25,00",
-    "image": "https://site-2141663.mozfiles.com/files/2141663/catitems/thumb/DSC01258-Edit-9507aada49831846aa65246fba89dc63.jpg?5902527",
+    "image": "/catalog/asset-1842b1ca086d.jpg",
     "images": [
-      "https://site-2141663.mozfiles.com/files/2141663/catitems/thumb/DSC01258-Edit-9507aada49831846aa65246fba89dc63.jpg?5902527"
+      "/catalog/asset-1842b1ca086d.jpg"
     ],
     "artisanSlug": "cerannic",
     "artisanName": "cerannic",
@@ -924,9 +924,9 @@ export const products = [
     "name": "Oskars",
     "description": "Oskars from the mug with lines collection. This is a made-to-order platform rather than a classic online shop; production time is up to three weeks.",
     "price": "€ 25,00",
-    "image": "https://site-2141663.mozfiles.com/files/2141663/catitems/thumb/IMG-20231208-WA0005-154c4d70209ff908356390429d134369.jpg?5903388",
+    "image": "/catalog/asset-fafd93b2aa04.jpg",
     "images": [
-      "https://site-2141663.mozfiles.com/files/2141663/catitems/thumb/IMG-20231208-WA0005-154c4d70209ff908356390429d134369.jpg?5903388"
+      "/catalog/asset-fafd93b2aa04.jpg"
     ],
     "artisanSlug": "cerannic",
     "artisanName": "cerannic",
@@ -948,9 +948,9 @@ export const products = [
     "name": "Šarlote",
     "description": "Šarlote from the mug with raised dots collection. This is a made-to-order platform rather than a classic online shop; production time is up to three weeks.",
     "price": "€ 25,00",
-    "image": "https://site-2141663.mozfiles.com/files/2141663/catitems/thumb/DSC00854-7b26a9dadaee4e1f5a4f15c3ffe3c9cb.jpg?5903074",
+    "image": "/catalog/asset-2c62a879dd2a.jpg",
     "images": [
-      "https://site-2141663.mozfiles.com/files/2141663/catitems/thumb/DSC00854-7b26a9dadaee4e1f5a4f15c3ffe3c9cb.jpg?5903074"
+      "/catalog/asset-2c62a879dd2a.jpg"
     ],
     "artisanSlug": "cerannic",
     "artisanName": "cerannic",
@@ -972,9 +972,9 @@ export const products = [
     "name": "Jasmīna",
     "description": "Jasmīna from the mug with raised dots collection. This is a made-to-order platform rather than a classic online shop; production time is up to three weeks.",
     "price": "€ 25,00",
-    "image": "https://site-2141663.mozfiles.com/files/2141663/catitems/thumb/DSC00870-338dfb788bda4514f3c03e92d0f04a67.jpg?5903367",
+    "image": "/catalog/asset-f173b10ff5ac.jpg",
     "images": [
-      "https://site-2141663.mozfiles.com/files/2141663/catitems/thumb/DSC00870-338dfb788bda4514f3c03e92d0f04a67.jpg?5903367"
+      "/catalog/asset-f173b10ff5ac.jpg"
     ],
     "artisanSlug": "cerannic",
     "artisanName": "cerannic",
@@ -996,9 +996,9 @@ export const products = [
     "name": "Sibilla",
     "description": "Sibilla from the mug with raised dots collection. This is a made-to-order platform rather than a classic online shop; production time is up to three weeks.",
     "price": "€ 25,00",
-    "image": "https://site-2141663.mozfiles.com/files/2141663/catitems/thumb/DSC01356-Edit-f4428a95724cd07cb41ab00d02e46e43.jpg?5903168",
+    "image": "/catalog/asset-e7d365b96637.jpg",
     "images": [
-      "https://site-2141663.mozfiles.com/files/2141663/catitems/thumb/DSC01356-Edit-f4428a95724cd07cb41ab00d02e46e43.jpg?5903168"
+      "/catalog/asset-e7d365b96637.jpg"
     ],
     "artisanSlug": "cerannic",
     "artisanName": "cerannic",
@@ -1020,9 +1020,9 @@ export const products = [
     "name": "Amanda",
     "description": "Amanda from the mug with brushstrokes collection. This is a made-to-order platform rather than a classic online shop; production time is up to three weeks.",
     "price": "€ 25,00",
-    "image": "https://site-2141663.mozfiles.com/files/2141663/catitems/thumb/DSC00919-Edit-da5e540a723cbf624e9bcb90bfee9923.jpg?5903479",
+    "image": "/catalog/asset-516812966aaf.jpg",
     "images": [
-      "https://site-2141663.mozfiles.com/files/2141663/catitems/thumb/DSC00919-Edit-da5e540a723cbf624e9bcb90bfee9923.jpg?5903479"
+      "/catalog/asset-516812966aaf.jpg"
     ],
     "artisanSlug": "cerannic",
     "artisanName": "cerannic",
@@ -1044,9 +1044,9 @@ export const products = [
     "name": "Dace",
     "description": "Dace from the mug with brushstrokes collection. This is a made-to-order platform rather than a classic online shop; production time is up to three weeks.",
     "price": "€ 25,00",
-    "image": "https://site-2141663.mozfiles.com/files/2141663/catitems/thumb/20240119_122716-69083039f0d9a52ede4d9664f8d45009.jpg?5908563",
+    "image": "/catalog/asset-a01b1f609d99.jpg",
     "images": [
-      "https://site-2141663.mozfiles.com/files/2141663/catitems/thumb/20240119_122716-69083039f0d9a52ede4d9664f8d45009.jpg?5908563"
+      "/catalog/asset-a01b1f609d99.jpg"
     ],
     "artisanSlug": "cerannic",
     "artisanName": "cerannic",
@@ -1068,9 +1068,9 @@ export const products = [
     "name": "Una",
     "description": "Una from the mug with brushstrokes collection. This is a made-to-order platform rather than a classic online shop; production time is up to three weeks.",
     "price": "€ 25,00",
-    "image": "https://site-2141663.mozfiles.com/files/2141663/catitems/thumb/DSC01137-66460cb77fc68dfaeaabff7a7a86f11c.jpg?5903580",
+    "image": "/catalog/asset-e39068c66466.jpg",
     "images": [
-      "https://site-2141663.mozfiles.com/files/2141663/catitems/thumb/DSC01137-66460cb77fc68dfaeaabff7a7a86f11c.jpg?5903580"
+      "/catalog/asset-e39068c66466.jpg"
     ],
     "artisanSlug": "cerannic",
     "artisanName": "cerannic",
@@ -1092,9 +1092,9 @@ export const products = [
     "name": "Decorative bottle by Solvita Zāle",
     "description": "Small decorative clay bottle with luster glaze. Approximate dimensions: 20 × 9 × 4 cm.",
     "price": "25,00 €",
-    "image": "https://www.latvijaslabumstirgus.lv/pictures/scsd-5fa6f463d621a.jpg",
+    "image": "/catalog/asset-7934e8ff419e.jpg",
     "images": [
-      "https://www.latvijaslabumstirgus.lv/pictures/scsd-5fa6f463d621a.jpg"
+      "/catalog/asset-7934e8ff419e.jpg"
     ],
     "artisanSlug": "latvijas-labumu-tirgus-mals",
     "artisanName": "Latvijas Labumu Tirgus: Clay",
@@ -1116,9 +1116,9 @@ export const products = [
     "name": "Black pottery mug by Anda Biezā",
     "description": "Hand-built and fired in a pit-style wood kiln. No glaze is used; the black, silvery and bronze tones come from the firing and reduction process.",
     "price": "35,00 €",
-    "image": "https://www.latvijaslabumstirgus.lv/pictures/scsd-61a224ba01640.jpg",
+    "image": "/catalog/asset-3de5ca8e8e58.jpg",
     "images": [
-      "https://www.latvijaslabumstirgus.lv/pictures/scsd-61a224ba01640.jpg"
+      "/catalog/asset-3de5ca8e8e58.jpg"
     ],
     "artisanSlug": "latvijas-labumu-tirgus-mals",
     "artisanName": "Latvijas Labumu Tirgus: Clay",
@@ -1140,9 +1140,9 @@ export const products = [
     "name": "Decorative fruit bowl by Solvita Zāle",
     "description": "Decorative stoneware fruit bowl with a woven form. Approximate dimensions: 6.5 × 32 cm, fired at 1200°C.",
     "price": "40,00 €",
-    "image": "https://www.latvijaslabumstirgus.lv/pictures/scsd-5f8e062de95c2.jpg",
+    "image": "/catalog/asset-b6995a1401f4.jpg",
     "images": [
-      "https://www.latvijaslabumstirgus.lv/pictures/scsd-5f8e062de95c2.jpg"
+      "/catalog/asset-b6995a1401f4.jpg"
     ],
     "artisanSlug": "latvijas-labumu-tirgus-mals",
     "artisanName": "Latvijas Labumu Tirgus: Clay",
@@ -1164,9 +1164,9 @@ export const products = [
     "name": "Vase by NELLIJAS KERAMIKA",
     "description": "White clay vase with white glaze, 31 cm high.",
     "price": "70,00 €",
-    "image": "https://www.latvijaslabumstirgus.lv/pictures/scsd-67327ce2c23fa.jpg",
+    "image": "/catalog/asset-0d81ee28d394.jpg",
     "images": [
-      "https://www.latvijaslabumstirgus.lv/pictures/scsd-67327ce2c23fa.jpg"
+      "/catalog/asset-0d81ee28d394.jpg"
     ],
     "artisanSlug": "latvijas-labumu-tirgus-mals",
     "artisanName": "Latvijas Labumu Tirgus: Clay",
@@ -1188,9 +1188,9 @@ export const products = [
     "name": "Oval serving plate by PodVāze",
     "description": "Oval white-clay plate painted under the glaze with a blue fish motif, covered with a glossy transparent lead-free glaze and fired at 1050°C.",
     "price": "22,00 €",
-    "image": "https://www.latvijaslabumstirgus.lv/pictures/scsd-5f3afb0b5d904.jpg",
+    "image": "/catalog/asset-04ae7a4e1a8b.jpg",
     "images": [
-      "https://www.latvijaslabumstirgus.lv/pictures/scsd-5f3afb0b5d904.jpg"
+      "/catalog/asset-04ae7a4e1a8b.jpg"
     ],
     "artisanSlug": "latvijas-labumu-tirgus-mals",
     "artisanName": "Latvijas Labumu Tirgus: Clay",
@@ -1212,9 +1212,9 @@ export const products = [
     "name": "Painted plate by Ilona Šauša",
     "description": "Decorative plate painted with ceramic glazes and pigments. Can be hung on a wall or displayed on a table. 34 × 28 cm.",
     "price": "46,00 €",
-    "image": "https://www.latvijaslabumstirgus.lv/pictures/scsd-5fce2e9f7b5aa.jpg",
+    "image": "/catalog/asset-02c7c6ee28bc.jpg",
     "images": [
-      "https://www.latvijaslabumstirgus.lv/pictures/scsd-5fce2e9f7b5aa.jpg"
+      "/catalog/asset-02c7c6ee28bc.jpg"
     ],
     "artisanSlug": "latvijas-labumu-tirgus-mals",
     "artisanName": "Latvijas Labumu Tirgus: Clay",
@@ -1236,9 +1236,9 @@ export const products = [
     "name": "Lace plate by Studija OM",
     "description": "White-clay lace plate with glaze. Height 5 cm, diameter 27.5 cm.",
     "price": "20,00 €",
-    "image": "https://www.latvijaslabumstirgus.lv/pictures/scsd-5fd0a03eef365.jpg",
+    "image": "/catalog/asset-0bb04b28bf23.jpg",
     "images": [
-      "https://www.latvijaslabumstirgus.lv/pictures/scsd-5fd0a03eef365.jpg"
+      "/catalog/asset-0bb04b28bf23.jpg"
     ],
     "artisanSlug": "latvijas-labumu-tirgus-mals",
     "artisanName": "Latvijas Labumu Tirgus: Clay",
@@ -1260,9 +1260,9 @@ export const products = [
     "name": "Sunflower dish by Saulainā ieleja",
     "description": "Handmade black pottery dish in red clay, inspired by the warmth and positive energy of sunflowers. Diameter 27 cm, height 3 cm.",
     "price": "45,00 €",
-    "image": "https://www.latvijaslabumstirgus.lv/pictures/scsd-656d055716782.jpg",
+    "image": "/catalog/asset-9617be133fa5.jpg",
     "images": [
-      "https://www.latvijaslabumstirgus.lv/pictures/scsd-656d055716782.jpg"
+      "/catalog/asset-9617be133fa5.jpg"
     ],
     "artisanSlug": "latvijas-labumu-tirgus-mals",
     "artisanName": "Latvijas Labumu Tirgus: Clay",
@@ -1284,9 +1284,9 @@ export const products = [
     "name": "Marble solitaire board game",
     "description": "Marble Solitaire is an elegant wooden table game and a classic puzzle for training focus and strategy.",
     "price": "€ 48,00",
-    "image": "https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?w=1200&q=80",
+    "image": "/catalog/asset-5daf5216e3a4.jpg",
     "images": [
-      "https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?w=1200&q=80"
+      "/catalog/asset-5daf5216e3a4.jpg"
     ],
     "artisanSlug": "raibi-koki",
     "artisanName": "Raibi Koki",
@@ -1308,9 +1308,9 @@ export const products = [
     "name": "Walnut napkin rings",
     "description": "Napkin rings made from walnut wood for a warm, natural table setting.",
     "price": "€ 3,00",
-    "image": "https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?w=1200&q=80",
+    "image": "/catalog/asset-5daf5216e3a4.jpg",
     "images": [
-      "https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?w=1200&q=80"
+      "/catalog/asset-5daf5216e3a4.jpg"
     ],
     "artisanSlug": "raibi-koki",
     "artisanName": "Raibi Koki",
@@ -1332,9 +1332,9 @@ export const products = [
     "name": "Small three-colour end-grain kitchen board 32 × 23 cm",
     "description": "End-grain kitchen board made from oak, sapelli and assorted wood species, finished with mineral oil and beeswax.",
     "price": "€ 60,00",
-    "image": "https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?w=1200&q=80",
+    "image": "/catalog/asset-5daf5216e3a4.jpg",
     "images": [
-      "https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?w=1200&q=80"
+      "/catalog/asset-5daf5216e3a4.jpg"
     ],
     "artisanSlug": "raibi-koki",
     "artisanName": "Raibi Koki",
@@ -1356,9 +1356,9 @@ export const products = [
     "name": "Large three-colour one-sided kitchen board 40 × 26 cm",
     "description": "One-sided end-grain kitchen board with a mahogany frame and silicone feet, made from oak, sapelli and assorted wood species.",
     "price": "€ 126,00",
-    "image": "https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?w=1200&q=80",
+    "image": "/catalog/asset-5daf5216e3a4.jpg",
     "images": [
-      "https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?w=1200&q=80"
+      "/catalog/asset-5daf5216e3a4.jpg"
     ],
     "artisanSlug": "raibi-koki",
     "artisanName": "Raibi Koki",
@@ -1380,9 +1380,9 @@ export const products = [
     "name": "Three-colour double-sided end-grain board 40 × 26 cm",
     "description": "Double-sided end-grain kitchen board in a mahogany frame, made from oak, sapelli and assorted wood species, finished with mineral oil and beeswax.",
     "price": "€ 126,00",
-    "image": "https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?w=1200&q=80",
+    "image": "/catalog/asset-5daf5216e3a4.jpg",
     "images": [
-      "https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?w=1200&q=80"
+      "/catalog/asset-5daf5216e3a4.jpg"
     ],
     "artisanSlug": "raibi-koki",
     "artisanName": "Raibi Koki",
@@ -1404,9 +1404,9 @@ export const products = [
     "name": "Large double-sided oak end-grain board with mahogany edges 40 × 27 cm",
     "description": "Double-sided oak end-grain kitchen board with mahogany side edges, finished with mineral oil and beeswax.",
     "price": "€ 90,00",
-    "image": "https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?w=1200&q=80",
+    "image": "/catalog/asset-5daf5216e3a4.jpg",
     "images": [
-      "https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?w=1200&q=80"
+      "/catalog/asset-5daf5216e3a4.jpg"
     ],
     "artisanSlug": "raibi-koki",
     "artisanName": "Raibi Koki",
@@ -1428,9 +1428,9 @@ export const products = [
     "name": "End-grain board “Mosaic” 33 × 23 cm",
     "description": "Colourful mosaic-style end-grain board made from many wood species and set in an oak frame.",
     "price": "€ 62,00",
-    "image": "https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?w=1200&q=80",
+    "image": "/catalog/asset-5daf5216e3a4.jpg",
     "images": [
-      "https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?w=1200&q=80"
+      "/catalog/asset-5daf5216e3a4.jpg"
     ],
     "artisanSlug": "raibi-koki",
     "artisanName": "Raibi Koki",
@@ -1452,9 +1452,9 @@ export const products = [
     "name": "African ironwood end-grain board 33 × 24 cm",
     "description": "Double-sided end-grain board made from very hard African ironwood. The board weighs around 2 kg.",
     "price": "€ 58,00",
-    "image": "https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?w=1200&q=80",
+    "image": "/catalog/asset-5daf5216e3a4.jpg",
     "images": [
-      "https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?w=1200&q=80"
+      "/catalog/asset-5daf5216e3a4.jpg"
     ],
     "artisanSlug": "raibi-koki",
     "artisanName": "Raibi Koki",
@@ -1476,9 +1476,9 @@ export const products = [
     "name": "Dark walnut end-grain kitchen board “Dark” 33 × 23 cm",
     "description": "Dark walnut end-grain board with white ash ornaments, finished with mineral oil and beeswax.",
     "price": "€ 65,00",
-    "image": "https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?w=1200&q=80",
+    "image": "/catalog/asset-5daf5216e3a4.jpg",
     "images": [
-      "https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?w=1200&q=80"
+      "/catalog/asset-5daf5216e3a4.jpg"
     ],
     "artisanSlug": "raibi-koki",
     "artisanName": "Raibi Koki",

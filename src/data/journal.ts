@@ -15,7 +15,7 @@ export const journalPosts = [
     title: "The Amber Coast",
     category: "The Baltic",
     excerpt: "A journey along the Baltic shore where amber washes up like gold from the sea.",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80",
+    image: "/catalog/asset-974afdab4f55.jpg",
     date: "July 6, 2026",
     readTime: "4 min read",
     body: [
@@ -29,7 +29,7 @@ export const journalPosts = [
     title: "Linen Traditions",
     category: "Craft",
     excerpt: "How generations of Baltic weavers have kept linen alive in every home.",
-    image: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=1200&q=80",
+    image: "/catalog/asset-f08763f15d20.jpg",
     date: "July 6, 2026",
     readTime: "5 min read",
     body: [
@@ -43,7 +43,7 @@ export const journalPosts = [
     title: "Hands in the Forest",
     category: "Artisans",
     excerpt: "Meeting the woodworkers who turn oak, birch and walnut into lasting objects.",
-    image: "https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?w=1200&q=80",
+    image: "/catalog/asset-3b9e4c58f508.jpg",
     date: "July 6, 2026",
     readTime: "4 min read",
     body: [
@@ -57,7 +57,7 @@ export const journalPosts = [
     title: "Studio Natural and Linen as a Lifestyle",
     category: "Partner Profile",
     excerpt: "Inside a Riga studio where handwoven linen becomes clothing, table pieces, and interiors.",
-    image: "https://www.studionatural.lv/cdn/shop/files/1_6a42e69a-7033-4419-8dec-741c2f529db3_1600x.jpg?v=1652790117",
+    image: "/catalog/asset-ae953a857c67.jpg",
     date: "July 6, 2026",
     readTime: "5 min read",
     body: [
@@ -71,7 +71,7 @@ export const journalPosts = [
     title: "VAIDAVA CERAMICS: Clay from Gauja Country",
     category: "Partner Profile",
     excerpt: "A Northern Latvian ceramics workshop making tableware from local clay and long practice.",
-    image: "https://vaidava.com/cdn/shop/files/clay-craftsman-working.jpg?v=1679904289&width=3840",
+    image: "/catalog/asset-959c6861d25e.jpg",
     date: "July 6, 2026",
     readTime: "5 min read",
     body: [
@@ -85,7 +85,7 @@ export const journalPosts = [
     title: "Cepļi and the Fire of Black Ceramics",
     category: "Partner Profile",
     excerpt: "Ingrīda Žagata's workshop near the Baltic Sea keeps Latvian ceramic traditions close to nature.",
-    image: "https://www.cepli.lv/wp-content/uploads/2024/01/WhatsApp-Image-2024-01-15-at-11.54.38-1024x681.jpeg",
+    image: "/catalog/asset-492275668909.jpg",
     date: "July 6, 2026",
     readTime: "4 min read",
     body: [
@@ -99,7 +99,7 @@ export const journalPosts = [
     title: "cerannic and the Slow Cup",
     category: "Partner Profile",
     excerpt: "Annija Kanska's porcelain mugs are built around the idea of a calmer everyday ritual.",
-    image: "https://site-2141663.mozfiles.com/files/2141663/inlinepicturesbox/medium/215902030_10223384337911088_5391095339784461632_n-1.jpg",
+    image: "/catalog/asset-4ee0ceae13e4.jpg",
     date: "July 6, 2026",
     readTime: "4 min read",
     body: [
@@ -113,7 +113,7 @@ export const journalPosts = [
     title: "A Marketplace of Latvian Clay",
     category: "The Baltic",
     excerpt: "Latvijas Labumu Tirgus brings many ceramic voices into one clay catalog.",
-    image: "https://www.latvijaslabumstirgus.lv/pictures/scsd-5f8e062de95c2.jpg",
+    image: "/catalog/asset-b6995a1401f4.jpg",
     date: "July 6, 2026",
     readTime: "4 min read",
     body: [
