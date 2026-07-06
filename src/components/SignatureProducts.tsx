@@ -1,13 +1,14 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { artisans, products, type CatalogProduct } from "@/data/catalog";
+import { artisans, products } from "@/data/catalog";
 import { ProductCard } from "./ProductCard";
 
 const liveArtisanSlugs = artisans.filter((artisan) => artisan.isPartner).map((artisan) => artisan.slug);
-const signatureProducts = liveArtisanSlugs
-  .map((artisanSlug) => products.find((product) => product.artisanSlug === artisanSlug && product.isPartnerProduct))
-  .filter((product): product is CatalogProduct => Boolean(product));
+const signatureProducts = liveArtisanSlugs.flatMap((artisanSlug) => {
+  const product = products.find((item) => item.artisanSlug === artisanSlug && item.isPartnerProduct);
+  return product ? [product] : [];
+});
 
 export function SignatureProducts() {
   const t = useTranslations("products");

@@ -28,45 +28,6 @@ export type CatalogProduct = {
 
 export const artisans = [
   {
-    "slug": "mara-ziedina",
-    "name": "Māra Ziediņa",
-    "location": "Riga, Latvia",
-    "craft": "Linen textiles & natural dyes",
-    "isPartner": false,
-    "portrait": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80",
-    "workshopImages": [
-      "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=800&q=80",
-      "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=800&q=80"
-    ],
-    "bio": "Māra learned to weave from her grandmother in the Latvian countryside. Today she runs a small studio in Riga where she weaves linen on traditional looms and dyes with plants from the Baltic coast. Her work is slow, precise, and made to last."
-  },
-  {
-    "slug": "jonas-kazlauskas",
-    "name": "Jonas Kazlauskas",
-    "location": "Vilnius, Lithuania",
-    "craft": "Woodcraft & carving",
-    "isPartner": false,
-    "portrait": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=800&q=80",
-    "workshopImages": [
-      "https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?w=800&q=80",
-      "https://images.unsplash.com/photo-1565538420870-da08ff96a261?w=800&q=80"
-    ],
-    "bio": "Jonas sources oak and birch from sustainable forests in Lithuania. In his workshop outside Vilnius, he turns and carves each piece by hand. His bowls and objects honour the grain of the wood and the tradition of Baltic woodcraft."
-  },
-  {
-    "slug": "kadri-tamm",
-    "name": "Kadri Tamm",
-    "location": "Tallinn, Estonia",
-    "craft": "Amber jewelry",
-    "isPartner": false,
-    "portrait": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800&q=80",
-    "workshopImages": [
-      "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80",
-      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&q=80"
-    ],
-    "bio": "Kadri collects amber from the Estonian coast and sets it in silver in her Tallinn atelier. She believes each piece of amber carries the memory of the forest. Her jewelry is minimal, timeless, and made to be worn every day."
-  },
-  {
     "slug": "studio-natural",
     "name": "Studio Natural",
     "location": "Riga, Latvia",
@@ -146,63 +107,6 @@ export const artisans = [
 ] satisfies Artisan[];
 
 export const products = [
-  {
-    "slug": "amber-pendant-sun",
-    "name": "Amber Pendant — Sun",
-    "description": "A single piece of Baltic amber, set in brushed silver.",
-    "price": "€ 189",
-    "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200&q=80",
-    "images": [
-      "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200&q=80",
-      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=1200&q=80"
-    ],
-    "artisanSlug": "kadri-tamm",
-    "artisanName": "Kadri Tamm",
-    "location": "Tallinn, Estonia",
-    "craft": "Amber jewelry",
-    "materials": "Baltic amber, sterling silver",
-    "technique": "Hand-set, polished by hand",
-    "story": "Each piece of Baltic amber is millions of years old, fossilised resin from ancient forests. Worn close to the skin, it carries the warmth and stillness of the forest. This pendant is set in brushed silver, designed to let the amber speak.",
-    "isPartnerProduct": false
-  },
-  {
-    "slug": "linen-throw-dawn",
-    "name": "Linen Throw — Dawn",
-    "description": "Hand-woven linen in natural undyed tones.",
-    "price": "€ 245",
-    "image": "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=1200&q=80",
-    "images": [
-      "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=1200&q=80",
-      "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=1200&q=80"
-    ],
-    "artisanSlug": "mara-ziedina",
-    "artisanName": "Māra Ziediņa",
-    "location": "Riga, Latvia",
-    "craft": "Linen textiles",
-    "materials": "European flax linen, natural undyed",
-    "technique": "Hand-woven on traditional loom",
-    "story": "Woven on a traditional loom in Riga, this throw uses linen from European flax. Left in its natural tone, it ages beautifully and grows softer with use. A piece for generations.",
-    "isPartnerProduct": false
-  },
-  {
-    "slug": "oak-bowl-forest",
-    "name": "Oak Bowl — Forest",
-    "description": "Turned from a single piece of Baltic oak.",
-    "price": "€ 165",
-    "image": "https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?w=1200&q=80",
-    "images": [
-      "https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?w=1200&q=80",
-      "https://images.unsplash.com/photo-1565538420870-da08ff96a261?w=1200&q=80"
-    ],
-    "artisanSlug": "jonas-kazlauskas",
-    "artisanName": "Jonas Kazlauskas",
-    "location": "Vilnius, Lithuania",
-    "craft": "Woodcraft",
-    "materials": "Baltic oak, food-safe oil finish",
-    "technique": "Hand-turned on a lathe",
-    "story": "Turned from a single piece of Baltic oak, this bowl shows the grain of decades of growth. Finished with a food-safe oil, it is made for daily use and will develop a rich patina over time.",
-    "isPartnerProduct": false
-  },
   {
     "slug": "studio-natural-double-layer-scarf-in-linengold-50x200cm",
     "name": "Double layer scarf in linengold 50x200cm",
