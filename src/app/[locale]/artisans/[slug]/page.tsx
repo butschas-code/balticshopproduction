@@ -12,7 +12,7 @@ const defaultArtisan = {
   bio: "A maker from the Baltic region.",
   portrait: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80",
   workshopImages: [] as string[],
-  website: "",
+  isPartner: false,
 };
 
 export default function ArtisanPage() {
@@ -34,12 +34,6 @@ export default function ArtisanPage() {
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-forest mt-2 tracking-tight">{artisan.name}</h1>
             <p className="mt-4 text-lg text-driftwood">{artisan.location}</p>
             <p className="mt-10 text-forest/90 leading-relaxed text-lg">{artisan.bio}</p>
-            {artisan.website && (
-              <a href={artisan.website} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 mt-8 text-forest font-medium hover:text-amber transition-colors">
-                Visit partner website
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-              </a>
-            )}
           </div>
         </div>
         {artisan.workshopImages.length > 0 && (

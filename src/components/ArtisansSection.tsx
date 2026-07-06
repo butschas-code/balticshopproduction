@@ -5,7 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { artisans } from "@/data/catalog";
 import { ArtisanCard } from "./ArtisanCard";
 
-const featuredArtisans = artisans.filter((artisan) => artisan.website);
+const featuredArtisans = artisans.filter((artisan) => artisan.isPartner);
 
 export function ArtisansSection() {
   const t = useTranslations("artisans");

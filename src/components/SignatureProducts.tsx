@@ -4,9 +4,9 @@ import { useTranslations } from "next-intl";
 import { artisans, products, type CatalogProduct } from "@/data/catalog";
 import { ProductCard } from "./ProductCard";
 
-const liveArtisanSlugs = artisans.filter((artisan) => artisan.website).map((artisan) => artisan.slug);
+const liveArtisanSlugs = artisans.filter((artisan) => artisan.isPartner).map((artisan) => artisan.slug);
 const signatureProducts = liveArtisanSlugs
-  .map((artisanSlug) => products.find((product) => product.artisanSlug === artisanSlug && product.sourceUrl))
+  .map((artisanSlug) => products.find((product) => product.artisanSlug === artisanSlug && product.isPartnerProduct))
   .filter((product): product is CatalogProduct => Boolean(product));
 
 export function SignatureProducts() {

@@ -14,7 +14,7 @@ const defaultProduct = {
   materials: "Natural materials",
   technique: "Traditional technique",
   story: "A story of craft and place.",
-  sourceUrl: "",
+  isPartnerProduct: false,
   price: "€ —",
   images: ["https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&q=80"],
 };
@@ -67,12 +67,6 @@ export default function ProductPage() {
               </div>
             </dl>
             <p className="mt-10 text-forest/90 leading-relaxed">{product.story}</p>
-            {product.sourceUrl && (
-              <a href={product.sourceUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 mt-8 text-forest font-medium hover:text-amber transition-colors">
-                View original listing
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-              </a>
-            )}
             <div className="mt-12">
               <button type="button" className="w-full md:w-auto px-12 py-4 bg-forest text-linen font-medium tracking-wide hover:bg-forest/90 transition-colors duration-300">
                 {t("addToCart")}
