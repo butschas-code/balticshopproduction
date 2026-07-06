@@ -11,6 +11,13 @@ export type Artisan = {
   isPartner: boolean;
 };
 
+export type ProductDetail = {
+  label: string;
+  labelDe: string;
+  value: string;
+  valueDe: string;
+};
+
 export type CatalogProduct = {
   slug: string;
   name: string;
@@ -31,6 +38,7 @@ export type CatalogProduct = {
   techniqueDe: string;
   story: string;
   storyDe: string;
+  details: ProductDetail[];
   isPartnerProduct: boolean;
 };
 
@@ -130,7 +138,7 @@ export const products = [
   {
     "slug": "studio-natural-double-layer-scarf-in-linengold-50x200cm",
     "name": "Double layer scarf in linengold 50x200cm",
-    "description": "This handwoven double layer linen scarf is the perfect accessory for any look. Crafted from natural material and detailed with hand-twisted fringes, it is both stylish and sustainable accessory. Its unique chameleon color will make you stand out in the crowd. Color: Linengold Dimensions: width 50cm, length 200cm Composition: 100% linen Product reference: Dub",
+    "description": "This handwoven double layer linen scarf is the perfect accessory for any look. Crafted from natural material and detailed with hand-twisted fringes, it is both stylish and sustainable accessory. Its unique chameleon color will make you stand out in the crowd.",
     "price": "€ 120.00",
     "image": "/catalog/asset-d08ca675ba67.jpg",
     "images": [
@@ -142,19 +150,69 @@ export const products = [
     "craft": "Scarf",
     "materials": "Linen",
     "technique": "Handwoven on traditional looms",
-    "story": "This handwoven double layer linen scarf is the perfect accessory for any look. Crafted from natural material and detailed with hand-twisted fringes, it is both stylish and sustainable accessory. Its unique chameleon color will make you stand out in the crowd. Color: Linengold Dimensions: width 50cm, length 200cm Composition: 100% linen Product reference: Dub",
+    "story": "This handwoven double layer linen scarf is the perfect accessory for any look. Crafted from natural material and detailed with hand-twisted fringes, it is both stylish and sustainable accessory. Its unique chameleon color will make you stand out in the crowd. Color: Linengold Dimensions: width 50cm, length 200cm Composition: 100% linen Product reference: Duble Tinita flamingo+linengold+rospuder+fr Care instructions: Hand wash (max 30°C) or dry clean. If hand-washed, do not wring or twist - remove excess water by shaking it out. Do not tumble dry. Iron at maximum (high) temperature. Cockle is the very special effect of this fabric. As this fabric is 100% hand made it may have some knots or natural unevenness. Warning: Direct sunlight and strong lighting may alter the color of the fabric. Product color may slightly vary due to photographic lighting sources or your monitor settings. Note: Products can be customized, please contact us!",
     "isPartnerProduct": true,
     "nameDe": "Doppellagiger scarf in linengold 50x200cm",
     "descriptionDe": "Ein handgewebter Leinenschal von Studio Natural. Das Stück wird in Lettland auf traditionellen Webstühlen gefertigt und verbindet natürliche Materialien mit sorgfältiger Verarbeitung.",
     "storyDe": "Ein handgewebter Leinenschal von Studio Natural. Das Stück wird in Lettland auf traditionellen Webstühlen gefertigt und verbindet natürliche Materialien mit sorgfältiger Verarbeitung.",
     "craftDe": "Leinenschal",
     "materialsDe": "Leinen",
-    "techniqueDe": "Auf traditionellen Webstühlen von Hand gewebt"
+    "techniqueDe": "Auf traditionellen Webstühlen von Hand gewebt",
+    "details": [
+      {
+        "label": "Color",
+        "labelDe": "Farbe",
+        "value": "Linengold",
+        "valueDe": "Leinengold"
+      },
+      {
+        "label": "Dimensions",
+        "labelDe": "Maße",
+        "value": "width 50cm, length 200cm",
+        "valueDe": "Breite 50cm, Länge 200cm"
+      },
+      {
+        "label": "Composition",
+        "labelDe": "Zusammensetzung",
+        "value": "100% linen",
+        "valueDe": "100 % Leinen"
+      },
+      {
+        "label": "Product reference",
+        "labelDe": "Produktreferenz",
+        "value": "Duble Tinita flamingo+linengold+rospuder+fr",
+        "valueDe": "Duble Tinita flamingo+Leinengold+rospuder+fr"
+      },
+      {
+        "label": "Care instructions",
+        "labelDe": "Pflegehinweise",
+        "value": "Hand wash (max 30°C) or dry clean. If hand-washed, do not wring or twist - remove excess water by shaking it out. Do not tumble dry. Iron at maximum (high) temperature. Cockle is the very special effect of this fabric. As this fabric is 100% hand made it may have some knots or natural unevenness.",
+        "valueDe": "Handwäsche bei maximal 30 °C oder chemische Reinigung. Nicht wringen oder verdrehen; überschüssiges Wasser ausschütteln. Nicht im Trockner trocknen und heiß bügeln. Als handgefertigtes Leinen kann der Stoff kleine Knoten oder natürliche Unregelmäßigkeiten aufweisen."
+      },
+      {
+        "label": "Warning",
+        "labelDe": "Hinweis",
+        "value": "Direct sunlight and strong lighting may alter the color of the fabric.",
+        "valueDe": "Direktes Sonnenlicht und starkes Licht können die Farbe des Stoffes verändern. Die Produktfarbe kann je nach Fotolicht oder Bildschirmeinstellung leicht abweichen."
+      },
+      {
+        "label": "Note",
+        "labelDe": "Anmerkung",
+        "value": "Products can be customized, please contact us!",
+        "valueDe": "Produkte können angepasst werden."
+      },
+      {
+        "label": "Use",
+        "labelDe": "Verwendung",
+        "value": "Hand made in Latvia",
+        "valueDe": "Handgemacht in Lettland"
+      }
+    ]
   },
   {
     "slug": "studio-natural-double-layer-linen-scarf",
     "name": "Double layer linen scarf",
-    "description": "This handwoven double layer linen scarf is the perfect accessory for any look. Crafted from natural material and detailed with hand-twisted fringes, it is both stylish and sustainable accessory. Its unique chameleon color will make you stand out in the crowd. Color: pastel rose Dimensions:width 50cm, length 200cm Composition: 100% linen Product reference: Du",
+    "description": "This handwoven double layer linen scarf is the perfect accessory for any look. Crafted from natural material and detailed with hand-twisted fringes, it is both stylish and sustainable accessory. Its unique chameleon color will make you stand out in the crowd.",
     "price": "€ 120.00",
     "image": "/catalog/asset-e7d15b1ce607.png",
     "images": [
@@ -166,19 +224,81 @@ export const products = [
     "craft": "Scarf",
     "materials": "Linen",
     "technique": "Handwoven on traditional looms",
-    "story": "This handwoven double layer linen scarf is the perfect accessory for any look. Crafted from natural material and detailed with hand-twisted fringes, it is both stylish and sustainable accessory. Its unique chameleon color will make you stand out in the crowd. Color: pastel rose Dimensions:width 50cm, length 200cm Composition: 100% linen Product reference: Du",
+    "story": "This handwoven double layer linen scarf is the perfect accessory for any look. Crafted from natural material and detailed with hand-twisted fringes, it is both stylish and sustainable accessory. Its unique chameleon color will make you stand out in the crowd. Color: pastel rose Dimensions:width 50cm, length 200cm Composition: 100% linen Product reference: Dubl Tinita w+grantr+ terracotta+FR Care instructions: Hand wash (max 30°C) or dry clean. If hand-washed, do not wring or twist - remove excess water by shaking it out. Do not tumble dry. Iron at maximum (high) temperature. Cockle is the very special effect of this fabric. As this fabric is 100% hand made it may have some knots or natural unevenness. Warning: Direct sunlight and strong lighting may alter the color of the fabric. Product color may slightly vary due to photographic lighting sources or your monitor settings. Note: Products can be customized, please contact us!",
     "isPartnerProduct": true,
     "nameDe": "Doppellagiger Leinenschal",
     "descriptionDe": "Ein handgewebter Leinenschal von Studio Natural. Das Stück wird in Lettland auf traditionellen Webstühlen gefertigt und verbindet natürliche Materialien mit sorgfältiger Verarbeitung.",
     "storyDe": "Ein handgewebter Leinenschal von Studio Natural. Das Stück wird in Lettland auf traditionellen Webstühlen gefertigt und verbindet natürliche Materialien mit sorgfältiger Verarbeitung.",
     "craftDe": "Leinenschal",
     "materialsDe": "Leinen",
-    "techniqueDe": "Auf traditionellen Webstühlen von Hand gewebt"
+    "techniqueDe": "Auf traditionellen Webstühlen von Hand gewebt",
+    "details": [
+      {
+        "label": "Color",
+        "labelDe": "Farbe",
+        "value": "pastel rose",
+        "valueDe": "Pastellrosa"
+      },
+      {
+        "label": "Dimensions",
+        "labelDe": "Maße",
+        "value": "width 50cm, length 200cm",
+        "valueDe": "Breite 50cm, Länge 200cm"
+      },
+      {
+        "label": "Composition",
+        "labelDe": "Zusammensetzung",
+        "value": "100% linen",
+        "valueDe": "100 % Leinen"
+      },
+      {
+        "label": "Product reference",
+        "labelDe": "Produktreferenz",
+        "value": "Dubl Tinita w+grantr+ terracotta+FR",
+        "valueDe": "Dubl Tinita w+grantr+ terracotta+FR"
+      },
+      {
+        "label": "Care instructions",
+        "labelDe": "Pflegehinweise",
+        "value": "Hand wash (max 30°C) or dry clean. If hand-washed, do not wring or twist - remove excess water by shaking it out. Do not tumble dry. Iron at maximum (high) temperature. Cockle is the very special effect of this fabric. As this fabric is 100% hand made it may have some knots or natural unevenness.",
+        "valueDe": "Handwäsche bei maximal 30 °C oder chemische Reinigung. Nicht wringen oder verdrehen; überschüssiges Wasser ausschütteln. Nicht im Trockner trocknen und heiß bügeln. Als handgefertigtes Leinen kann der Stoff kleine Knoten oder natürliche Unregelmäßigkeiten aufweisen."
+      },
+      {
+        "label": "Warning",
+        "labelDe": "Hinweis",
+        "value": "Direct sunlight and strong lighting may alter the color of the fabric.",
+        "valueDe": "Direktes Sonnenlicht und starkes Licht können die Farbe des Stoffes verändern. Die Produktfarbe kann je nach Fotolicht oder Bildschirmeinstellung leicht abweichen."
+      },
+      {
+        "label": "Note",
+        "labelDe": "Anmerkung",
+        "value": "Products can be customized, please contact us!",
+        "valueDe": "Produkte können angepasst werden."
+      },
+      {
+        "label": "Options",
+        "labelDe": "Optionen",
+        "value": "Color: Pastel rose; Size: 50x200cm",
+        "valueDe": "Color: Pastellrosa; Size: 50x200cm"
+      },
+      {
+        "label": "Collection",
+        "labelDe": "Kollektion",
+        "value": "allseason, best selling products, handwoven, linen, Newest products, Unisex",
+        "valueDe": "allseason, best selling products, handwoven, linen, Newest products, Unisex"
+      },
+      {
+        "label": "Use",
+        "labelDe": "Verwendung",
+        "value": "Hand made in Latvia",
+        "valueDe": "Handgemacht in Lettland"
+      }
+    ]
   },
   {
     "slug": "studio-natural-double-layer-linen-scarf-2",
     "name": "Double layer linen scarf",
-    "description": "This handwoven double layer linen scarf is the perfect accessory for any look. Crafted from natural material and detailed with hand-twisted fringes, it is both stylish and sustainable accessory. Its unique chameleon color will make you stand out in the crowd. Color: light gray Dimensions:width 30cm, length 170cm Composition: 100% linen Product reference: Dub",
+    "description": "This handwoven double layer linen scarf is the perfect accessory for any look. Crafted from natural material and detailed with hand-twisted fringes, it is both stylish and sustainable accessory. Its unique chameleon color will make you stand out in the crowd.",
     "price": "€ 96.00",
     "image": "/catalog/asset-aadf50d87f80.png",
     "images": [
@@ -190,19 +310,87 @@ export const products = [
     "craft": "Scarf",
     "materials": "Linen",
     "technique": "Handwoven on traditional looms",
-    "story": "This handwoven double layer linen scarf is the perfect accessory for any look. Crafted from natural material and detailed with hand-twisted fringes, it is both stylish and sustainable accessory. Its unique chameleon color will make you stand out in the crowd. Color: light gray Dimensions:width 30cm, length 170cm Composition: 100% linen Product reference: Dub",
+    "story": "This handwoven double layer linen scarf is the perfect accessory for any look. Crafted from natural material and detailed with hand-twisted fringes, it is both stylish and sustainable accessory. Its unique chameleon color will make you stand out in the crowd. Color: light gray Dimensions:width 30cm, length 170cm Composition: 100% linen Product reference: Dubl Tinita w+blgr+lgrey+kfr Care instructions: Hand wash (max 30°C) or dry clean. If hand-washed, do not wring or twist - remove excess water by shaking it out. Do not tumble dry. Iron at maximum (high) temperature. Cockle is the very special effect of this fabric. As this fabric is 100% hand made it may have some knots or natural unevenness. Warning: Direct sunlight and strong lighting may alter the color of the fabric. Product color may slightly vary due to photographic lighting sources or your monitor settings. Note: Products can be customized, please contact us!",
     "isPartnerProduct": true,
     "nameDe": "Doppellagiger Leinenschal",
     "descriptionDe": "Ein handgewebter Leinenschal von Studio Natural. Das Stück wird in Lettland auf traditionellen Webstühlen gefertigt und verbindet natürliche Materialien mit sorgfältiger Verarbeitung.",
     "storyDe": "Ein handgewebter Leinenschal von Studio Natural. Das Stück wird in Lettland auf traditionellen Webstühlen gefertigt und verbindet natürliche Materialien mit sorgfältiger Verarbeitung.",
     "craftDe": "Leinenschal",
     "materialsDe": "Leinen",
-    "techniqueDe": "Auf traditionellen Webstühlen von Hand gewebt"
+    "techniqueDe": "Auf traditionellen Webstühlen von Hand gewebt",
+    "details": [
+      {
+        "label": "Color",
+        "labelDe": "Farbe",
+        "value": "light gray",
+        "valueDe": "Hellgrau"
+      },
+      {
+        "label": "Dimensions",
+        "labelDe": "Maße",
+        "value": "width 30cm, length 170cm",
+        "valueDe": "Breite 30cm, Länge 170cm"
+      },
+      {
+        "label": "Composition",
+        "labelDe": "Zusammensetzung",
+        "value": "100% linen",
+        "valueDe": "100 % Leinen"
+      },
+      {
+        "label": "Product reference",
+        "labelDe": "Produktreferenz",
+        "value": "Dubl Tinita w+blgr+lgrey+kfr",
+        "valueDe": "Dubl Tinita w+blgr+lGrau+kfr"
+      },
+      {
+        "label": "Care instructions",
+        "labelDe": "Pflegehinweise",
+        "value": "Hand wash (max 30°C) or dry clean. If hand-washed, do not wring or twist - remove excess water by shaking it out. Do not tumble dry. Iron at maximum (high) temperature. Cockle is the very special effect of this fabric. As this fabric is 100% hand made it may have some knots or natural unevenness.",
+        "valueDe": "Handwäsche bei maximal 30 °C oder chemische Reinigung. Nicht wringen oder verdrehen; überschüssiges Wasser ausschütteln. Nicht im Trockner trocknen und heiß bügeln. Als handgefertigtes Leinen kann der Stoff kleine Knoten oder natürliche Unregelmäßigkeiten aufweisen."
+      },
+      {
+        "label": "Warning",
+        "labelDe": "Hinweis",
+        "value": "Direct sunlight and strong lighting may alter the color of the fabric.",
+        "valueDe": "Direktes Sonnenlicht und starkes Licht können die Farbe des Stoffes verändern. Die Produktfarbe kann je nach Fotolicht oder Bildschirmeinstellung leicht abweichen."
+      },
+      {
+        "label": "Note",
+        "labelDe": "Anmerkung",
+        "value": "Products can be customized, please contact us!",
+        "valueDe": "Produkte können angepasst werden."
+      },
+      {
+        "label": "Options",
+        "labelDe": "Optionen",
+        "value": "Size: 30x170cm; Color: LIGHT GRAY",
+        "valueDe": "Size: 30x170cm; Color: Hellgrau"
+      },
+      {
+        "label": "Weight",
+        "labelDe": "Gewicht",
+        "value": "170 g",
+        "valueDe": "170 g"
+      },
+      {
+        "label": "Collection",
+        "labelDe": "Kollektion",
+        "value": "best selling products, handwoven, linen, Newest products, Unisex",
+        "valueDe": "best selling products, handwoven, linen, Newest products, Unisex"
+      },
+      {
+        "label": "Use",
+        "labelDe": "Verwendung",
+        "value": "Hand made in Latvia",
+        "valueDe": "Handgemacht in Lettland"
+      }
+    ]
   },
   {
     "slug": "studio-natural-kimono-dress-in-grey",
     "name": "Kimono Dress in grey",
-    "description": "Hand woven linen kimono dress with pure highest quality silk lining. In grey color. Unique and highest quality designer's work. Limited edition. Color: Grey Size: Women's M / EU 40-42 / UK 12-14 Composition: 100 % linen, lining 100% silk Product reference: TR Mix Antr+W+Silk Care instructions: Dry clean only. Iron at different temperatures suitable for linen",
+    "description": "Hand woven linen kimono dress with pure highest quality silk lining. In grey color. Unique and highest quality designer's work. Limited edition.",
     "price": "€ 880.00",
     "image": "/catalog/asset-dd3882a96fb1.jpg",
     "images": [
@@ -214,19 +402,75 @@ export const products = [
     "craft": "Dresses",
     "materials": "Linen",
     "technique": "Handwoven on traditional looms",
-    "story": "Hand woven linen kimono dress with pure highest quality silk lining. In grey color. Unique and highest quality designer's work. Limited edition. Color: Grey Size: Women's M / EU 40-42 / UK 12-14 Composition: 100 % linen, lining 100% silk Product reference: TR Mix Antr+W+Silk Care instructions: Dry clean only. Iron at different temperatures suitable for linen",
+    "story": "Hand woven linen kimono dress with pure highest quality silk lining. In grey color. Unique and highest quality designer's work. Limited edition. Color: Grey Size: Women's M / EU 40-42 / UK 12-14 Composition: 100 % linen, lining 100% silk Product reference: TR Mix Antr+W+Silk Care instructions: Dry clean only. Iron at different temperatures suitable for linen and silk. Cockle is the very special effect of this fabric. As this fabric is 100% hand made it may have some knots or natural unevenness. Warning: Direct sunlight and strong lighting may alter the color of the fabric. Product color may slightly vary due to photographic lighting sources or your monitor settings. Note: Products can be customized, please contact us! HANDMADE IN LATVIA",
     "isPartnerProduct": true,
     "nameDe": "Kimono-Kleid in grey",
     "descriptionDe": "Ein handgewebtes Leinenkleid von Studio Natural. Das Stück wird in Lettland auf traditionellen Webstühlen gefertigt und verbindet natürliche Materialien mit sorgfältiger Verarbeitung.",
     "storyDe": "Ein handgewebtes Leinenkleid von Studio Natural. Das Stück wird in Lettland auf traditionellen Webstühlen gefertigt und verbindet natürliche Materialien mit sorgfältiger Verarbeitung.",
     "craftDe": "Leinenkleid",
     "materialsDe": "Leinen",
-    "techniqueDe": "Auf traditionellen Webstühlen von Hand gewebt"
+    "techniqueDe": "Auf traditionellen Webstühlen von Hand gewebt",
+    "details": [
+      {
+        "label": "Color",
+        "labelDe": "Farbe",
+        "value": "Grey",
+        "valueDe": "Grau"
+      },
+      {
+        "label": "Size",
+        "labelDe": "Größe",
+        "value": "Women's M / EU 40-42 / UK 12-14",
+        "valueDe": "Damen M / EU 40-42 / UK 12-14"
+      },
+      {
+        "label": "Composition",
+        "labelDe": "Zusammensetzung",
+        "value": "100 % linen, lining 100% silk",
+        "valueDe": "100 % Leinen, Futter 100 % Seide"
+      },
+      {
+        "label": "Product reference",
+        "labelDe": "Produktreferenz",
+        "value": "TR Mix Antr+W+Silk",
+        "valueDe": "TR Mix Antr+W+Silk"
+      },
+      {
+        "label": "Care instructions",
+        "labelDe": "Pflegehinweise",
+        "value": "Dry clean only. Iron at different temperatures suitable for linen and silk. Cockle is the very special effect of this fabric. As this fabric is 100% hand made it may have some knots or natural unevenness.",
+        "valueDe": "Nur chemische Reinigung. Bei Temperaturen bügeln, die für Leinen und Seide geeignet sind."
+      },
+      {
+        "label": "Warning",
+        "labelDe": "Hinweis",
+        "value": "Direct sunlight and strong lighting may alter the color of the fabric.",
+        "valueDe": "Direktes Sonnenlicht und starkes Licht können die Farbe des Stoffes verändern. Die Produktfarbe kann je nach Fotolicht oder Bildschirmeinstellung leicht abweichen."
+      },
+      {
+        "label": "Note",
+        "labelDe": "Anmerkung",
+        "value": "Products can be customized, please contact us!",
+        "valueDe": "Produkte können angepasst werden."
+      },
+      {
+        "label": "Options",
+        "labelDe": "Optionen",
+        "value": "Size: M; Color: Grey",
+        "valueDe": "Size: M; Color: Grau"
+      },
+      {
+        "label": "Use",
+        "labelDe": "Verwendung",
+        "value": "Hand made in Latvia",
+        "valueDe": "Handgemacht in Lettland"
+      }
+    ]
   },
   {
     "slug": "studio-natural-linen-coat-kazaku-m",
     "name": "Linen coat Kazaku M",
-    "description": "Hand woven Kazaku style linen coat with wool crochet. This coat has special wool buttons. Natural crumpled linen plays beautifully with sequin ornaments. Unique and very high-quality designer's work. Limited edition. Color: Dark brown Size: Women's M / EU 40-42 / UK 12-14 Composition: 100% linen, lining 100% silk Product reference: Kazaku Ieva M Antr+Brown+t",
+    "description": "Hand woven Kazaku style linen coat with wool crochet. This coat has special wool buttons. Natural crumpled linen plays beautifully with sequin ornaments. Unique and very high-quality designer's work. Limited edition.",
     "price": "€ 950.00",
     "image": "/catalog/asset-e4ed32438aba.jpg",
     "images": [
@@ -238,19 +482,75 @@ export const products = [
     "craft": "Coat",
     "materials": "Linen",
     "technique": "Handwoven on traditional looms",
-    "story": "Hand woven Kazaku style linen coat with wool crochet. This coat has special wool buttons. Natural crumpled linen plays beautifully with sequin ornaments. Unique and very high-quality designer's work. Limited edition. Color: Dark brown Size: Women's M / EU 40-42 / UK 12-14 Composition: 100% linen, lining 100% silk Product reference: Kazaku Ieva M Antr+Brown+t",
+    "story": "Hand woven Kazaku style linen coat with wool crochet. This coat has special wool buttons. Natural crumpled linen plays beautifully with sequin ornaments. Unique and very high-quality designer's work. Limited edition. Color: Dark brown Size: Women's M / EU 40-42 / UK 12-14 Composition: 100% linen, lining 100% silk Product reference: Kazaku Ieva M Antr+Brown+tamb+Silk Care instructions: Dry clean only. Do not iron to maintain the crease effect. Cockle is the very special effect of this fabric. As this fabric is 100% hand made it may have some knots or natural unevenness. Note: Products can be customized, please contact us! STUDIO NATURALHAND MADE IN LATVIA",
     "isPartnerProduct": true,
     "nameDe": "Leinenmantel Kazaku M",
     "descriptionDe": "Ein handgewebter Leinenmantel von Studio Natural. Das Stück wird in Lettland auf traditionellen Webstühlen gefertigt und verbindet natürliche Materialien mit sorgfältiger Verarbeitung.",
     "storyDe": "Ein handgewebter Leinenmantel von Studio Natural. Das Stück wird in Lettland auf traditionellen Webstühlen gefertigt und verbindet natürliche Materialien mit sorgfältiger Verarbeitung.",
     "craftDe": "Leinenmantel",
     "materialsDe": "Leinen",
-    "techniqueDe": "Auf traditionellen Webstühlen von Hand gewebt"
+    "techniqueDe": "Auf traditionellen Webstühlen von Hand gewebt",
+    "details": [
+      {
+        "label": "Color",
+        "labelDe": "Farbe",
+        "value": "Dark brown",
+        "valueDe": "Dunkelbraun"
+      },
+      {
+        "label": "Size",
+        "labelDe": "Größe",
+        "value": "Women's M / EU 40-42 / UK 12-14",
+        "valueDe": "Damen M / EU 40-42 / UK 12-14"
+      },
+      {
+        "label": "Composition",
+        "labelDe": "Zusammensetzung",
+        "value": "100% linen, lining 100% silk",
+        "valueDe": "100 % Leinen, Futter 100 % Seide"
+      },
+      {
+        "label": "Product reference",
+        "labelDe": "Produktreferenz",
+        "value": "Kazaku Ieva M Antr+Brown+tamb+Silk",
+        "valueDe": "Kazaku Ieva M Antr+Braun+tamb+Silk"
+      },
+      {
+        "label": "Care instructions",
+        "labelDe": "Pflegehinweise",
+        "value": "Dry clean only. Do not iron to maintain the crease effect. Cockle is the very special effect of this fabric. As this fabric is 100% hand made it may have some knots or natural unevenness.",
+        "valueDe": "Nur chemische Reinigung. Bei Temperaturen bügeln, die für Leinen und Seide geeignet sind."
+      },
+      {
+        "label": "Note",
+        "labelDe": "Anmerkung",
+        "value": "Products can be customized, please contact us!",
+        "valueDe": "Produkte können angepasst werden."
+      },
+      {
+        "label": "Options",
+        "labelDe": "Optionen",
+        "value": "Size: S",
+        "valueDe": "Size: S"
+      },
+      {
+        "label": "Weight",
+        "labelDe": "Gewicht",
+        "value": "1.70 kg",
+        "valueDe": "1.70 kg"
+      },
+      {
+        "label": "Use",
+        "labelDe": "Verwendung",
+        "value": "Hand made in Latvia",
+        "valueDe": "Handgemacht in Lettland"
+      }
+    ]
   },
   {
     "slug": "studio-natural-table-runner-primit-40x105cm",
     "name": "Table runner Primit 40x105cm",
-    "description": "Dense hand woven linen table runner for a modern holiday table. It has a particularly timeless design. Color: Black Dimensions: width 40cm, length 105cm Composition: 100% linen Product reference: Primit Black +Dažw+zigsp Care instructions: Machine washed (max 30 ° C) using a gentle cycle, hand wash (max 30 ° C) or dry clean. Wash separately. Iron at maximum",
+    "description": "Dense hand woven linen table runner for a modern holiday table. It has a particularly timeless design.",
     "price": "€ 98.00",
     "image": "/catalog/asset-ad4fde5b6c93.jpg",
     "images": [
@@ -262,19 +562,75 @@ export const products = [
     "craft": "Table runners",
     "materials": "Linen",
     "technique": "Handwoven on traditional looms",
-    "story": "Dense hand woven linen table runner for a modern holiday table. It has a particularly timeless design. Color: Black Dimensions: width 40cm, length 105cm Composition: 100% linen Product reference: Primit Black +Dažw+zigsp Care instructions: Machine washed (max 30 ° C) using a gentle cycle, hand wash (max 30 ° C) or dry clean. Wash separately. Iron at maximum",
+    "story": "Dense hand woven linen table runner for a modern holiday table. It has a particularly timeless design. Color: Black Dimensions: width 40cm, length 105cm Composition: 100% linen Product reference: Primit Black +Dažw+zigsp Care instructions: Machine washed (max 30°C) using a gentle cycle, hand wash (max 30°C) or dry clean. Wash separately. Iron at maximum (high) temperature. Cockle is the very special effect of this fabric. As this fabric is 100% hand made it may have some knots or natural unevenness. Note: Products can be customized, please contact us!",
     "isPartnerProduct": true,
     "nameDe": "Tischläufer Primit 40x105cm",
     "descriptionDe": "Ein handgewebter Tischläufer aus Leinen von Studio Natural. Das Stück wird in Lettland auf traditionellen Webstühlen gefertigt und verbindet natürliche Materialien mit sorgfältiger Verarbeitung.",
     "storyDe": "Ein handgewebter Tischläufer aus Leinen von Studio Natural. Das Stück wird in Lettland auf traditionellen Webstühlen gefertigt und verbindet natürliche Materialien mit sorgfältiger Verarbeitung.",
     "craftDe": "Tischtextilien",
     "materialsDe": "Leinen",
-    "techniqueDe": "Auf traditionellen Webstühlen von Hand gewebt"
+    "techniqueDe": "Auf traditionellen Webstühlen von Hand gewebt",
+    "details": [
+      {
+        "label": "Color",
+        "labelDe": "Farbe",
+        "value": "Black",
+        "valueDe": "Schwarz"
+      },
+      {
+        "label": "Dimensions",
+        "labelDe": "Maße",
+        "value": "width 40cm, length 105cm",
+        "valueDe": "Breite 40cm, Länge 105cm"
+      },
+      {
+        "label": "Composition",
+        "labelDe": "Zusammensetzung",
+        "value": "100% linen",
+        "valueDe": "100 % Leinen"
+      },
+      {
+        "label": "Product reference",
+        "labelDe": "Produktreferenz",
+        "value": "Primit Black +Dažw+zigsp",
+        "valueDe": "Primit Schwarz +Dažw+zigsp"
+      },
+      {
+        "label": "Care instructions",
+        "labelDe": "Pflegehinweise",
+        "value": "Machine washed (max 30°C) using a gentle cycle, hand wash (max 30°C) or dry clean. Wash separately. Iron at maximum (high) temperature. Cockle is the very special effect of this fabric. As this fabric is 100% hand made it may have some knots or natural unevenness.",
+        "valueDe": "Maschinenwäsche bei maximal 30 °C im Schonwaschgang, Handwäsche bei maximal 30 °C oder chemische Reinigung. Separat waschen, nicht im Trockner trocknen und heiß bügeln. Als handgefertigtes Leinen kann der Stoff kleine Knoten oder natürliche Unregelmäßigkeiten aufweisen."
+      },
+      {
+        "label": "Note",
+        "labelDe": "Anmerkung",
+        "value": "Products can be customized, please contact us!",
+        "valueDe": "Produkte können angepasst werden."
+      },
+      {
+        "label": "Options",
+        "labelDe": "Optionen",
+        "value": "Size: 40x105 cm",
+        "valueDe": "Size: 40x105 cm"
+      },
+      {
+        "label": "Weight",
+        "labelDe": "Gewicht",
+        "value": "510 g",
+        "valueDe": "510 g"
+      },
+      {
+        "label": "Use",
+        "labelDe": "Verwendung",
+        "value": "Hand made in Latvia",
+        "valueDe": "Handgemacht in Lettland"
+      }
+    ]
   },
   {
     "slug": "studio-natural-placemat-double-45x35cm",
     "name": "Placemat Double 45x35cm",
-    "description": "Unique, reversible handwoven linen placemat created using a special author’s technique. Featuring a refined palette of powder, light blue, and grey tones, it is perfect for everyday use. Color: Puder, Light blue, Grey Dimensions: width 45cm, length 35cm Composition: 100% linen Product reference: Dubl w+puder+3colors+5mzigsp Care instructions: Hand wash (ma",
+    "description": "Unique, reversible handwoven linen placemat created using a special author’s technique. Featuring a refined palette of powder, light blue, and grey tones, it is perfect for everyday use.",
     "price": "€ 45.00",
     "image": "/catalog/asset-e17129397f15.jpg",
     "images": [
@@ -286,19 +642,81 @@ export const products = [
     "craft": "Placemat",
     "materials": "Linen",
     "technique": "Handwoven on traditional looms",
-    "story": "Unique, reversible handwoven linen placemat created using a special author’s technique. Featuring a refined palette of powder, light blue, and grey tones, it is perfect for everyday use. Color: Puder, Light blue, Grey Dimensions: width 45cm, length 35cm Composition: 100% linen Product reference: Dubl w+puder+3colors+5mzigsp Care instructions: Hand wash (ma",
+    "story": "Unique, reversible handwoven linen placemat created using a special author’s technique. Featuring a refined palette of powder, light blue, and grey tones, it is perfect for everyday use. Color: Puder, Light blue, Grey Dimensions: width 45cm, length 35cm Composition: 100% linen Product reference: Dubl w+puder+3colors+5mzigsp Care instructions: Hand wash (max 30°C) or dry clean. If hand washed, do not wring or twist - remove excess water by shaking it out. Do not tumble dry. Iron at maximum (high) temperature. Cockle is the very special effect of this fabric. As this fabric is 100% hand made it may have some knots or natural unevenness. Warning: Direct sunlight and strong lighting may alter the color of the fabric. Note: Products can be customized, please contact us!",
     "isPartnerProduct": true,
     "nameDe": "Platzset Double 45x35cm",
     "descriptionDe": "Ein handgewebtes Platzset aus Leinen von Studio Natural. Das Stück wird in Lettland auf traditionellen Webstühlen gefertigt und verbindet natürliche Materialien mit sorgfältiger Verarbeitung.",
     "storyDe": "Ein handgewebtes Platzset aus Leinen von Studio Natural. Das Stück wird in Lettland auf traditionellen Webstühlen gefertigt und verbindet natürliche Materialien mit sorgfältiger Verarbeitung.",
     "craftDe": "Handgewebtes Leinen",
     "materialsDe": "Leinen",
-    "techniqueDe": "Auf traditionellen Webstühlen von Hand gewebt"
+    "techniqueDe": "Auf traditionellen Webstühlen von Hand gewebt",
+    "details": [
+      {
+        "label": "Color",
+        "labelDe": "Farbe",
+        "value": "Puder, Light blue, Grey",
+        "valueDe": "Puder, Hellblau, Grau"
+      },
+      {
+        "label": "Dimensions",
+        "labelDe": "Maße",
+        "value": "width 45cm, length 35cm",
+        "valueDe": "Breite 45cm, Länge 35cm"
+      },
+      {
+        "label": "Composition",
+        "labelDe": "Zusammensetzung",
+        "value": "100% linen",
+        "valueDe": "100 % Leinen"
+      },
+      {
+        "label": "Product reference",
+        "labelDe": "Produktreferenz",
+        "value": "Dubl w+puder+3colors+5mzigsp",
+        "valueDe": "Dubl w+puder+3colors+5mzigsp"
+      },
+      {
+        "label": "Care instructions",
+        "labelDe": "Pflegehinweise",
+        "value": "Hand wash (max 30°C) or dry clean. If hand washed, do not wring or twist - remove excess water by shaking it out. Do not tumble dry. Iron at maximum (high) temperature. Cockle is the very special effect of this fabric. As this fabric is 100% hand made it may have some knots or natural unevenness.",
+        "valueDe": "Handwäsche bei maximal 30 °C oder chemische Reinigung. Nicht wringen oder verdrehen; überschüssiges Wasser ausschütteln. Nicht im Trockner trocknen und heiß bügeln. Als handgefertigtes Leinen kann der Stoff kleine Knoten oder natürliche Unregelmäßigkeiten aufweisen."
+      },
+      {
+        "label": "Warning",
+        "labelDe": "Hinweis",
+        "value": "Direct sunlight and strong lighting may alter the color of the fabric.",
+        "valueDe": "Direktes Sonnenlicht und starkes Licht können die Farbe des Stoffes verändern. Die Produktfarbe kann je nach Fotolicht oder Bildschirmeinstellung leicht abweichen."
+      },
+      {
+        "label": "Note",
+        "labelDe": "Anmerkung",
+        "value": "Products can be customized, please contact us!",
+        "valueDe": "Produkte können angepasst werden."
+      },
+      {
+        "label": "Options",
+        "labelDe": "Optionen",
+        "value": "Size: 45x35 cm; Color: 3 colors",
+        "valueDe": "Size: 45x35 cm; Color: 3 colors"
+      },
+      {
+        "label": "Weight",
+        "labelDe": "Gewicht",
+        "value": "150 g",
+        "valueDe": "150 g"
+      },
+      {
+        "label": "Use",
+        "labelDe": "Verwendung",
+        "value": "Hand made in Latvia",
+        "valueDe": "Handgemacht in Lettland"
+      }
+    ]
   },
   {
     "slug": "studio-natural-placemat-boucle-50x36cm",
     "name": "Placemat Boucle 50x36cm",
-    "description": "A new approach to placemat weaving. The special boucle (linen thread forming a loop) linen creates a rough yet refined impression. This placemat has small fringes. Excellent for daily use. Color: White Dimensions: width 50cm, length 36cm Composition: 100% linen Product reference: PLACE w+w+buckle+g5 Care instructions: Machine wash (max 30°C) using a gentle ",
+    "description": "A new approach to placemat weaving. The special boucle (linen thread forming a loop) linen creates a rough yet refined impression. This placemat has small fringes. Excellent for daily use.",
     "price": "€ 45.00",
     "image": "/catalog/asset-c2ff4af985df.jpg",
     "images": [
@@ -310,19 +728,81 @@ export const products = [
     "craft": "Placemat",
     "materials": "Linen",
     "technique": "Handwoven on traditional looms",
-    "story": "A new approach to placemat weaving. The special boucle (linen thread forming a loop) linen creates a rough yet refined impression. This placemat has small fringes. Excellent for daily use. Color: White Dimensions: width 50cm, length 36cm Composition: 100% linen Product reference: PLACE w+w+buckle+g5 Care instructions: Machine wash (max 30°C) using a gentle ",
+    "story": "A new approach to placemat weaving. The special boucle (linen thread forming a loop) linen creates a rough yet refined impression. This placemat has small fringes. Excellent for daily use. Color: White Dimensions: width 50cm, length 36cm Composition: 100% linen Product reference: PLACE w+w+buckle+g5 Care instructions: Machine wash (max 30°C) using a gentle cycle, hand wash (max 30°C) or dry clean. Wash separately. Iron at maximum (high) temperature. Cockle is the very special effect of this fabric. As this fabric is 100% handmade it may have some knots or natural unevenness. Warning: Direct sunlight and strong lighting may alter the color of the fabric. Note: Products can be customized, please contact us! STUDIO NATURALHAND MADE IN LATVIA",
     "isPartnerProduct": true,
     "nameDe": "Platzset Boucle 50x36cm",
     "descriptionDe": "Ein handgewebtes Platzset aus Leinen von Studio Natural. Das Stück wird in Lettland auf traditionellen Webstühlen gefertigt und verbindet natürliche Materialien mit sorgfältiger Verarbeitung.",
     "storyDe": "Ein handgewebtes Platzset aus Leinen von Studio Natural. Das Stück wird in Lettland auf traditionellen Webstühlen gefertigt und verbindet natürliche Materialien mit sorgfältiger Verarbeitung.",
     "craftDe": "Handgewebtes Leinen",
     "materialsDe": "Leinen",
-    "techniqueDe": "Auf traditionellen Webstühlen von Hand gewebt"
+    "techniqueDe": "Auf traditionellen Webstühlen von Hand gewebt",
+    "details": [
+      {
+        "label": "Color",
+        "labelDe": "Farbe",
+        "value": "White",
+        "valueDe": "Weiß"
+      },
+      {
+        "label": "Dimensions",
+        "labelDe": "Maße",
+        "value": "width 50cm, length 36cm",
+        "valueDe": "Breite 50cm, Länge 36cm"
+      },
+      {
+        "label": "Composition",
+        "labelDe": "Zusammensetzung",
+        "value": "100% linen",
+        "valueDe": "100 % Leinen"
+      },
+      {
+        "label": "Product reference",
+        "labelDe": "Produktreferenz",
+        "value": "PLACE w+w+buckle+g5",
+        "valueDe": "PLACE w+w+buckle+g5"
+      },
+      {
+        "label": "Care instructions",
+        "labelDe": "Pflegehinweise",
+        "value": "Machine wash (max 30°C) using a gentle cycle, hand wash (max 30°C) or dry clean. Wash separately. Iron at maximum (high) temperature. Cockle is the very special effect of this fabric. As this fabric is 100% handmade it may have some knots or natural unevenness.",
+        "valueDe": "Maschinenwäsche bei maximal 30 °C im Schonwaschgang, Handwäsche bei maximal 30 °C oder chemische Reinigung. Separat waschen, nicht im Trockner trocknen und heiß bügeln. Als handgefertigtes Leinen kann der Stoff kleine Knoten oder natürliche Unregelmäßigkeiten aufweisen."
+      },
+      {
+        "label": "Warning",
+        "labelDe": "Hinweis",
+        "value": "Direct sunlight and strong lighting may alter the color of the fabric.",
+        "valueDe": "Direktes Sonnenlicht und starkes Licht können die Farbe des Stoffes verändern. Die Produktfarbe kann je nach Fotolicht oder Bildschirmeinstellung leicht abweichen."
+      },
+      {
+        "label": "Note",
+        "labelDe": "Anmerkung",
+        "value": "Products can be customized, please contact us!",
+        "valueDe": "Produkte können angepasst werden."
+      },
+      {
+        "label": "Options",
+        "labelDe": "Optionen",
+        "value": "Size: 50x38 cm; Color: White",
+        "valueDe": "Size: 50x38 cm; Color: Weiß"
+      },
+      {
+        "label": "Weight",
+        "labelDe": "Gewicht",
+        "value": "250 g",
+        "valueDe": "250 g"
+      },
+      {
+        "label": "Use",
+        "labelDe": "Verwendung",
+        "value": "Hand made in Latvia",
+        "valueDe": "Handgemacht in Lettland"
+      }
+    ]
   },
   {
     "slug": "studio-natural-linen-scarf-tinita-in-khaki-50x200-cm",
     "name": "Linen scarf Tinita in khaki 50x200 cm",
-    "description": "Sheer handwoven linen scarf. Lightweight and sheer fabric - perfect for warm weather. This scarf is sure to make a fashionable statement. Excellent for everyday use or for an evening out. Color: Khaki, natural Dimensions: length 200cm, width 50cm Composition: 100% linen Product reference: Tinita w+nat+haki+seidg1 Care instructions: Hand wash (max 30°C) or dr",
+    "description": "Sheer handwoven linen scarf. Lightweight and sheer fabric - perfect for warm weather. This scarf is sure to make a fashionable statement. Excellent for everyday use or for an evening out.",
     "price": "€ 150.00",
     "image": "/catalog/asset-13049c9150ae.jpg",
     "images": [
@@ -334,19 +814,81 @@ export const products = [
     "craft": "Scarf",
     "materials": "Linen",
     "technique": "Handwoven on traditional looms",
-    "story": "Sheer handwoven linen scarf. Lightweight and sheer fabric - perfect for warm weather. This scarf is sure to make a fashionable statement. Excellent for everyday use or for an evening out. Color: Khaki, natural Dimensions: length 200cm, width 50cm Composition: 100% linen Product reference: Tinita w+nat+haki+seidg1 Care instructions: Hand wash (max 30°C) or dr",
+    "story": "Sheer handwoven linen scarf. Lightweight and sheer fabric - perfect for warm weather. This scarf is sure to make a fashionable statement. Excellent for everyday use or for an evening out. Color: Khaki, natural Dimensions: length 200cm, width 50cm Composition: 100% linen Product reference: Tinita w+nat+haki+seidg1 Care instructions: Hand wash (max 30°C) or dry clean. If hand-washed, do not wring or twist - remove excess water by shaking it out. Do not tumble dry. Iron at maximum (high) temperature. Cockle is the very special effect of this fabric. As this fabric is 100% handmade it may have some knots or natural unevenness. Warning: Direct sunlight and strong lighting may alter the color of the fabric. Product color may slightly vary due to photographic lighting sources or your monitor settings. Note: Products can be customized, please contact us! HANDMADE IN LATVIA",
     "isPartnerProduct": true,
     "nameDe": "Leinenschal Tinita in khaki 50x200 cm",
     "descriptionDe": "Ein handgewebter Leinenschal von Studio Natural. Das Stück wird in Lettland auf traditionellen Webstühlen gefertigt und verbindet natürliche Materialien mit sorgfältiger Verarbeitung.",
     "storyDe": "Ein handgewebter Leinenschal von Studio Natural. Das Stück wird in Lettland auf traditionellen Webstühlen gefertigt und verbindet natürliche Materialien mit sorgfältiger Verarbeitung.",
     "craftDe": "Leinenschal",
     "materialsDe": "Leinen",
-    "techniqueDe": "Auf traditionellen Webstühlen von Hand gewebt"
+    "techniqueDe": "Auf traditionellen Webstühlen von Hand gewebt",
+    "details": [
+      {
+        "label": "Color",
+        "labelDe": "Farbe",
+        "value": "Khaki, natural",
+        "valueDe": "Khaki, Natur"
+      },
+      {
+        "label": "Dimensions",
+        "labelDe": "Maße",
+        "value": "length 200cm, width 50cm",
+        "valueDe": "Länge 200cm, Breite 50cm"
+      },
+      {
+        "label": "Composition",
+        "labelDe": "Zusammensetzung",
+        "value": "100% linen",
+        "valueDe": "100 % Leinen"
+      },
+      {
+        "label": "Product reference",
+        "labelDe": "Produktreferenz",
+        "value": "Tinita w+nat+haki+seidg1",
+        "valueDe": "Tinita w+nat+haki+seidg1"
+      },
+      {
+        "label": "Care instructions",
+        "labelDe": "Pflegehinweise",
+        "value": "Hand wash (max 30°C) or dry clean. If hand-washed, do not wring or twist - remove excess water by shaking it out. Do not tumble dry. Iron at maximum (high) temperature. Cockle is the very special effect of this fabric. As this fabric is 100% handmade it may have some knots or natural unevenness.",
+        "valueDe": "Handwäsche bei maximal 30 °C oder chemische Reinigung. Nicht wringen oder verdrehen; überschüssiges Wasser ausschütteln. Nicht im Trockner trocknen und heiß bügeln. Als handgefertigtes Leinen kann der Stoff kleine Knoten oder natürliche Unregelmäßigkeiten aufweisen."
+      },
+      {
+        "label": "Warning",
+        "labelDe": "Hinweis",
+        "value": "Direct sunlight and strong lighting may alter the color of the fabric.",
+        "valueDe": "Direktes Sonnenlicht und starkes Licht können die Farbe des Stoffes verändern. Die Produktfarbe kann je nach Fotolicht oder Bildschirmeinstellung leicht abweichen."
+      },
+      {
+        "label": "Note",
+        "labelDe": "Anmerkung",
+        "value": "Products can be customized, please contact us!",
+        "valueDe": "Produkte können angepasst werden."
+      },
+      {
+        "label": "Options",
+        "labelDe": "Optionen",
+        "value": "Size: 50x200 cm; Color: Khaki",
+        "valueDe": "Size: 50x200 cm; Color: Khaki"
+      },
+      {
+        "label": "Weight",
+        "labelDe": "Gewicht",
+        "value": "190 g",
+        "valueDe": "190 g"
+      },
+      {
+        "label": "Use",
+        "labelDe": "Verwendung",
+        "value": "Hand made in Latvia",
+        "valueDe": "Handgemacht in Lettland"
+      }
+    ]
   },
   {
     "slug": "studio-natural-linen-scarf-transparent-in-black-70x250-cm",
     "name": "Linen scarf Transparent in black 70x250 cm",
-    "description": "Sheer handwoven linen scarf in black with hand-twisted fringes. Excellent for everyday use or an evening out. Color: Black Dimensions: width 70cm, length 250cm Composition: Linen Product reference: Transp black+lfr Care instructions: Hand wash (max 30°C) or dry clean. If hand-washed, do not wring or twist - remove excess water by shaking it out. Do not tumbl",
+    "description": "Sheer handwoven linen scarf in black with hand-twisted fringes. Excellent for everyday use or an evening out.",
     "price": "€ 170.00",
     "image": "/catalog/asset-1ad9007a04dc.jpg",
     "images": [
@@ -358,19 +900,81 @@ export const products = [
     "craft": "Scarf",
     "materials": "Linen",
     "technique": "Handwoven on traditional looms",
-    "story": "Sheer handwoven linen scarf in black with hand-twisted fringes. Excellent for everyday use or an evening out. Color: Black Dimensions: width 70cm, length 250cm Composition: Linen Product reference: Transp black+lfr Care instructions: Hand wash (max 30°C) or dry clean. If hand-washed, do not wring or twist - remove excess water by shaking it out. Do not tumbl",
+    "story": "Sheer handwoven linen scarf in black with hand-twisted fringes. Excellent for everyday use or an evening out. Color: Black Dimensions: width 70cm, length 250cm Composition: Linen Product reference: Transp black+lfr Care instructions: Hand wash (max 30°C) or dry clean. If hand-washed, do not wring or twist - remove excess water by shaking it out. Do not tumble dry. Iron at maximum (high) temperature. Cockle is the very special effect of this fabric. As this fabric is 100% handmade it may have some knots or natural unevenness. Warning: Direct sunlight and strong lighting may alter the color of the fabric. Product color may slightly vary due to photographic lighting sources or your monitor settings. Note: Products can be customized, please contact us! HANDMADE IN LATVIA 100% PRODUCED IN EUROPE",
     "isPartnerProduct": true,
     "nameDe": "Leinenschal Transparent in black 70x250 cm",
     "descriptionDe": "Ein handgewebter Leinenschal von Studio Natural. Das Stück wird in Lettland auf traditionellen Webstühlen gefertigt und verbindet natürliche Materialien mit sorgfältiger Verarbeitung.",
     "storyDe": "Ein handgewebter Leinenschal von Studio Natural. Das Stück wird in Lettland auf traditionellen Webstühlen gefertigt und verbindet natürliche Materialien mit sorgfältiger Verarbeitung.",
     "craftDe": "Leinenschal",
     "materialsDe": "Leinen",
-    "techniqueDe": "Auf traditionellen Webstühlen von Hand gewebt"
+    "techniqueDe": "Auf traditionellen Webstühlen von Hand gewebt",
+    "details": [
+      {
+        "label": "Color",
+        "labelDe": "Farbe",
+        "value": "Black",
+        "valueDe": "Schwarz"
+      },
+      {
+        "label": "Dimensions",
+        "labelDe": "Maße",
+        "value": "width 70cm, length 250cm",
+        "valueDe": "Breite 70cm, Länge 250cm"
+      },
+      {
+        "label": "Composition",
+        "labelDe": "Zusammensetzung",
+        "value": "Linen",
+        "valueDe": "Leinen"
+      },
+      {
+        "label": "Product reference",
+        "labelDe": "Produktreferenz",
+        "value": "Transp black+lfr",
+        "valueDe": "Transp Schwarz+lfr"
+      },
+      {
+        "label": "Care instructions",
+        "labelDe": "Pflegehinweise",
+        "value": "Hand wash (max 30°C) or dry clean. If hand-washed, do not wring or twist - remove excess water by shaking it out. Do not tumble dry. Iron at maximum (high) temperature. Cockle is the very special effect of this fabric. As this fabric is 100% handmade it may have some knots or natural unevenness.",
+        "valueDe": "Handwäsche bei maximal 30 °C oder chemische Reinigung. Nicht wringen oder verdrehen; überschüssiges Wasser ausschütteln. Nicht im Trockner trocknen und heiß bügeln. Als handgefertigtes Leinen kann der Stoff kleine Knoten oder natürliche Unregelmäßigkeiten aufweisen."
+      },
+      {
+        "label": "Warning",
+        "labelDe": "Hinweis",
+        "value": "Direct sunlight and strong lighting may alter the color of the fabric.",
+        "valueDe": "Direktes Sonnenlicht und starkes Licht können die Farbe des Stoffes verändern. Die Produktfarbe kann je nach Fotolicht oder Bildschirmeinstellung leicht abweichen."
+      },
+      {
+        "label": "Note",
+        "labelDe": "Anmerkung",
+        "value": "Products can be customized, please contact us!",
+        "valueDe": "Produkte können angepasst werden."
+      },
+      {
+        "label": "Options",
+        "labelDe": "Optionen",
+        "value": "Size: 70x250 cm; Color: Black",
+        "valueDe": "Size: 70x250 cm; Color: Schwarz"
+      },
+      {
+        "label": "Weight",
+        "labelDe": "Gewicht",
+        "value": "250 g",
+        "valueDe": "250 g"
+      },
+      {
+        "label": "Use",
+        "labelDe": "Verwendung",
+        "value": "Hand made in Latvia",
+        "valueDe": "Handgemacht in Lettland"
+      }
+    ]
   },
   {
     "slug": "vaidava-ceramics-chopstick-holder",
     "name": "Chopstick holder",
-    "description": "Give your chopsticks a place to rest. Crafted by hand from red and white clay, these holders bring the same quiet elegance to your table as the rest of the Vaidava Ceramics products. Small in size, but considered in every detail. The outside is left partially unglazed, revealing the natural texture and colour of the clay body, while the top is glazed in your",
+    "description": "Give your chopsticks a place to rest. Crafted by hand from red and white clay, these holders bring the same quiet elegance to your table as the rest of the Vaidava Ceramics products. Small in size, but considered in every detail. The outside is left partially unglazed, revealing the natural texture and colour of the clay body, while the top is glazed in.",
     "price": "€ 3.00",
     "image": "/catalog/asset-4774e6d78e7a.jpg",
     "images": [
@@ -389,7 +993,33 @@ export const products = [
     "storyDe": "Chopstick holder von VAIDAVA CERAMICS. Das Stück wird aus Ton gefertigt und verbindet klare Form, handwerkliche Herstellung und Alltagstauglichkeit für den gedeckten Tisch.",
     "craftDe": "Keramikteller",
     "materialsDe": "Ton, Glasur",
-    "techniqueDe": "Handgefertigte Keramikproduktion"
+    "techniqueDe": "Handgefertigte Keramikproduktion",
+    "details": [
+      {
+        "label": "Options",
+        "labelDe": "Optionen",
+        "value": "Colour Options: Brown, Black, White",
+        "valueDe": "Colour Options: Braun, Schwarz, Weiß"
+      },
+      {
+        "label": "SKU",
+        "labelDe": "Artikelnummer",
+        "value": "759B, 759BL, 759W",
+        "valueDe": "759B, 759BL, 759W"
+      },
+      {
+        "label": "Weight",
+        "labelDe": "Gewicht",
+        "value": "500 g",
+        "valueDe": "500 g"
+      },
+      {
+        "label": "Collection",
+        "labelDe": "Kollektion",
+        "value": "Earth",
+        "valueDe": "Earth"
+      }
+    ]
   },
   {
     "slug": "vaidava-ceramics-candle-holder-eclipse",
@@ -413,12 +1043,32 @@ export const products = [
     "storyDe": "Candle holder · Eclipse von VAIDAVA CERAMICS. Das Stück wird aus Ton gefertigt und verbindet klare Form, handwerkliche Herstellung und Alltagstauglichkeit für den gedeckten Tisch.",
     "craftDe": "Keramikteller",
     "materialsDe": "Ton, Glasur",
-    "techniqueDe": "Handgefertigte Keramikproduktion"
+    "techniqueDe": "Handgefertigte Keramikproduktion",
+    "details": [
+      {
+        "label": "SKU",
+        "labelDe": "Artikelnummer",
+        "value": "739L",
+        "valueDe": "739L"
+      },
+      {
+        "label": "Weight",
+        "labelDe": "Gewicht",
+        "value": "500 g",
+        "valueDe": "500 g"
+      },
+      {
+        "label": "Collection",
+        "labelDe": "Kollektion",
+        "value": "Plate",
+        "valueDe": "Plate"
+      }
+    ]
   },
   {
     "slug": "vaidava-ceramics-mug-glazed-moss-green-earth",
     "name": "Mug glazed moss green · Earth",
-    "description": "Add a touch of comfort to your morning routine. Enjoy your solitary coffee moments or tea times with friends using our exquisite terracotta mug. A splendid and practical enhancement for any kitchen space. Designed by our team of artisans. Simplicity and clean lines make any piece in this collection a masterpiece of timeless design. The outside is partially g",
+    "description": "Add a touch of comfort to your morning routine. Enjoy your solitary coffee moments or tea times with friends using our exquisite terracotta mug. A splendid and practical enhancement for any kitchen space. Designed by our team of artisans. Simplicity and clean lines make any piece in this collection a masterpiece of timeless design. The outside is partially.",
     "price": "€ 14.50",
     "image": "/catalog/asset-8ced3d81d24f.jpg",
     "images": [
@@ -437,12 +1087,38 @@ export const products = [
     "storyDe": "Mug glazed moss green · Earth von VAIDAVA CERAMICS. Das Stück wird aus Ton gefertigt und verbindet klare Form, handwerkliche Herstellung und Alltagstauglichkeit für den gedeckten Tisch.",
     "craftDe": "Keramiktasse",
     "materialsDe": "Ton, Glasur",
-    "techniqueDe": "Handgefertigte Keramikproduktion"
+    "techniqueDe": "Handgefertigte Keramikproduktion",
+    "details": [
+      {
+        "label": "SKU",
+        "labelDe": "Artikelnummer",
+        "value": "735L",
+        "valueDe": "735L"
+      },
+      {
+        "label": "Weight",
+        "labelDe": "Gewicht",
+        "value": "350 g",
+        "valueDe": "350 g"
+      },
+      {
+        "label": "Collection",
+        "labelDe": "Kollektion",
+        "value": "End of Era, Mug",
+        "valueDe": "End of Era, Mug"
+      },
+      {
+        "label": "Finish",
+        "labelDe": "Oberfläche",
+        "value": "partially glazed",
+        "valueDe": "teilweise glasiert"
+      }
+    ]
   },
   {
     "slug": "vaidava-ceramics-mug-glazed-white-earth",
     "name": "Mug glazed white · Earth",
-    "description": "Add a touch of comfort to your morning routine. Enjoy your solitary coffee moments or tea times with friends using our exquisite terracotta mug. A splendid and practical enhancement for any kitchen space. Designed by our team of artisans. Simplicity and clean lines make any piece in this collection a masterpiece of timeless design. The outside is partially g",
+    "description": "Add a touch of comfort to your morning routine. Enjoy your solitary coffee moments or tea times with friends using our exquisite terracotta mug. A splendid and practical enhancement for any kitchen space. Designed by our team of artisans. Simplicity and clean lines make any piece in this collection a masterpiece of timeless design. The outside is partially.",
     "price": "€ 14.50",
     "image": "/catalog/asset-f325c406503b.jpg",
     "images": [
@@ -461,12 +1137,38 @@ export const products = [
     "storyDe": "Mug glazed white · Earth von VAIDAVA CERAMICS. Das Stück wird aus Ton gefertigt und verbindet klare Form, handwerkliche Herstellung und Alltagstauglichkeit für den gedeckten Tisch.",
     "craftDe": "Keramiktasse",
     "materialsDe": "Ton, Glasur",
-    "techniqueDe": "Handgefertigte Keramikproduktion"
+    "techniqueDe": "Handgefertigte Keramikproduktion",
+    "details": [
+      {
+        "label": "SKU",
+        "labelDe": "Artikelnummer",
+        "value": "734L",
+        "valueDe": "734L"
+      },
+      {
+        "label": "Weight",
+        "labelDe": "Gewicht",
+        "value": "350 g",
+        "valueDe": "350 g"
+      },
+      {
+        "label": "Collection",
+        "labelDe": "Kollektion",
+        "value": "End of Era, Mug",
+        "valueDe": "End of Era, Mug"
+      },
+      {
+        "label": "Finish",
+        "labelDe": "Oberfläche",
+        "value": "partially glazed",
+        "valueDe": "teilweise glasiert"
+      }
+    ]
   },
   {
     "slug": "vaidava-ceramics-small-plate-set-x-2-earth",
     "name": "Small plate set x 2 · Earth",
-    "description": "Whether you're serving up an appetizer or a scrumptious dessert, this duo is perfect for adding a touch of rustic elegance to any dining experience. Designed by our team of artisans. Simplicity and clean lines make any piece in this collection a masterpiece of timeless design. The outside is left unglazed. It's leveled and thoroughly polished to disclose the",
+    "description": "Whether you're serving up an appetizer or a scrumptious dessert, this duo is perfect for adding a touch of rustic elegance to any dining experience. Designed by our team of artisans. Simplicity and clean lines make any piece in this collection a masterpiece of timeless design. The outside is left unglazed. It's leveled and thoroughly polished to disclose.",
     "price": "€ 16.50",
     "image": "/catalog/asset-7aa41edbd3c0.jpg",
     "images": [
@@ -485,12 +1187,38 @@ export const products = [
     "storyDe": "Small plate set x 2 · Earth von VAIDAVA CERAMICS. Das Stück wird aus Ton gefertigt und verbindet klare Form, handwerkliche Herstellung und Alltagstauglichkeit für den gedeckten Tisch.",
     "craftDe": "Keramikteller",
     "materialsDe": "Ton, Glasur",
-    "techniqueDe": "Handgefertigte Keramikproduktion"
+    "techniqueDe": "Handgefertigte Keramikproduktion",
+    "details": [
+      {
+        "label": "SKU",
+        "labelDe": "Artikelnummer",
+        "value": "670L",
+        "valueDe": "670L"
+      },
+      {
+        "label": "Weight",
+        "labelDe": "Gewicht",
+        "value": "500 g",
+        "valueDe": "500 g"
+      },
+      {
+        "label": "Collection",
+        "labelDe": "Kollektion",
+        "value": "Plate",
+        "valueDe": "Plate"
+      },
+      {
+        "label": "Finish",
+        "labelDe": "Oberfläche",
+        "value": "left unglazed",
+        "valueDe": "unglasiert belassen"
+      }
+    ]
   },
   {
     "slug": "vaidava-ceramics-centerpiece-bowl-earth-raw",
     "name": "Centerpiece bowl · Earth RAW",
-    "description": "The Centrepiece bowl is a beautiful choice for those who love gathering family and friends around the table. Its generous size makes it perfect for serving large salads, fresh seasonal dishes, or sharing meals during special occasions. Designed to stand out, it also works wonderfully as an elegant table centerpiece or as a graceful bowl for displaying fresh ",
+    "description": "The Centrepiece bowl is a beautiful choice for those who love gathering family and friends around the table. Its generous size makes it perfect for serving large salads, fresh seasonal dishes, or sharing meals during special occasions. Designed to stand out, it also works wonderfully as an elegant table centerpiece or as a graceful bowl for displaying fresh.",
     "price": "€ 75.00",
     "image": "/catalog/asset-f691be2cebfa.jpg",
     "images": [
@@ -509,12 +1237,32 @@ export const products = [
     "storyDe": "Centerpiece bowl · Earth RAW von VAIDAVA CERAMICS. Das Stück wird aus Ton gefertigt und verbindet klare Form, handwerkliche Herstellung und Alltagstauglichkeit für den gedeckten Tisch.",
     "craftDe": "Keramikschale",
     "materialsDe": "Ton, Glasur",
-    "techniqueDe": "Handgefertigte Keramikproduktion"
+    "techniqueDe": "Handgefertigte Keramikproduktion",
+    "details": [
+      {
+        "label": "SKU",
+        "labelDe": "Artikelnummer",
+        "value": "747L",
+        "valueDe": "747L"
+      },
+      {
+        "label": "Weight",
+        "labelDe": "Gewicht",
+        "value": "1.95 kg",
+        "valueDe": "1.95 kg"
+      },
+      {
+        "label": "Collection",
+        "labelDe": "Kollektion",
+        "value": "Bowl",
+        "valueDe": "Bowl"
+      }
+    ]
   },
   {
     "slug": "vaidava-ceramics-bowl-4-0l-white-earth",
     "name": "Bowl 4.0L white · Earth",
-    "description": "This bowl is a perfect choice for cooking lovers who enjoy preparing generous meals with care and style. Its spacious size makes it ideal for mixing dough, tossing salads, or presenting warm homemade dishes at the table. Whether you are cooking for a big family dinner or hosting friends for a special gathering, this bowl offers both practicality and timeless",
+    "description": "This bowl is a perfect choice for cooking lovers who enjoy preparing generous meals with care and style. Its spacious size makes it ideal for mixing dough, tossing salads, or presenting warm homemade dishes at the table. Whether you are cooking for a big family dinner or hosting friends for a special gathering, this bowl offers both practicality and.",
     "price": "€ 55.00",
     "image": "/catalog/asset-ad1bd548648d.jpg",
     "images": [
@@ -533,12 +1281,44 @@ export const products = [
     "storyDe": "Bowl 4.0L white · Earth von VAIDAVA CERAMICS. Das Stück wird aus Ton gefertigt und verbindet klare Form, handwerkliche Herstellung und Alltagstauglichkeit für den gedeckten Tisch.",
     "craftDe": "Keramikschale",
     "materialsDe": "Ton, Glasur",
-    "techniqueDe": "Handgefertigte Keramikproduktion"
+    "techniqueDe": "Handgefertigte Keramikproduktion",
+    "details": [
+      {
+        "label": "SKU",
+        "labelDe": "Artikelnummer",
+        "value": "740L",
+        "valueDe": "740L"
+      },
+      {
+        "label": "Weight",
+        "labelDe": "Gewicht",
+        "value": "1.95 kg",
+        "valueDe": "1.95 kg"
+      },
+      {
+        "label": "Collection",
+        "labelDe": "Kollektion",
+        "value": "Bowl",
+        "valueDe": "Bowl"
+      },
+      {
+        "label": "Capacity",
+        "labelDe": "Fassungsvermögen",
+        "value": "4.0L",
+        "valueDe": "4.0L"
+      },
+      {
+        "label": "Finish",
+        "labelDe": "Oberfläche",
+        "value": "left unglazed",
+        "valueDe": "unglasiert belassen"
+      }
+    ]
   },
   {
     "slug": "vaidava-ceramics-bowl-2-0l-curved-moss-green-earth",
     "name": "Bowl 2.0L curved moss green · Earth",
-    "description": "Meet a bowl where every leafy green and plump tomato is celebrated in a feast for the senses. Designed by our team of artisans. Simplicity and clean lines make any piece in this collection a masterpiece of timeless design. The outside is left unglazed. It's leveled and thoroughly polished to disclose the clay's smoothness and prevent water and dirt absorptio",
+    "description": "Meet a bowl where every leafy green and plump tomato is celebrated in a feast for the senses. Designed by our team of artisans. Simplicity and clean lines make any piece in this collection a masterpiece of timeless design. The outside is left unglazed. It's leveled and thoroughly polished to disclose the clay's smoothness and prevent water and dirt.",
     "price": "€ 26.00",
     "image": "/catalog/asset-216a73700a15.jpg",
     "images": [
@@ -557,12 +1337,44 @@ export const products = [
     "storyDe": "Bowl 2.0L curved moss green · Earth von VAIDAVA CERAMICS. Das Stück wird aus Ton gefertigt und verbindet klare Form, handwerkliche Herstellung und Alltagstauglichkeit für den gedeckten Tisch.",
     "craftDe": "Keramikschale",
     "materialsDe": "Ton, Glasur",
-    "techniqueDe": "Handgefertigte Keramikproduktion"
+    "techniqueDe": "Handgefertigte Keramikproduktion",
+    "details": [
+      {
+        "label": "SKU",
+        "labelDe": "Artikelnummer",
+        "value": "698L",
+        "valueDe": "698L"
+      },
+      {
+        "label": "Weight",
+        "labelDe": "Gewicht",
+        "value": "1 kg",
+        "valueDe": "1 kg"
+      },
+      {
+        "label": "Collection",
+        "labelDe": "Kollektion",
+        "value": "Bowl",
+        "valueDe": "Bowl"
+      },
+      {
+        "label": "Capacity",
+        "labelDe": "Fassungsvermögen",
+        "value": "2.0L",
+        "valueDe": "2.0L"
+      },
+      {
+        "label": "Finish",
+        "labelDe": "Oberfläche",
+        "value": "left unglazed",
+        "valueDe": "unglasiert belassen"
+      }
+    ]
   },
   {
     "slug": "vaidava-ceramics-bowl-2-0l-salad-green-earth",
     "name": "Bowl 2.0L salad green · Earth",
-    "description": "Let the bright colors and fresh flavors of crisp and juicy greens come together in a masterpiece of healthy indulgence. Designed by our team of artisans. Simplicity and clean lines make any piece in this collection a masterpiece of timeless design. The outside is left unglazed. It's leveled and thoroughly polished to disclose the clay's smoothness and preven",
+    "description": "Let the bright colors and fresh flavors of crisp and juicy greens come together in a masterpiece of healthy indulgence. Designed by our team of artisans. Simplicity and clean lines make any piece in this collection a masterpiece of timeless design. The outside is left unglazed. It's leveled and thoroughly polished to disclose the clay's smoothness and.",
     "price": "€ 22.50",
     "image": "/catalog/asset-c1c0c178beea.jpg",
     "images": [
@@ -581,12 +1393,44 @@ export const products = [
     "storyDe": "Bowl 2.0L salad green · Earth von VAIDAVA CERAMICS. Das Stück wird aus Ton gefertigt und verbindet klare Form, handwerkliche Herstellung und Alltagstauglichkeit für den gedeckten Tisch.",
     "craftDe": "Keramikschale",
     "materialsDe": "Ton, Glasur",
-    "techniqueDe": "Handgefertigte Keramikproduktion"
+    "techniqueDe": "Handgefertigte Keramikproduktion",
+    "details": [
+      {
+        "label": "SKU",
+        "labelDe": "Artikelnummer",
+        "value": "021L",
+        "valueDe": "021L"
+      },
+      {
+        "label": "Weight",
+        "labelDe": "Gewicht",
+        "value": "1 kg",
+        "valueDe": "1 kg"
+      },
+      {
+        "label": "Collection",
+        "labelDe": "Kollektion",
+        "value": "Bowl",
+        "valueDe": "Bowl"
+      },
+      {
+        "label": "Capacity",
+        "labelDe": "Fassungsvermögen",
+        "value": "2.0L",
+        "valueDe": "2.0L"
+      },
+      {
+        "label": "Finish",
+        "labelDe": "Oberfläche",
+        "value": "left unglazed",
+        "valueDe": "unglasiert belassen"
+      }
+    ]
   },
   {
     "slug": "vaidava-ceramics-bowl-3-0l-moss-green-earth",
     "name": "Bowl 3.0L moss green · Earth",
-    "description": "This large terracotta fruit bowl is the perfect display for an abundance of colorful fruit or veggies. Designed by our team of artisans. Simplicity and clean lines make any piece in this collection a masterpiece of timeless design. The outside is left unglazed. It's leveled and thoroughly polished to disclose the clay's smoothness and prevent water and dirt ",
+    "description": "This large terracotta fruit bowl is the perfect display for an abundance of colorful fruit or veggies. Designed by our team of artisans. Simplicity and clean lines make any piece in this collection a masterpiece of timeless design. The outside is left unglazed. It's leveled and thoroughly polished to disclose the clay's smoothness and prevent water and dirt.",
     "price": "€ 49.00",
     "image": "/catalog/asset-4b637440889a.jpg",
     "images": [
@@ -605,7 +1449,39 @@ export const products = [
     "storyDe": "Bowl 3.0L moss green · Earth von VAIDAVA CERAMICS. Das Stück wird aus Ton gefertigt und verbindet klare Form, handwerkliche Herstellung und Alltagstauglichkeit für den gedeckten Tisch.",
     "craftDe": "Keramikschale",
     "materialsDe": "Ton, Glasur",
-    "techniqueDe": "Handgefertigte Keramikproduktion"
+    "techniqueDe": "Handgefertigte Keramikproduktion",
+    "details": [
+      {
+        "label": "SKU",
+        "labelDe": "Artikelnummer",
+        "value": "699L",
+        "valueDe": "699L"
+      },
+      {
+        "label": "Weight",
+        "labelDe": "Gewicht",
+        "value": "1.95 kg",
+        "valueDe": "1.95 kg"
+      },
+      {
+        "label": "Collection",
+        "labelDe": "Kollektion",
+        "value": "Bowl",
+        "valueDe": "Bowl"
+      },
+      {
+        "label": "Capacity",
+        "labelDe": "Fassungsvermögen",
+        "value": "3.0L",
+        "valueDe": "3.0L"
+      },
+      {
+        "label": "Finish",
+        "labelDe": "Oberfläche",
+        "value": "left unglazed",
+        "valueDe": "unglasiert belassen"
+      }
+    ]
   },
   {
     "slug": "cepli-salatu-blodas",
@@ -629,7 +1505,21 @@ export const products = [
     "storyDe": "Auf der Töpferscheibe aus weißem Steinzeug von Hand gedreht und bei 1250 °C gebrannt. Aus der Kollektion Monohroms, mit matter schwarzer Glasur, die für Mensch und Umwelt unbedenklich ist.",
     "craftDe": "Keramik",
     "materialsDe": "Ton oder Steinzeug, Glasur",
-    "techniqueDe": "Von Hand geformt, gedreht oder in Plattentechnik aufgebaut"
+    "techniqueDe": "Von Hand geformt, gedreht oder in Plattentechnik aufgebaut",
+    "details": [
+      {
+        "label": "Firing temperature",
+        "labelDe": "Brenntemperatur",
+        "value": "1250°C",
+        "valueDe": "1250°C"
+      },
+      {
+        "label": "Finish",
+        "labelDe": "Oberfläche",
+        "value": "matte black glaze",
+        "valueDe": "mattschwarze Glasur"
+      }
+    ]
   },
   {
     "slug": "cepli-skivis-24-5-cm",
@@ -653,7 +1543,15 @@ export const products = [
     "storyDe": "Aus weißem Steinzeug in Plattentechnik von Hand geformt und bei 1250 °C gebrannt. Die Glasur spielt von sandigem Beige bis zu bläulichen Tönen und ist für den täglichen Gebrauch geeignet.",
     "craftDe": "Keramik",
     "materialsDe": "Ton oder Steinzeug, Glasur",
-    "techniqueDe": "Von Hand geformt, gedreht oder in Plattentechnik aufgebaut"
+    "techniqueDe": "Von Hand geformt, gedreht oder in Plattentechnik aufgebaut",
+    "details": [
+      {
+        "label": "Firing temperature",
+        "labelDe": "Brenntemperatur",
+        "value": "1250°C",
+        "valueDe": "1250°C"
+      }
+    ]
   },
   {
     "slug": "cepli-skivis-24-5-cm-2",
@@ -677,7 +1575,15 @@ export const products = [
     "storyDe": "Aus weißem Steinzeug in Plattentechnik von Hand geformt und bei 1250 °C gebrannt. Die Glasur spielt von sandigem Beige bis zu bläulichen Tönen und ist für den täglichen Gebrauch geeignet.",
     "craftDe": "Keramik",
     "materialsDe": "Ton oder Steinzeug, Glasur",
-    "techniqueDe": "Von Hand geformt, gedreht oder in Plattentechnik aufgebaut"
+    "techniqueDe": "Von Hand geformt, gedreht oder in Plattentechnik aufgebaut",
+    "details": [
+      {
+        "label": "Firing temperature",
+        "labelDe": "Brenntemperatur",
+        "value": "1250°C",
+        "valueDe": "1250°C"
+      }
+    ]
   },
   {
     "slug": "cepli-bloda-2l",
@@ -701,7 +1607,21 @@ export const products = [
     "storyDe": "Auf der Töpferscheibe aus weißem Steinzeug von Hand gedreht und bei 1250 °C gebrannt. Aus der Kollektion Siltums, für Servieren und Alltag gemacht.",
     "craftDe": "Keramik",
     "materialsDe": "Ton oder Steinzeug, Glasur",
-    "techniqueDe": "Von Hand geformt, gedreht oder in Plattentechnik aufgebaut"
+    "techniqueDe": "Von Hand geformt, gedreht oder in Plattentechnik aufgebaut",
+    "details": [
+      {
+        "label": "Capacity",
+        "labelDe": "Fassungsvermögen",
+        "value": "2L",
+        "valueDe": "2L"
+      },
+      {
+        "label": "Firing temperature",
+        "labelDe": "Brenntemperatur",
+        "value": "1250°C",
+        "valueDe": "1250°C"
+      }
+    ]
   },
   {
     "slug": "cepli-vaze",
@@ -725,7 +1645,21 @@ export const products = [
     "storyDe": "Auf der Töpferscheibe aus weißem Steinzeug von Hand gedreht und bei 1260 °C gebrannt. Mit transparenter matter Glasur und silberfarbenem Dekor versehen.",
     "craftDe": "Keramik",
     "materialsDe": "Ton oder Steinzeug, Glasur",
-    "techniqueDe": "Von Hand geformt, gedreht oder in Plattentechnik aufgebaut"
+    "techniqueDe": "Von Hand geformt, gedreht oder in Plattentechnik aufgebaut",
+    "details": [
+      {
+        "label": "Firing temperature",
+        "labelDe": "Brenntemperatur",
+        "value": "1260°C",
+        "valueDe": "1260°C"
+      },
+      {
+        "label": "Finish",
+        "labelDe": "Oberfläche",
+        "value": "transparent matte glaze",
+        "valueDe": "transparente matte Glasur"
+      }
+    ]
   },
   {
     "slug": "cepli-vaze-2",
@@ -749,7 +1683,21 @@ export const products = [
     "storyDe": "Auf der Töpferscheibe aus weißem Steinzeug von Hand gedreht und bei 1260 °C gebrannt. Mit transparenter matter Glasur und silberfarbenem Dekor versehen.",
     "craftDe": "Keramik",
     "materialsDe": "Ton oder Steinzeug, Glasur",
-    "techniqueDe": "Von Hand geformt, gedreht oder in Plattentechnik aufgebaut"
+    "techniqueDe": "Von Hand geformt, gedreht oder in Plattentechnik aufgebaut",
+    "details": [
+      {
+        "label": "Firing temperature",
+        "labelDe": "Brenntemperatur",
+        "value": "1260°C",
+        "valueDe": "1260°C"
+      },
+      {
+        "label": "Finish",
+        "labelDe": "Oberfläche",
+        "value": "transparent matte glaze",
+        "valueDe": "transparente matte Glasur"
+      }
+    ]
   },
   {
     "slug": "cepli-vaze-3",
@@ -773,7 +1721,21 @@ export const products = [
     "storyDe": "Auf der Töpferscheibe aus weißem Steinzeug von Hand gedreht und bei 1260 °C gebrannt. Mit transparenter matter Glasur und silberfarbenem Dekor versehen.",
     "craftDe": "Keramik",
     "materialsDe": "Ton oder Steinzeug, Glasur",
-    "techniqueDe": "Von Hand geformt, gedreht oder in Plattentechnik aufgebaut"
+    "techniqueDe": "Von Hand geformt, gedreht oder in Plattentechnik aufgebaut",
+    "details": [
+      {
+        "label": "Firing temperature",
+        "labelDe": "Brenntemperatur",
+        "value": "1260°C",
+        "valueDe": "1260°C"
+      },
+      {
+        "label": "Finish",
+        "labelDe": "Oberfläche",
+        "value": "transparent matte glaze",
+        "valueDe": "transparente matte Glasur"
+      }
+    ]
   },
   {
     "slug": "cepli-servejamais-skivis-uz-kajinam-davanu-kaste",
@@ -797,7 +1759,27 @@ export const products = [
     "storyDe": "Aus lettischem Ton von Hand in Plattentechnik geformt und im offenen Feuer in schwarzer Keramiktechnik gebrannt. Mit Naturmotiven graviert.",
     "craftDe": "Keramik",
     "materialsDe": "Ton oder Steinzeug, Glasur",
-    "techniqueDe": "Von Hand geformt, gedreht oder in Plattentechnik aufgebaut"
+    "techniqueDe": "Von Hand geformt, gedreht oder in Plattentechnik aufgebaut",
+    "details": [
+      {
+        "label": "Material",
+        "labelDe": "Material",
+        "value": "Latvian clay",
+        "valueDe": "Lettischer Ton"
+      },
+      {
+        "label": "Firing method",
+        "labelDe": "Brennmethode",
+        "value": "open-flame kiln / black pottery technique",
+        "valueDe": "offener Flammenofen / Schwarzkeramik-Technik"
+      },
+      {
+        "label": "Decoration",
+        "labelDe": "Dekor",
+        "value": "engraved natural pattern motifs",
+        "valueDe": "eingravierte Naturmotive"
+      }
+    ]
   },
   {
     "slug": "cepli-servejamais-skivis-uz-kajinam-davanu-kaste-2",
@@ -821,7 +1803,27 @@ export const products = [
     "storyDe": "Aus lettischem Ton von Hand in Plattentechnik geformt und im offenen Feuer in schwarzer Keramiktechnik gebrannt. Mit Naturmotiven graviert.",
     "craftDe": "Keramik",
     "materialsDe": "Ton oder Steinzeug, Glasur",
-    "techniqueDe": "Von Hand geformt, gedreht oder in Plattentechnik aufgebaut"
+    "techniqueDe": "Von Hand geformt, gedreht oder in Plattentechnik aufgebaut",
+    "details": [
+      {
+        "label": "Material",
+        "labelDe": "Material",
+        "value": "Latvian clay",
+        "valueDe": "Lettischer Ton"
+      },
+      {
+        "label": "Firing method",
+        "labelDe": "Brennmethode",
+        "value": "open-flame kiln / black pottery technique",
+        "valueDe": "offener Flammenofen / Schwarzkeramik-Technik"
+      },
+      {
+        "label": "Decoration",
+        "labelDe": "Dekor",
+        "value": "engraved natural pattern motifs",
+        "valueDe": "eingravierte Naturmotive"
+      }
+    ]
   },
   {
     "slug": "cepli-cukurtrauks",
@@ -845,7 +1847,21 @@ export const products = [
     "storyDe": "Auf der Töpferscheibe aus grauem Steinzeug von Hand gedreht und bei 1250 °C gebrannt. Aus der Kollektion Monohroms, mit matter schwarzer Glasur.",
     "craftDe": "Keramik",
     "materialsDe": "Ton oder Steinzeug, Glasur",
-    "techniqueDe": "Von Hand geformt, gedreht oder in Plattentechnik aufgebaut"
+    "techniqueDe": "Von Hand geformt, gedreht oder in Plattentechnik aufgebaut",
+    "details": [
+      {
+        "label": "Firing temperature",
+        "labelDe": "Brenntemperatur",
+        "value": "1250°C",
+        "valueDe": "1250°C"
+      },
+      {
+        "label": "Finish",
+        "labelDe": "Oberfläche",
+        "value": "matte black glaze",
+        "valueDe": "mattschwarze Glasur"
+      }
+    ]
   },
   {
     "slug": "cerannic-leo",
@@ -869,7 +1885,27 @@ export const products = [
     "descriptionDe": "Leo aus der Kollektion Tasse mit Linien. Die Stücke werden auf Bestellung gefertigt; die Produktionszeit beträgt bis zu drei Wochen.",
     "storyDe": "Leo aus der Kollektion Tasse mit Linien. Die Stücke werden auf Bestellung gefertigt; die Produktionszeit beträgt bis zu drei Wochen.",
     "materialsDe": "Porzellan, Glasur",
-    "techniqueDe": "Handgemachte Porzellantasse"
+    "techniqueDe": "Handgemachte Porzellantasse",
+    "details": [
+      {
+        "label": "Made to order",
+        "labelDe": "Auf Bestellung",
+        "value": "Yes",
+        "valueDe": "Ja"
+      },
+      {
+        "label": "Production time",
+        "labelDe": "Produktionszeit",
+        "value": "up to three weeks",
+        "valueDe": "bis zu drei Wochen"
+      },
+      {
+        "label": "Material",
+        "labelDe": "Material",
+        "value": "Porcelain and glaze",
+        "valueDe": "Porzellan und Glasur"
+      }
+    ]
   },
   {
     "slug": "cerannic-reinis",
@@ -893,7 +1929,27 @@ export const products = [
     "descriptionDe": "Reinis aus der Kollektion Tasse mit Linien. Die Stücke werden auf Bestellung gefertigt; die Produktionszeit beträgt bis zu drei Wochen.",
     "storyDe": "Reinis aus der Kollektion Tasse mit Linien. Die Stücke werden auf Bestellung gefertigt; die Produktionszeit beträgt bis zu drei Wochen.",
     "materialsDe": "Porzellan, Glasur",
-    "techniqueDe": "Handgemachte Porzellantasse"
+    "techniqueDe": "Handgemachte Porzellantasse",
+    "details": [
+      {
+        "label": "Made to order",
+        "labelDe": "Auf Bestellung",
+        "value": "Yes",
+        "valueDe": "Ja"
+      },
+      {
+        "label": "Production time",
+        "labelDe": "Produktionszeit",
+        "value": "up to three weeks",
+        "valueDe": "bis zu drei Wochen"
+      },
+      {
+        "label": "Material",
+        "labelDe": "Material",
+        "value": "Porcelain and glaze",
+        "valueDe": "Porzellan und Glasur"
+      }
+    ]
   },
   {
     "slug": "cerannic-hugo",
@@ -917,7 +1973,27 @@ export const products = [
     "descriptionDe": "Hugo aus der Kollektion Tasse mit Linien. Die Stücke werden auf Bestellung gefertigt; die Produktionszeit beträgt bis zu drei Wochen.",
     "storyDe": "Hugo aus der Kollektion Tasse mit Linien. Die Stücke werden auf Bestellung gefertigt; die Produktionszeit beträgt bis zu drei Wochen.",
     "materialsDe": "Porzellan, Glasur",
-    "techniqueDe": "Handgemachte Porzellantasse"
+    "techniqueDe": "Handgemachte Porzellantasse",
+    "details": [
+      {
+        "label": "Made to order",
+        "labelDe": "Auf Bestellung",
+        "value": "Yes",
+        "valueDe": "Ja"
+      },
+      {
+        "label": "Production time",
+        "labelDe": "Produktionszeit",
+        "value": "up to three weeks",
+        "valueDe": "bis zu drei Wochen"
+      },
+      {
+        "label": "Material",
+        "labelDe": "Material",
+        "value": "Porcelain and glaze",
+        "valueDe": "Porzellan und Glasur"
+      }
+    ]
   },
   {
     "slug": "cerannic-oskars",
@@ -941,7 +2017,27 @@ export const products = [
     "descriptionDe": "Oskars aus der Kollektion Tasse mit Linien. Die Stücke werden auf Bestellung gefertigt; die Produktionszeit beträgt bis zu drei Wochen.",
     "storyDe": "Oskars aus der Kollektion Tasse mit Linien. Die Stücke werden auf Bestellung gefertigt; die Produktionszeit beträgt bis zu drei Wochen.",
     "materialsDe": "Porzellan, Glasur",
-    "techniqueDe": "Handgemachte Porzellantasse"
+    "techniqueDe": "Handgemachte Porzellantasse",
+    "details": [
+      {
+        "label": "Made to order",
+        "labelDe": "Auf Bestellung",
+        "value": "Yes",
+        "valueDe": "Ja"
+      },
+      {
+        "label": "Production time",
+        "labelDe": "Produktionszeit",
+        "value": "up to three weeks",
+        "valueDe": "bis zu drei Wochen"
+      },
+      {
+        "label": "Material",
+        "labelDe": "Material",
+        "value": "Porcelain and glaze",
+        "valueDe": "Porzellan und Glasur"
+      }
+    ]
   },
   {
     "slug": "cerannic-sarlote",
@@ -965,7 +2061,27 @@ export const products = [
     "descriptionDe": "Šarlote aus der Kollektion Tasse mit erhabenen Punkten. Die Stücke werden auf Bestellung gefertigt; die Produktionszeit beträgt bis zu drei Wochen.",
     "storyDe": "Šarlote aus der Kollektion Tasse mit erhabenen Punkten. Die Stücke werden auf Bestellung gefertigt; die Produktionszeit beträgt bis zu drei Wochen.",
     "materialsDe": "Porzellan, Glasur",
-    "techniqueDe": "Handgemachte Porzellantasse"
+    "techniqueDe": "Handgemachte Porzellantasse",
+    "details": [
+      {
+        "label": "Made to order",
+        "labelDe": "Auf Bestellung",
+        "value": "Yes",
+        "valueDe": "Ja"
+      },
+      {
+        "label": "Production time",
+        "labelDe": "Produktionszeit",
+        "value": "up to three weeks",
+        "valueDe": "bis zu drei Wochen"
+      },
+      {
+        "label": "Material",
+        "labelDe": "Material",
+        "value": "Porcelain and glaze",
+        "valueDe": "Porzellan und Glasur"
+      }
+    ]
   },
   {
     "slug": "cerannic-jasmina",
@@ -989,7 +2105,27 @@ export const products = [
     "descriptionDe": "Jasmīna aus der Kollektion Tasse mit erhabenen Punkten. Die Stücke werden auf Bestellung gefertigt; die Produktionszeit beträgt bis zu drei Wochen.",
     "storyDe": "Jasmīna aus der Kollektion Tasse mit erhabenen Punkten. Die Stücke werden auf Bestellung gefertigt; die Produktionszeit beträgt bis zu drei Wochen.",
     "materialsDe": "Porzellan, Glasur",
-    "techniqueDe": "Handgemachte Porzellantasse"
+    "techniqueDe": "Handgemachte Porzellantasse",
+    "details": [
+      {
+        "label": "Made to order",
+        "labelDe": "Auf Bestellung",
+        "value": "Yes",
+        "valueDe": "Ja"
+      },
+      {
+        "label": "Production time",
+        "labelDe": "Produktionszeit",
+        "value": "up to three weeks",
+        "valueDe": "bis zu drei Wochen"
+      },
+      {
+        "label": "Material",
+        "labelDe": "Material",
+        "value": "Porcelain and glaze",
+        "valueDe": "Porzellan und Glasur"
+      }
+    ]
   },
   {
     "slug": "cerannic-sibilla",
@@ -1013,7 +2149,27 @@ export const products = [
     "descriptionDe": "Sibilla aus der Kollektion Tasse mit erhabenen Punkten. Die Stücke werden auf Bestellung gefertigt; die Produktionszeit beträgt bis zu drei Wochen.",
     "storyDe": "Sibilla aus der Kollektion Tasse mit erhabenen Punkten. Die Stücke werden auf Bestellung gefertigt; die Produktionszeit beträgt bis zu drei Wochen.",
     "materialsDe": "Porzellan, Glasur",
-    "techniqueDe": "Handgemachte Porzellantasse"
+    "techniqueDe": "Handgemachte Porzellantasse",
+    "details": [
+      {
+        "label": "Made to order",
+        "labelDe": "Auf Bestellung",
+        "value": "Yes",
+        "valueDe": "Ja"
+      },
+      {
+        "label": "Production time",
+        "labelDe": "Produktionszeit",
+        "value": "up to three weeks",
+        "valueDe": "bis zu drei Wochen"
+      },
+      {
+        "label": "Material",
+        "labelDe": "Material",
+        "value": "Porcelain and glaze",
+        "valueDe": "Porzellan und Glasur"
+      }
+    ]
   },
   {
     "slug": "cerannic-amanda",
@@ -1037,7 +2193,27 @@ export const products = [
     "descriptionDe": "Amanda aus der Kollektion Tasse mit Pinselstrichen. Die Stücke werden auf Bestellung gefertigt; die Produktionszeit beträgt bis zu drei Wochen.",
     "storyDe": "Amanda aus der Kollektion Tasse mit Pinselstrichen. Die Stücke werden auf Bestellung gefertigt; die Produktionszeit beträgt bis zu drei Wochen.",
     "materialsDe": "Porzellan, Glasur",
-    "techniqueDe": "Handgemachte Porzellantasse"
+    "techniqueDe": "Handgemachte Porzellantasse",
+    "details": [
+      {
+        "label": "Made to order",
+        "labelDe": "Auf Bestellung",
+        "value": "Yes",
+        "valueDe": "Ja"
+      },
+      {
+        "label": "Production time",
+        "labelDe": "Produktionszeit",
+        "value": "up to three weeks",
+        "valueDe": "bis zu drei Wochen"
+      },
+      {
+        "label": "Material",
+        "labelDe": "Material",
+        "value": "Porcelain and glaze",
+        "valueDe": "Porzellan und Glasur"
+      }
+    ]
   },
   {
     "slug": "cerannic-dace",
@@ -1061,7 +2237,27 @@ export const products = [
     "descriptionDe": "Dace aus der Kollektion Tasse mit Pinselstrichen. Die Stücke werden auf Bestellung gefertigt; die Produktionszeit beträgt bis zu drei Wochen.",
     "storyDe": "Dace aus der Kollektion Tasse mit Pinselstrichen. Die Stücke werden auf Bestellung gefertigt; die Produktionszeit beträgt bis zu drei Wochen.",
     "materialsDe": "Porzellan, Glasur",
-    "techniqueDe": "Handgemachte Porzellantasse"
+    "techniqueDe": "Handgemachte Porzellantasse",
+    "details": [
+      {
+        "label": "Made to order",
+        "labelDe": "Auf Bestellung",
+        "value": "Yes",
+        "valueDe": "Ja"
+      },
+      {
+        "label": "Production time",
+        "labelDe": "Produktionszeit",
+        "value": "up to three weeks",
+        "valueDe": "bis zu drei Wochen"
+      },
+      {
+        "label": "Material",
+        "labelDe": "Material",
+        "value": "Porcelain and glaze",
+        "valueDe": "Porzellan und Glasur"
+      }
+    ]
   },
   {
     "slug": "cerannic-una",
@@ -1085,7 +2281,27 @@ export const products = [
     "descriptionDe": "Una aus der Kollektion Tasse mit Pinselstrichen. Die Stücke werden auf Bestellung gefertigt; die Produktionszeit beträgt bis zu drei Wochen.",
     "storyDe": "Una aus der Kollektion Tasse mit Pinselstrichen. Die Stücke werden auf Bestellung gefertigt; die Produktionszeit beträgt bis zu drei Wochen.",
     "materialsDe": "Porzellan, Glasur",
-    "techniqueDe": "Handgemachte Porzellantasse"
+    "techniqueDe": "Handgemachte Porzellantasse",
+    "details": [
+      {
+        "label": "Made to order",
+        "labelDe": "Auf Bestellung",
+        "value": "Yes",
+        "valueDe": "Ja"
+      },
+      {
+        "label": "Production time",
+        "labelDe": "Produktionszeit",
+        "value": "up to three weeks",
+        "valueDe": "bis zu drei Wochen"
+      },
+      {
+        "label": "Material",
+        "labelDe": "Material",
+        "value": "Porcelain and glaze",
+        "valueDe": "Porzellan und Glasur"
+      }
+    ]
   },
   {
     "slug": "latvijas-labumu-tirgus-mals-dekorativa-pudele-solvita-zale",
@@ -1109,7 +2325,15 @@ export const products = [
     "storyDe": "Kleine dekorative Tonflasche mit Lüster-Glasur. Maße ca. 20 × 9 × 4 cm.",
     "craftDe": "Dekorative Keramikflasche",
     "materialsDe": "Ton, Glasur",
-    "techniqueDe": "Handgemachte Keramik"
+    "techniqueDe": "Handgemachte Keramik",
+    "details": [
+      {
+        "label": "Dimensions",
+        "labelDe": "Maße",
+        "value": "20 × 9 × 4 cm",
+        "valueDe": "20 × 9 × 4 cm"
+      }
+    ]
   },
   {
     "slug": "latvijas-labumu-tirgus-mals-melnas-keramikas-kruze-draudzens-anda-biez",
@@ -1133,7 +2357,27 @@ export const products = [
     "storyDe": "Von Hand aufgebaut und in einem grubenartigen Holzofen gebrannt. Ohne Glasur; die schwarzen, silbrigen und bronzenen Töne entstehen im Reduktionsbrand.",
     "craftDe": "Schwarze Keramik",
     "materialsDe": "Ton, Glasur",
-    "techniqueDe": "Handgemachte Keramik"
+    "techniqueDe": "Handgemachte Keramik",
+    "details": [
+      {
+        "label": "Firing method",
+        "labelDe": "Brennmethode",
+        "value": "pit-style wood kiln",
+        "valueDe": "grubenartiger Holzofen"
+      },
+      {
+        "label": "Glaze",
+        "labelDe": "Glasur",
+        "value": "no glaze",
+        "valueDe": "keine Glasur"
+      },
+      {
+        "label": "Finish",
+        "labelDe": "Oberfläche",
+        "value": "black, silvery and bronze tones from reduction firing",
+        "valueDe": "schwarze, silbrige und bronzene Töne aus dem Reduktionsbrand"
+      }
+    ]
   },
   {
     "slug": "latvijas-labumu-tirgus-mals-dekorativs-auglu-trauks-solvita-zale",
@@ -1157,7 +2401,21 @@ export const products = [
     "storyDe": "Dekorative Obstschale aus Steinzeug in geflochtener Form. Maße ca. 6,5 × 32 cm, bei 1200 °C gebrannt.",
     "craftDe": "Steinzeug",
     "materialsDe": "Ton, Glasur",
-    "techniqueDe": "Handgemachte Keramik"
+    "techniqueDe": "Handgemachte Keramik",
+    "details": [
+      {
+        "label": "Dimensions",
+        "labelDe": "Maße",
+        "value": "6",
+        "valueDe": "6"
+      },
+      {
+        "label": "Firing temperature",
+        "labelDe": "Brenntemperatur",
+        "value": "1200°C",
+        "valueDe": "1200°C"
+      }
+    ]
   },
   {
     "slug": "latvijas-labumu-tirgus-mals-vaze-nellijas-keramika",
@@ -1181,7 +2439,27 @@ export const products = [
     "storyDe": "Vase aus weißem Ton mit weißer Glasur, 31 cm hoch.",
     "craftDe": "Keramik",
     "materialsDe": "Ton, Glasur",
-    "techniqueDe": "Handgemachte Keramik"
+    "techniqueDe": "Handgemachte Keramik",
+    "details": [
+      {
+        "label": "Dimensions",
+        "labelDe": "Maße",
+        "value": "31 cm high",
+        "valueDe": "31 cm hoch"
+      },
+      {
+        "label": "Material",
+        "labelDe": "Material",
+        "value": "white clay",
+        "valueDe": "weißer Ton"
+      },
+      {
+        "label": "Finish",
+        "labelDe": "Oberfläche",
+        "value": "white glaze",
+        "valueDe": "weiße Glasur"
+      }
+    ]
   },
   {
     "slug": "latvijas-labumu-tirgus-mals-ovals-servejamais-skivis-1-podvaze",
@@ -1205,7 +2483,21 @@ export const products = [
     "storyDe": "Ovaler Teller aus weißem Ton mit blauem Fischmotiv unter der Glasur, transparenter bleifreier Glanzglasur und Brand bei 1050 °C.",
     "craftDe": "Servierteller",
     "materialsDe": "Ton, Glasur",
-    "techniqueDe": "Handgemachte Keramik"
+    "techniqueDe": "Handgemachte Keramik",
+    "details": [
+      {
+        "label": "Firing temperature",
+        "labelDe": "Brenntemperatur",
+        "value": "1050°C",
+        "valueDe": "1050°C"
+      },
+      {
+        "label": "Finish",
+        "labelDe": "Oberfläche",
+        "value": "lead-free glossy transparent glaze",
+        "valueDe": "bleifreie transparente Glanzglasur"
+      }
+    ]
   },
   {
     "slug": "latvijas-labumu-tirgus-mals-apgleznots-skivis-kakitis-ilona-sausa",
@@ -1229,7 +2521,15 @@ export const products = [
     "storyDe": "Dekorativer Teller, mit Keramikglasuren und Pigmenten bemalt. Zum Aufhängen oder Aufstellen geeignet. 34 × 28 cm.",
     "craftDe": "Bemalter Teller",
     "materialsDe": "Ton, Glasur",
-    "techniqueDe": "Handgemachte Keramik"
+    "techniqueDe": "Handgemachte Keramik",
+    "details": [
+      {
+        "label": "Dimensions",
+        "labelDe": "Maße",
+        "value": "34 × 28 cm",
+        "valueDe": "34 × 28 cm"
+      }
+    ]
   },
   {
     "slug": "latvijas-labumu-tirgus-mals-studija-om-mezginu-skivis",
@@ -1253,7 +2553,15 @@ export const products = [
     "storyDe": "Spitzenteller aus weißem Ton mit Glasur. Höhe 5 cm, Durchmesser 27,5 cm.",
     "craftDe": "Keramik",
     "materialsDe": "Ton, Glasur",
-    "techniqueDe": "Handgemachte Keramik"
+    "techniqueDe": "Handgemachte Keramik",
+    "details": [
+      {
+        "label": "Dimensions",
+        "labelDe": "Maße",
+        "value": "Height 5 cm, diameter 27.5 cm",
+        "valueDe": "Höhe 5 cm, Durchmesser 27.5 cm"
+      }
+    ]
   },
   {
     "slug": "latvijas-labumu-tirgus-mals-trauks-saulespuke-saulaina-ieleja",
@@ -1277,7 +2585,15 @@ export const products = [
     "storyDe": "Handgemachte schwarze Keramikschale aus rotem Ton, inspiriert von Wärme und positiver Energie der Sonnenblume. Durchmesser 27 cm, Höhe 3 cm.",
     "craftDe": "Schwarze Keramik",
     "materialsDe": "Ton, Glasur",
-    "techniqueDe": "Handgemachte Keramik"
+    "techniqueDe": "Handgemachte Keramik",
+    "details": [
+      {
+        "label": "Dimensions",
+        "labelDe": "Maße",
+        "value": "Diameter 27 cm, height 3 cm",
+        "valueDe": "Durchmesser 27 cm, Höhe 3 cm"
+      }
+    ]
   },
   {
     "slug": "raibi-koki-galda-spele-marble-solitaire",
@@ -1301,7 +2617,21 @@ export const products = [
     "storyDe": "Marble Solitaire ist ein elegantes Holzspiel und ein klassisches Denkspiel für Konzentration und Strategie.",
     "craftDe": "Holzobjekte für den Tisch",
     "materialsDe": "Holz, Mineralöl, Bienenwachs",
-    "techniqueDe": "Hirnholzverarbeitung"
+    "techniqueDe": "Hirnholzverarbeitung",
+    "details": [
+      {
+        "label": "Use",
+        "labelDe": "Verwendung",
+        "value": "wooden table game and strategy puzzle",
+        "valueDe": "Holz-Tischspiel und Strategiespiel"
+      },
+      {
+        "label": "Material",
+        "labelDe": "Material",
+        "value": "wood",
+        "valueDe": "Holz"
+      }
+    ]
   },
   {
     "slug": "raibi-koki-riekstkoka-salvesu-gredzeni",
@@ -1325,7 +2655,21 @@ export const products = [
     "storyDe": "Serviettenringe aus Walnussholz für einen warmen, natürlichen Tisch.",
     "craftDe": "Holzobjekte für den Tisch",
     "materialsDe": "Holz, Mineralöl, Bienenwachs",
-    "techniqueDe": "Hirnholzverarbeitung"
+    "techniqueDe": "Hirnholzverarbeitung",
+    "details": [
+      {
+        "label": "Material",
+        "labelDe": "Material",
+        "value": "walnut wood",
+        "valueDe": "Walnussholz"
+      },
+      {
+        "label": "Use",
+        "labelDe": "Verwendung",
+        "value": "napkin rings for table setting",
+        "valueDe": "Serviettenringe für den gedeckten Tisch"
+      }
+    ]
   },
   {
     "slug": "raibi-koki-mazais-triskasu-virtuves-gala-skiedru-delitis-3223-cm",
@@ -1349,7 +2693,21 @@ export const products = [
     "storyDe": "Hirnholz-Küchenbrett aus Eiche, Sapelli und weiteren Holzarten, mit Mineralöl und Bienenwachs behandelt.",
     "craftDe": "Hirnholzbretter",
     "materialsDe": "Holz, Mineralöl, Bienenwachs",
-    "techniqueDe": "Hirnholzverarbeitung"
+    "techniqueDe": "Hirnholzverarbeitung",
+    "details": [
+      {
+        "label": "Dimensions",
+        "labelDe": "Maße",
+        "value": "32 × 23 cm",
+        "valueDe": "32 × 23 cm"
+      },
+      {
+        "label": "Finish",
+        "labelDe": "Oberfläche",
+        "value": "mineral oil and beeswax",
+        "valueDe": "Mineralöl und Bienenwachs"
+      }
+    ]
   },
   {
     "slug": "raibi-koki-liels-triskrasu-vienpuseji-lietojams-virtuves-delis-40x26cm",
@@ -1373,7 +2731,15 @@ export const products = [
     "storyDe": "Einseitiges Hirnholz-Küchenbrett mit Mahagonirahmen und Silikonfüßen, aus Eiche, Sapelli und weiteren Holzarten.",
     "craftDe": "Hirnholzbretter",
     "materialsDe": "Holz, Mineralöl, Bienenwachs",
-    "techniqueDe": "Hirnholzverarbeitung"
+    "techniqueDe": "Hirnholzverarbeitung",
+    "details": [
+      {
+        "label": "Dimensions",
+        "labelDe": "Maße",
+        "value": "40 × 26 cm",
+        "valueDe": "40 × 26 cm"
+      }
+    ]
   },
   {
     "slug": "raibi-koki-triskrasu-divpusejs-gala-skiedru-delis-40x26cm",
@@ -1397,7 +2763,21 @@ export const products = [
     "storyDe": "Zweiseitiges Hirnholz-Küchenbrett im Mahagonirahmen, aus Eiche, Sapelli und weiteren Holzarten, mit Mineralöl und Bienenwachs behandelt.",
     "craftDe": "Hirnholzbretter",
     "materialsDe": "Holz, Mineralöl, Bienenwachs",
-    "techniqueDe": "Hirnholzverarbeitung"
+    "techniqueDe": "Hirnholzverarbeitung",
+    "details": [
+      {
+        "label": "Dimensions",
+        "labelDe": "Maße",
+        "value": "40 × 26 cm",
+        "valueDe": "40 × 26 cm"
+      },
+      {
+        "label": "Finish",
+        "labelDe": "Oberfläche",
+        "value": "mineral oil and beeswax",
+        "valueDe": "Mineralöl und Bienenwachs"
+      }
+    ]
   },
   {
     "slug": "raibi-koki-liels-divpusejs-ozolkoka-gala-skiedru-delis-ar-sarkankoka-m",
@@ -1421,7 +2801,21 @@ export const products = [
     "storyDe": "Zweiseitiges Eichen-Hirnholzbrett mit Mahagonikanten, mit Mineralöl und Bienenwachs behandelt.",
     "craftDe": "Hirnholzbretter",
     "materialsDe": "Holz, Mineralöl, Bienenwachs",
-    "techniqueDe": "Hirnholzverarbeitung"
+    "techniqueDe": "Hirnholzverarbeitung",
+    "details": [
+      {
+        "label": "Dimensions",
+        "labelDe": "Maße",
+        "value": "40 × 27 cm",
+        "valueDe": "40 × 27 cm"
+      },
+      {
+        "label": "Finish",
+        "labelDe": "Oberfläche",
+        "value": "mineral oil and beeswax",
+        "valueDe": "Mineralöl und Bienenwachs"
+      }
+    ]
   },
   {
     "slug": "raibi-koki-gala-skiedru-delitis-mozaika-3323-cm",
@@ -1445,7 +2839,15 @@ export const products = [
     "storyDe": "Farbiges Hirnholzbrett im Mosaikstil aus vielen Holzarten, eingefasst in einen Eichenrahmen.",
     "craftDe": "Hirnholzbretter",
     "materialsDe": "Holz, Mineralöl, Bienenwachs",
-    "techniqueDe": "Hirnholzverarbeitung"
+    "techniqueDe": "Hirnholzverarbeitung",
+    "details": [
+      {
+        "label": "Dimensions",
+        "labelDe": "Maße",
+        "value": "33 × 23 cm",
+        "valueDe": "33 × 23 cm"
+      }
+    ]
   },
   {
     "slug": "raibi-koki-afrikas-dzelzskoka-gala-skiedru-delitis-3324-cm",
@@ -1469,7 +2871,21 @@ export const products = [
     "storyDe": "Zweiseitiges Hirnholzbrett aus sehr hartem afrikanischem Eisenholz. Das Brett wiegt etwa 2 kg.",
     "craftDe": "Hirnholzbretter",
     "materialsDe": "Holz, Mineralöl, Bienenwachs",
-    "techniqueDe": "Hirnholzverarbeitung"
+    "techniqueDe": "Hirnholzverarbeitung",
+    "details": [
+      {
+        "label": "Dimensions",
+        "labelDe": "Maße",
+        "value": "33 × 24 cm",
+        "valueDe": "33 × 24 cm"
+      },
+      {
+        "label": "Weight",
+        "labelDe": "Gewicht",
+        "value": "2 kg",
+        "valueDe": "2 kg"
+      }
+    ]
   },
   {
     "slug": "raibi-koki-tumss-riekstkoka-virtuves-gala-skiedru-delis-tumsais-3323-c",
@@ -1493,7 +2909,21 @@ export const products = [
     "storyDe": "Dunkles Hirnholzbrett aus Walnuss mit Ornamenten aus weißer Esche, mit Mineralöl und Bienenwachs behandelt.",
     "craftDe": "Hirnholzbretter",
     "materialsDe": "Holz, Mineralöl, Bienenwachs",
-    "techniqueDe": "Hirnholzverarbeitung"
+    "techniqueDe": "Hirnholzverarbeitung",
+    "details": [
+      {
+        "label": "Dimensions",
+        "labelDe": "Maße",
+        "value": "33 × 23 cm",
+        "valueDe": "33 × 23 cm"
+      },
+      {
+        "label": "Finish",
+        "labelDe": "Oberfläche",
+        "value": "mineral oil and beeswax",
+        "valueDe": "Mineralöl und Bienenwachs"
+      }
+    ]
   }
 ] satisfies CatalogProduct[];
 

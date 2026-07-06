@@ -20,6 +20,7 @@ const defaultProduct = {
   techniqueDe: "Traditionelle Technik",
   story: "A story of craft and place.",
   storyDe: "Eine Geschichte von Handwerk und Ort.",
+  details: [],
   isPartnerProduct: false,
   price: "€ —",
   images: ["https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&q=80"],
@@ -73,6 +74,12 @@ export default function ProductPage() {
                 <dt className="text-driftwood uppercase tracking-wider">{t("technique")}</dt>
                 <dd className="text-forest/90">{isGerman ? product.techniqueDe : product.technique}</dd>
               </div>
+              {product.details.map((detail) => (
+                <div key={`${detail.label}-${detail.value}`}>
+                  <dt className="text-driftwood uppercase tracking-wider">{isGerman ? detail.labelDe : detail.label}</dt>
+                  <dd className="text-forest/90">{isGerman ? detail.valueDe : detail.value}</dd>
+                </div>
+              ))}
             </dl>
             <p className="mt-10 text-forest/90 leading-relaxed">{isGerman ? product.storyDe : product.story}</p>
             <div className="mt-12">
