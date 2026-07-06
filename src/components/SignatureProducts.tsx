@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 import { artisans, products } from "@/data/catalog";
 import { ProductCard } from "./ProductCard";
 
@@ -12,6 +13,8 @@ const signatureProducts = liveArtisanSlugs.flatMap((artisanSlug) => {
 
 export function SignatureProducts() {
   const t = useTranslations("products");
+  const locale = useLocale();
+  const isGerman = locale === "de";
 
   return (
     <section className="py-24 md:py-32 lg:py-40 bg-linen relative z-10">
@@ -27,7 +30,13 @@ export function SignatureProducts() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16">
           {signatureProducts.map((product) => (
-            <ProductCard key={product.slug} {...product} />
+            <ProductCard
+              key={product.slug}
+              {...product}
+              name={isGerman ? product.nameDe : product.name}
+              description={isGerman ? product.descriptionDe : product.description}
+              craft={isGerman ? product.craftDe : product.craft}
+            />
           ))}
         </div>
       </div>

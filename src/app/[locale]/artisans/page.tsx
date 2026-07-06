@@ -1,11 +1,14 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 import { ArtisanCard } from "@/components/ArtisanCard";
 import { artisans } from "@/data/catalog";
 
 export default function ArtisansPage() {
   const t = useTranslations("artisansPage");
+  const locale = useLocale();
+  const isGerman = locale === "de";
 
   return (
     <div className="pt-28 md:pt-36 pb-24">
@@ -16,7 +19,12 @@ export default function ArtisansPage() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
           {artisans.map((artisan) => (
-            <ArtisanCard key={artisan.slug} {...artisan} image={artisan.portrait} />
+            <ArtisanCard
+              key={artisan.slug}
+              {...artisan}
+              craft={isGerman ? artisan.craftDe : artisan.craft}
+              image={artisan.portrait}
+            />
           ))}
         </div>
       </div>

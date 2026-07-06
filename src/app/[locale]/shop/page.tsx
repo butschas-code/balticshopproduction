@@ -1,11 +1,14 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 import { ProductCard } from "@/components/ProductCard";
 import { products } from "@/data/catalog";
 
 export default function ShopPage() {
   const t = useTranslations("shop");
+  const locale = useLocale();
+  const isGerman = locale === "de";
 
   return (
     <div className="pt-28 md:pt-36 pb-24">
@@ -23,12 +26,12 @@ export default function ShopPage() {
             <ProductCard
               key={product.slug}
               slug={product.slug}
-              name={product.name}
-              description={product.description}
+              name={isGerman ? product.nameDe : product.name}
+              description={isGerman ? product.descriptionDe : product.description}
               price={product.price}
               image={product.image}
               artisanName={product.artisanName}
-              craft={product.craft}
+              craft={isGerman ? product.craftDe : product.craft}
             />
           ))}
         </div>

@@ -2,18 +2,24 @@
 
 import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { artisanBySlug, productBySlug } from "@/data/catalog";
 
 const defaultProduct = {
   name: "Handcrafted Object",
+  nameDe: "Handgefertigtes Objekt",
   artisanName: "Baltic Artisan",
   artisanSlug: "artisans",
   location: "The Baltic",
   craft: "Craft",
+  craftDe: "Handwerk",
   materials: "Natural materials",
+  materialsDe: "Natürliche Materialien",
   technique: "Traditional technique",
+  techniqueDe: "Traditionelle Technik",
   story: "A story of craft and place.",
+  storyDe: "Eine Geschichte von Handwerk und Ort.",
   isPartnerProduct: false,
   price: "€ —",
   images: ["https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&q=80"],
@@ -26,6 +32,8 @@ export default function ProductPage() {
   const artisan = artisanBySlug[product.artisanSlug];
   const [mainImage, ...otherImages] = product.images;
   const t = useTranslations("products");
+  const locale = useLocale();
+  const isGerman = locale === "de";
 
   return (
     <div className="pt-24 md:pt-32">
@@ -44,8 +52,8 @@ export default function ProductPage() {
             </div>
           </div>
           <div>
-            <p className="text-driftwood text-sm uppercase tracking-widest">{product.craft}</p>
-            <h1 className="font-serif text-4xl md:text-5xl text-forest mt-2 tracking-tight">{product.name}</h1>
+            <p className="text-driftwood text-sm uppercase tracking-widest">{isGerman ? product.craftDe : product.craft}</p>
+            <h1 className="font-serif text-4xl md:text-5xl text-forest mt-2 tracking-tight">{isGerman ? product.nameDe : product.name}</h1>
             <p className="mt-4 text-2xl text-forest">{product.price}</p>
             <dl className="mt-10 space-y-6 text-sm">
               <div>
@@ -59,14 +67,14 @@ export default function ProductPage() {
               </div>
               <div>
                 <dt className="text-driftwood uppercase tracking-wider">{t("materials")}</dt>
-                <dd className="text-forest/90">{product.materials}</dd>
+                <dd className="text-forest/90">{isGerman ? product.materialsDe : product.materials}</dd>
               </div>
               <div>
                 <dt className="text-driftwood uppercase tracking-wider">{t("technique")}</dt>
-                <dd className="text-forest/90">{product.technique}</dd>
+                <dd className="text-forest/90">{isGerman ? product.techniqueDe : product.technique}</dd>
               </div>
             </dl>
-            <p className="mt-10 text-forest/90 leading-relaxed">{product.story}</p>
+            <p className="mt-10 text-forest/90 leading-relaxed">{isGerman ? product.storyDe : product.story}</p>
             <div className="mt-12">
               <button type="button" className="w-full md:w-auto px-12 py-4 bg-forest text-linen font-medium tracking-wide hover:bg-forest/90 transition-colors duration-300">
                 {t("addToCart")}
@@ -84,7 +92,7 @@ export default function ProductPage() {
               <div>
                 <h3 className="font-serif text-xl text-forest">{artisan.name}</h3>
                 <p className="text-driftwood text-sm mt-1">{artisan.location}</p>
-                <p className="mt-6 text-forest/90 leading-relaxed">{artisan.bio}</p>
+                <p className="mt-6 text-forest/90 leading-relaxed">{isGerman ? artisan.bioDe : artisan.bio}</p>
                 <Link href={`/artisans/${artisan.slug}`} className="inline-flex items-center gap-2 mt-6 text-forest font-medium hover:text-amber transition-colors">
                   {t("viewProfile")}
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>

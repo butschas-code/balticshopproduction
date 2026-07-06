@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { artisans } from "@/data/catalog";
 import { ArtisanCard } from "./ArtisanCard";
@@ -9,6 +10,8 @@ const featuredArtisans = artisans.filter((artisan) => artisan.isPartner);
 
 export function ArtisansSection() {
   const t = useTranslations("artisans");
+  const locale = useLocale();
+  const isGerman = locale === "de";
 
   return (
     <section className="py-24 md:py-32 lg:py-40 bg-fog/30 relative z-10">
@@ -35,7 +38,12 @@ export function ArtisansSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
           {featuredArtisans.map((artisan) => (
-            <ArtisanCard key={artisan.slug} {...artisan} image={artisan.portrait} />
+            <ArtisanCard
+              key={artisan.slug}
+              {...artisan}
+              craft={isGerman ? artisan.craftDe : artisan.craft}
+              image={artisan.portrait}
+            />
           ))}
         </div>
       </div>
