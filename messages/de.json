@@ -76,7 +76,8 @@
   },
   "shop": {
     "title": "Shop",
-    "subtitle": "Handgefertigte Objekte von baltischen Handwerkern."
+    "subtitle": "Handgefertigte Objekte von baltischen Handwerkern.",
+    "all": "Alle"
   },
   "artisansPage": {
     "title": "Handwerker",

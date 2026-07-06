@@ -2,21 +2,18 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { products } from "@/data/catalog";
 
 const collectionSlugs = [
-  { slug: "amber", nameKey: "amber", descKey: "amberDesc" },
   { slug: "linen", nameKey: "linen", descKey: "linenDesc" },
   { slug: "woodcraft", nameKey: "woodcraft", descKey: "woodcraftDesc" },
-  { slug: "wool-felt", nameKey: "woolFelt", descKey: "woolFeltDesc" },
   { slug: "ceramics", nameKey: "ceramics", descKey: "ceramicsDesc" },
 ] as const;
 
-const images: Record<string, string> = {
-  amber: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80",
-  linen: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=800&q=80",
-  woodcraft: "https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?w=800&q=80",
-  "wool-felt": "https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=800&q=80",
-  ceramics: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&q=80",
+const categoryImages = {
+  linen: products.find((product) => product.artisanSlug === "studio-natural")?.image,
+  woodcraft: products.find((product) => product.artisanSlug === "raibi-koki")?.image,
+  ceramics: products.find((product) => product.artisanSlug === "cepli" || product.artisanSlug === "vaidava-ceramics")?.image,
 };
 
 export function CollectionGrid() {
@@ -42,7 +39,7 @@ export function CollectionGrid() {
               >
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
-                  style={{ backgroundImage: `url(${images[col.slug]})` }}
+                  style={{ backgroundImage: `url(${categoryImages[col.slug]})` }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-forest/20 to-transparent opacity-90 group-hover:opacity-95 transition-opacity" />
                 <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-10">

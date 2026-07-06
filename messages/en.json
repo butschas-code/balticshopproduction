@@ -76,7 +76,8 @@
   },
   "shop": {
     "title": "Shop",
-    "subtitle": "Handcrafted objects from Baltic artisans."
+    "subtitle": "Handcrafted objects from Baltic artisans.",
+    "all": "All"
   },
   "artisansPage": {
     "title": "Artisans",
