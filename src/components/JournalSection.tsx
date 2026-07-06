@@ -2,15 +2,13 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { journalPosts } from "@/data/journal";
 
-const journalPosts = [
-  { slug: "amber-coast", titleKey: "amberCoast", excerptKey: "amberCoastExcerpt", categoryKey: "categoryBaltic", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" },
-  { slug: "linen-traditions", titleKey: "linenTraditions", excerptKey: "linenTraditionsExcerpt", categoryKey: "categoryCraft", image: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=800&q=80" },
-  { slug: "forest-hands", titleKey: "forestHands", excerptKey: "forestHandsExcerpt", categoryKey: "categoryArtisans", image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80" },
-] as const;
+const featuredPosts = journalPosts.slice(0, 3);
 
 export function JournalSection() {
   const t = useTranslations("journal");
+
   return (
     <section className="py-24 md:py-32 lg:py-40 bg-linen relative z-10">
       <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16">
@@ -35,7 +33,7 @@ export function JournalSection() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
-          {journalPosts.map((post) => (
+          {featuredPosts.map((post) => (
             <article key={post.slug}>
               <Link href={`/journal/${post.slug}`} className="group block">
                 <div className="relative aspect-[4/5] overflow-hidden bg-fog mb-6">
@@ -45,13 +43,13 @@ export function JournalSection() {
                   />
                 </div>
                 <span className="text-xs uppercase tracking-widest text-amber">
-                  {t(post.categoryKey)}
+                  {post.category}
                 </span>
                 <h3 className="font-serif text-2xl text-forest mt-2 group-hover:text-amber transition-colors">
-                  {t(post.titleKey)}
+                  {post.title}
                 </h3>
                 <p className="mt-3 text-driftwood text-sm leading-relaxed">
-                  {t(post.excerptKey)}
+                  {post.excerpt}
                 </p>
               </Link>
             </article>
