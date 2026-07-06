@@ -1,10 +1,13 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { products } from "@/data/catalog";
+import { artisans, products, type CatalogProduct } from "@/data/catalog";
 import { ProductCard } from "./ProductCard";
 
-const signatureProducts = products.slice(0, 3);
+const liveArtisanSlugs = artisans.filter((artisan) => artisan.website).map((artisan) => artisan.slug);
+const signatureProducts = liveArtisanSlugs
+  .map((artisanSlug) => products.find((product) => product.artisanSlug === artisanSlug && product.sourceUrl))
+  .filter((product): product is CatalogProduct => Boolean(product));
 
 export function SignatureProducts() {
   const t = useTranslations("products");
@@ -21,7 +24,7 @@ export function SignatureProducts() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16">
           {signatureProducts.map((product) => (
             <ProductCard key={product.slug} {...product} />
           ))}

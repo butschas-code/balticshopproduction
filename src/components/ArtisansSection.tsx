@@ -5,7 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { artisans } from "@/data/catalog";
 import { ArtisanCard } from "./ArtisanCard";
 
-const featuredArtisans = artisans.slice(0, 3);
+const featuredArtisans = artisans.filter((artisan) => artisan.website);
 
 export function ArtisansSection() {
   const t = useTranslations("artisans");
@@ -33,7 +33,7 @@ export function ArtisansSection() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
           {featuredArtisans.map((artisan) => (
             <ArtisanCard key={artisan.slug} {...artisan} image={artisan.portrait} />
           ))}
