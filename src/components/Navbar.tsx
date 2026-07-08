@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { LanguageSelector } from "./LanguageSelector";
+import { supabase } from "@/lib/supabase/client";
 
 const navKeys = [
   { href: "/", key: "home" },
@@ -22,6 +23,7 @@ export function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const isHome = pathname === "/";
   const useDarkNav = scrolled || !isHome;
 
@@ -30,6 +32,28 @@ export function Navbar() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    const loadSession = async () => {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+      setIsAuthenticated(Boolean(session));
+    };
+
+    void loadSession();
+
+    const { data } = supabase.auth.onAuthStateChange((_event, session) => {
+      setIsAuthenticated(Boolean(session));
+    });
+
+    return () => data.subscription.unsubscribe();
+  }, []);
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    setMobileOpen(false);
+  };
 
   return (
     <motion.header
@@ -61,6 +85,21 @@ export function Navbar() {
 
         <div className="flex items-center gap-5">
           <LanguageSelector />
+          <Link
+            href={isAuthenticated ? "/account/orders" : "/login"}
+            className="hidden md:inline text-linen/95 hover:text-amber transition-colors duration-300 text-sm nav-link"
+          >
+            {isAuthenticated ? t("account") : t("login")}
+          </Link>
+          {isAuthenticated && (
+            <button
+              type="button"
+              onClick={handleLogout}
+              className="hidden md:inline text-linen/95 hover:text-amber transition-colors duration-300 text-sm nav-link"
+            >
+              {t("logout")}
+            </button>
+          )}
           <Link
             href="/cart"
             className="text-linen hover:text-amber transition-colors duration-300 nav-link"
@@ -119,6 +158,26 @@ export function Navbar() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href={isAuthenticated ? "/account/orders" : "/login"}
+                  className="text-forest hover:text-amber transition-colors"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {isAuthenticated ? t("account") : t("login")}
+                </Link>
+              </li>
+              {isAuthenticated && (
+                <li>
+                  <button
+                    type="button"
+                    className="text-forest hover:text-amber transition-colors"
+                    onClick={handleLogout}
+                  >
+                    {t("logout")}
+                  </button>
+                </li>
+              )}
             </ul>
           </motion.div>
         )}

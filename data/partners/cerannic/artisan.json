@@ -1,0 +1,16 @@
+{
+  "slug": "cerannic",
+  "name": "cerannic",
+  "location": "Latvia",
+  "craft": "Handmade ceramics",
+  "craftDe": "Handgefertigte Keramik",
+  "bio": "cerannic creates handcrafted ceramics and giftable objects in limited runs.",
+  "bioDe": "Cerannic stellt handgefertigte Keramik und Geschenkartikel in limitierten Auflagen her.",
+  "portrait": "/partners/cerannic/images/media/cerannic-portrait.jpg",
+  "workshopImages": [
+    "/partners/cerannic/images/93b0b19bd9d005.jpg",
+    "/partners/cerannic/images/c4badaee2e25c1.png",
+    "/partners/cerannic/images/739141683668e9.jpeg"
+  ],
+  "isPartner": true
+}

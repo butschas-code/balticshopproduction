@@ -1,0 +1,31 @@
+.admin-input {
+  @apply w-full rounded-md border border-fog px-3 py-2 bg-white text-forest;
+}
+
+.admin-btn {
+  @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors;
+}
+
+.admin-btn-primary {
+  @apply admin-btn bg-forest text-linen hover:bg-forest/90;
+}
+
+.admin-btn-ghost {
+  @apply admin-btn border border-fog hover:bg-fog/40;
+}
+
+.admin-card {
+  @apply rounded-lg border border-fog bg-white p-6;
+}
+
+.admin-table {
+  @apply w-full text-sm;
+}
+
+.admin-table th {
+  @apply text-left font-medium text-driftwood border-b border-fog py-3;
+}
+
+.admin-table td {
+  @apply border-b border-fog/60 py-3 align-top;
+}

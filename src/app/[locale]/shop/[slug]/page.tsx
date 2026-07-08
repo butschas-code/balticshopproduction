@@ -1,114 +1,232 @@
-"use client";
-
-import { useParams } from "next/navigation";
-import { useTranslations } from "next-intl";
-import { useLocale } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { artisanBySlug, productBySlug } from "@/data/catalog";
+import {
+  getCatalogArtisanBySlug,
+  getCatalogProductBySlug,
+  getCatalogProducts,
+} from "@/lib/catalog-supabase";
+import { AddToCartButton } from "@/components/cart/AddToCartButton";
+import { EditorialProductCard } from "@/components/shop/EditorialProductCard";
+import { ProductGallery } from "@/components/shop/ProductGallery";
+import { enrichShopProduct, getRelatedProducts } from "@/lib/shop/curation";
 
-const defaultProduct = {
+const fallbackProduct = {
+  id: "",
+  slug: "",
   name: "Handcrafted Object",
-  nameDe: "Handgefertigtes Objekt",
+  description: "",
   artisanName: "Baltic Artisan",
-  artisanSlug: "artisans",
+  artisanSlug: "",
   location: "The Baltic",
   craft: "Craft",
-  craftDe: "Handwerk",
   materials: "Natural materials",
-  materialsDe: "Natürliche Materialien",
-  technique: "Traditional technique",
-  techniqueDe: "Traditionelle Technik",
+  technique: "Traditional craftsmanship",
   story: "A story of craft and place.",
-  storyDe: "Eine Geschichte von Handwerk und Ort.",
-  details: [],
-  isPartnerProduct: false,
   price: "€ —",
+  image: "",
   images: ["https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&q=80"],
+  details: [] as { label: string; value: string }[],
+  priceAmount: null as number | null,
+  currencyCode: "EUR",
+  collectionSlug: null as string | null,
+  productType: null as string | null,
 };
 
-export default function ProductPage() {
-  const params = useParams();
-  const slug = params?.slug as string;
-  const product = slug && productBySlug[slug] ? productBySlug[slug] : defaultProduct;
-  const artisan = artisanBySlug[product.artisanSlug];
-  const [mainImage, ...otherImages] = product.images;
-  const t = useTranslations("products");
-  const locale = useLocale();
-  const isGerman = locale === "de";
+export default async function ProductPage({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}) {
+  const { locale, slug } = await params;
+  const activeLocale = locale === "de" ? "de" : "en";
+
+  const [t, tProducts, tShop, tCollections, allProducts] = await Promise.all([
+    getTranslations("product"),
+    getTranslations("products"),
+    getTranslations("shop"),
+    getTranslations("collections"),
+    getCatalogProducts(activeLocale),
+  ]);
+
+  const rawProduct = (await getCatalogProductBySlug(slug, activeLocale)) || fallbackProduct;
+  const product = enrichShopProduct(rawProduct);
+  const artisan = product.artisanSlug ? await getCatalogArtisanBySlug(product.artisanSlug, activeLocale) : null;
+  const images = product.images.length > 0 ? product.images : product.image ? [product.image] : fallbackProduct.images;
+  const related = getRelatedProducts(allProducts.map(enrichShopProduct), product.slug, 3);
+
+  const typeLabel = tShop(`types.${product.productType}` as never);
+  const collectionLabel = tCollections(product.collectionSlug);
 
   return (
-    <div className="pt-24 md:pt-32">
-      <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 pb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-          <div className="space-y-4">
-            <div className="aspect-[4/5] bg-fog overflow-hidden">
-              <div className="w-full h-full bg-cover bg-center" style={{ backgroundImage: `url(${mainImage})` }} />
+    <div className="pb-24">
+      <section className="border-b border-fog/80">
+        <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 pt-28 md:pt-36 pb-8 md:pb-10">
+          <nav className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[11px] uppercase tracking-[0.18em] text-driftwood">
+            <Link href="/shop" className="hover:text-amber transition-colors">
+              {tShop("title")}
+            </Link>
+            <span aria-hidden="true">/</span>
+            <Link
+              href={`/shop?collection=${product.collectionSlug}`}
+              className="hover:text-amber transition-colors"
+            >
+              {collectionLabel}
+            </Link>
+            <span aria-hidden="true">/</span>
+            <Link
+              href={`/shop?collection=${product.collectionSlug}&type=${product.productType}`}
+              className="hover:text-amber transition-colors"
+            >
+              {typeLabel}
+            </Link>
+          </nav>
+        </div>
+      </section>
+
+      <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 pt-10 md:pt-14">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 xl:gap-20 items-start">
+          <ProductGallery images={images} productName={product.name} label={typeLabel} />
+
+          <div className="lg:pt-4">
+            <div className="flex flex-wrap gap-2 mb-6">
+              <span className="px-3 py-1 text-[11px] uppercase tracking-[0.22em] border border-driftwood/25 text-forest">
+                {collectionLabel}
+              </span>
+              <span className="px-3 py-1 text-[11px] uppercase tracking-[0.22em] bg-linen border border-fog text-driftwood">
+                {typeLabel}
+              </span>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              {otherImages.map((img, i) => (
-                <div key={i} className="aspect-square bg-fog overflow-hidden">
-                  <div className="w-full h-full bg-cover bg-center" style={{ backgroundImage: `url(${img})` }} />
-                </div>
-              ))}
+
+            <p className="text-driftwood text-[11px] uppercase tracking-[0.24em]">
+              {product.artisanSlug ? (
+                <Link href={`/artisans/${product.artisanSlug}`} className="hover:text-amber transition-colors">
+                  {product.artisanName}
+                </Link>
+              ) : (
+                product.artisanName
+              )}
+              <span className="text-driftwood/70"> · {product.location}</span>
+            </p>
+
+            <h1 className="mt-4 font-serif text-4xl md:text-5xl lg:text-[3.4rem] text-forest tracking-tight leading-[1.05]">
+              {product.name}
+            </h1>
+
+            <p className="mt-6 text-2xl md:text-3xl text-forest font-medium">{product.price}</p>
+
+            <p className="mt-8 text-forest/80 text-base md:text-lg leading-relaxed max-w-xl">
+              {product.description}
+            </p>
+
+            <div className="mt-10 pt-10 border-t border-fog/80">
+              {product.id && product.priceAmount != null ? (
+                <AddToCartButton
+                  productId={product.id}
+                  productSlug={product.slug}
+                  productName={product.name}
+                  productImageUrl={product.image}
+                  unitPrice={product.priceAmount}
+                  currencyCode={product.currencyCode}
+                />
+              ) : (
+                <button
+                  type="button"
+                  disabled
+                  className="w-full md:w-auto px-12 py-4 bg-forest text-linen font-medium tracking-[0.12em] uppercase text-sm opacity-60"
+                >
+                  {tProducts("addToCart")}
+                </button>
+              )}
             </div>
-          </div>
-          <div>
-            <p className="text-driftwood text-sm uppercase tracking-widest">{isGerman ? product.craftDe : product.craft}</p>
-            <h1 className="font-serif text-4xl md:text-5xl text-forest mt-2 tracking-tight">{isGerman ? product.nameDe : product.name}</h1>
-            <p className="mt-4 text-2xl text-forest">{product.price}</p>
-            <dl className="mt-10 space-y-6 text-sm">
-              <div>
-                <dt className="text-driftwood uppercase tracking-wider">{t("artisan")}</dt>
-                <dd>
-                  <Link href={`/artisans/${product.artisanSlug}`} className="text-forest hover:text-amber transition-colors">
-                    {product.artisanName}
-                  </Link>
-                  <span className="text-driftwood"> — {product.location}</span>
-                </dd>
-              </div>
-              <div>
-                <dt className="text-driftwood uppercase tracking-wider">{t("materials")}</dt>
-                <dd className="text-forest/90">{isGerman ? product.materialsDe : product.materials}</dd>
-              </div>
-              <div>
-                <dt className="text-driftwood uppercase tracking-wider">{t("technique")}</dt>
-                <dd className="text-forest/90">{isGerman ? product.techniqueDe : product.technique}</dd>
-              </div>
+
+            <dl className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-8 text-sm border-t border-fog/80 pt-10">
+              <DetailItem label={tProducts("materials")} value={product.materials} />
+              <DetailItem label={tProducts("technique")} value={product.technique} />
+              <DetailItem label={t("craft")} value={product.craft} />
               {product.details.map((detail) => (
-                <div key={`${detail.label}-${detail.value}`}>
-                  <dt className="text-driftwood uppercase tracking-wider">{isGerman ? detail.labelDe : detail.label}</dt>
-                  <dd className="text-forest/90">{isGerman ? detail.valueDe : detail.value}</dd>
-                </div>
+                <DetailItem key={`${detail.label}-${detail.value}`} label={detail.label} value={detail.value} />
               ))}
             </dl>
-            <p className="mt-10 text-forest/90 leading-relaxed">{isGerman ? product.storyDe : product.story}</p>
-            <div className="mt-12">
-              <button type="button" className="w-full md:w-auto px-12 py-4 bg-forest text-linen font-medium tracking-wide hover:bg-forest/90 transition-colors duration-300">
-                {t("addToCart")}
-              </button>
-            </div>
           </div>
         </div>
-        {artisan && (
-          <section className="mt-24 lg:mt-32 pt-16 border-t border-fog">
-            <h2 className="font-serif text-2xl md:text-3xl text-forest mb-8">{t("meetArtisan")}</h2>
-            <div className="flex flex-col md:flex-row gap-10 items-start">
-              <div className="w-full md:w-80 aspect-square shrink-0 bg-fog overflow-hidden">
-                <div className="w-full h-full bg-cover bg-center" style={{ backgroundImage: `url(${artisan.portrait})` }} />
+
+        {product.story ? (
+          <section className="mt-20 md:mt-28 py-12 md:py-16 border-y border-fog/80">
+            <div className="max-w-3xl">
+              <p className="text-driftwood text-xs uppercase tracking-[0.28em]">{t("storyEyebrow")}</p>
+              <blockquote className="mt-6 font-serif text-2xl md:text-3xl text-forest leading-relaxed">
+                {product.story}
+              </blockquote>
+            </div>
+          </section>
+        ) : null}
+
+        {artisan ? (
+          <section className="mt-20 md:mt-28">
+            <div className="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-16 items-start">
+              <div className="relative aspect-[4/5] max-w-md bg-fog overflow-hidden">
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${artisan.portrait})` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-forest/35 via-transparent to-transparent" />
               </div>
-              <div>
-                <h3 className="font-serif text-xl text-forest">{artisan.name}</h3>
-                <p className="text-driftwood text-sm mt-1">{artisan.location}</p>
-                <p className="mt-6 text-forest/90 leading-relaxed">{isGerman ? artisan.bioDe : artisan.bio}</p>
-                <Link href={`/artisans/${artisan.slug}`} className="inline-flex items-center gap-2 mt-6 text-forest font-medium hover:text-amber transition-colors">
-                  {t("viewProfile")}
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              <div className="lg:pt-8">
+                <p className="text-driftwood text-xs uppercase tracking-[0.28em]">{tProducts("meetArtisan")}</p>
+                <h2 className="mt-4 font-serif text-3xl md:text-4xl text-forest">{artisan.name}</h2>
+                <p className="mt-2 text-driftwood text-sm uppercase tracking-[0.18em]">{artisan.location}</p>
+                <p className="mt-8 text-forest/85 leading-relaxed text-base md:text-lg max-w-2xl">{artisan.bio}</p>
+                <Link
+                  href={`/artisans/${artisan.slug}`}
+                  className="inline-flex items-center gap-2 mt-8 text-forest font-medium hover:text-amber transition-colors"
+                >
+                  {tProducts("viewProfile")}
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
                 </Link>
               </div>
             </div>
           </section>
-        )}
+        ) : null}
+
+        {related.length > 0 ? (
+          <section className="mt-20 md:mt-28 pt-16 border-t border-fog/80">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10 md:mb-14">
+              <div>
+                <p className="text-driftwood text-xs uppercase tracking-[0.28em]">{t("relatedEyebrow")}</p>
+                <h2 className="mt-3 font-serif text-3xl md:text-4xl text-forest">{t("relatedTitle")}</h2>
+              </div>
+              <Link
+                href={`/shop?collection=${product.collectionSlug}&type=${product.productType}`}
+                className="text-sm uppercase tracking-[0.16em] text-forest hover:text-amber transition-colors"
+              >
+                {t("relatedCta", { type: typeLabel })}
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+              {related.map((item) => (
+                <EditorialProductCard
+                  key={item.slug}
+                  product={item}
+                  locale={activeLocale}
+                  variant="feature"
+                  label={tShop(`types.${item.productType}` as never)}
+                />
+              ))}
+            </div>
+          </section>
+        ) : null}
       </div>
+    </div>
+  );
+}
+
+function DetailItem({ label, value }: { label: string; value: string }) {
+  return (
+    <div>
+      <dt className="text-driftwood text-[11px] uppercase tracking-[0.18em]">{label}</dt>
+      <dd className="mt-2 text-forest/90 leading-relaxed">{value}</dd>
     </div>
   );
 }

@@ -1,0 +1,15 @@
+{
+  "slug": "raibi-koki",
+  "name": "Raibi Koki",
+  "location": "Ķekava, Latvia",
+  "craft": "Woodcraft objects and cutting boards",
+  "craftDe": "Holzhandwerksgegenstände und Schneidebretter",
+  "bio": "Raibi Koki crafts colorful end-grain cutting boards and small wooden lifestyle objects.",
+  "bioDe": "Raibi Koki fertigt farbenfrohe Schneidebretter aus Hirnholz und kleine Lifestyle-Objekte aus Holz.",
+  "portrait": "/partners/raibi-koki/images/raibi-koki-lielais-raibis-43x27-cm-03.png",
+  "workshopImages": [
+    "/partners/raibi-koki/images/raibi-koki-triskasu-32x23-cm-01.png",
+    "/partners/raibi-koki/images/raibi-koki-triskrasu-40x26-cm-02-01.png"
+  ],
+  "isPartner": true
+}

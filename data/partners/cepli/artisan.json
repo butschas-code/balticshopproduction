@@ -1,0 +1,16 @@
+{
+  "slug": "cepli",
+  "name": "Cepļi",
+  "location": "Vidzemes jūrmalas piekraste, Latvia",
+  "craft": "Black ceramics and tableware",
+  "craftDe": "Schwarze Keramik und Geschirr",
+  "bio": "Cepļi is a Latvian black-ceramics workshop active since 1985, producing tableware and traditional clay objects.",
+  "bioDe": "Cepļi ist eine lettische Werkstatt für schwarze Keramik, die seit 1985 tätig ist und Geschirr und traditionelle Tongegenstände herstellt.",
+  "portrait": "/partners/cepli/images/media/cepli-portrait.jpg",
+  "workshopImages": [
+    "/partners/cepli/images/media/cepli-workshop-01.jpg",
+    "/partners/cepli/images/media/cepli-workshop-02.jpg",
+    "/partners/cepli/images/media/cepli-workshop-03.jpg"
+  ],
+  "isPartner": true
+}

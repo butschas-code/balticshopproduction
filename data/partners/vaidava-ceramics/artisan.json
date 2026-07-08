@@ -1,0 +1,15 @@
+{
+  "slug": "vaidava-ceramics",
+  "name": "VAIDAVA CERAMICS",
+  "location": "Vaidava, Latvia",
+  "craft": "Handcrafted Latvian ceramics",
+  "craftDe": "Handgefertigte lettische Keramik",
+  "bio": "Vaidava Ceramics creates artisanal terracotta-inspired tableware with Nordic minimalism and Baltic heritage.",
+  "bioDe": "Vaidava Ceramics kreiert handwerklich von Terrakotta inspiriertes Geschirr mit nordischem Minimalismus und baltischem Erbe.",
+  "portrait": "/partners/vaidava-ceramics/images/media/vaidava-ceramics-portrait.jpg",
+  "workshopImages": [
+    "/partners/vaidava-ceramics/images/media/vaidava-ceramics-workshop-01.jpg",
+    "/partners/vaidava-ceramics/images/media/vaidava-ceramics-workshop-02.jpg"
+  ],
+  "isPartner": true
+}

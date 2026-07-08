@@ -40,3 +40,6 @@ yarn-error.log*
 .idea/
 *.swp
 *.swo
+
+# Large partner media — served from Cloudflare R2 in production
+/public/partners/

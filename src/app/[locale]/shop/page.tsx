@@ -1,95 +1,40 @@
-"use client";
+import { Suspense } from "react";
+import { getCatalogProducts } from "@/lib/catalog-supabase";
+import { ShopExperience } from "@/components/shop/ShopExperience";
 
-import { useTranslations } from "next-intl";
-import { useLocale } from "next-intl";
-import { useSearchParams } from "next/navigation";
-import { Link } from "@/i18n/navigation";
-import { ProductCard } from "@/components/ProductCard";
-import { products } from "@/data/catalog";
-
-const productCategories = [
-  { slug: "linen", nameKey: "linen" },
-  { slug: "woodcraft", nameKey: "woodcraft" },
-  { slug: "ceramics", nameKey: "ceramics" },
-] as const;
-
-function getProductCategory(product: (typeof products)[number]) {
-  if (product.artisanSlug === "studio-natural") {
-    return "linen";
-  }
-
-  if (product.artisanSlug === "raibi-koki") {
-    return "woodcraft";
-  }
-
-  return "ceramics";
-}
-
-export default function ShopPage() {
-  const t = useTranslations("shop");
-  const tCollections = useTranslations("collections");
-  const locale = useLocale();
-  const searchParams = useSearchParams();
-  const isGerman = locale === "de";
-  const selectedCategory = searchParams.get("collection");
-  const filteredProducts = productCategories.some((category) => category.slug === selectedCategory)
-    ? products.filter((product) => getProductCategory(product) === selectedCategory)
-    : products;
+export default async function ShopPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const activeLocale = locale === "de" ? "de" : "en";
+  const products = await getCatalogProducts(activeLocale);
 
   return (
-    <div className="pt-28 md:pt-36 pb-24">
-      <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16">
-        <div className="mb-16 md:mb-24">
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-forest tracking-tight">
-            {t("title")}
-          </h1>
-          <p className="mt-4 text-driftwood text-lg max-w-xl">
-            {t("subtitle")}
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="/shop"
-              className={`px-4 py-2 text-sm border transition-colors ${
-                selectedCategory
-                  ? "border-driftwood/25 text-forest hover:border-amber hover:text-amber"
-                  : "border-forest bg-forest text-linen"
-              }`}
-            >
-              {t("all")}
-            </Link>
-            {productCategories.map((category) => {
-              const isSelected = selectedCategory === category.slug;
+    <Suspense fallback={<ShopPageFallback />}>
+      <ShopExperience products={products} locale={activeLocale} />
+    </Suspense>
+  );
+}
 
-              return (
-                <Link
-                  key={category.slug}
-                  href={`/shop?collection=${category.slug}`}
-                  className={`px-4 py-2 text-sm border transition-colors ${
-                    isSelected
-                      ? "border-forest bg-forest text-linen"
-                      : "border-driftwood/25 text-forest hover:border-amber hover:text-amber"
-                  }`}
-                >
-                  {tCollections(category.nameKey)}
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16">
-          {filteredProducts.map((product) => (
-            <ProductCard
-              key={product.slug}
-              slug={product.slug}
-              name={isGerman ? product.nameDe : product.name}
-              description={isGerman ? product.descriptionDe : product.description}
-              price={product.price}
-              image={product.image}
-              artisanName={product.artisanName}
-              craft={isGerman ? product.craftDe : product.craft}
-            />
+function ShopPageFallback() {
+  return (
+    <div className="pb-30">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 pt-32 md:pt-40 pb-16">
+        <div className="h-3 w-32 bg-fog/80 animate-pulse" />
+        <div className="mt-8 h-16 md:h-20 w-2/3 max-w-xl bg-fog/80 animate-pulse" />
+        <div className="mt-6 h-5 w-1/2 max-w-md bg-fog/60 animate-pulse" />
+      </div>
+      <div className="border-y border-fog/60 py-7">
+        <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 flex gap-6">
+          {[0, 1, 2, 3].map((item) => (
+            <div key={item} className="h-6 w-24 bg-fog/60 animate-pulse" />
           ))}
         </div>
+      </div>
+      <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 pt-16">
+        <div className="aspect-[2/1] bg-[#EBE8E2] animate-pulse" />
       </div>
     </div>
   );

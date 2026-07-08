@@ -1,14 +1,15 @@
-"use client";
-
-import { useTranslations } from "next-intl";
-import { useLocale } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { ArtisanCard } from "@/components/ArtisanCard";
-import { artisans } from "@/data/catalog";
+import { getCatalogArtisans } from "@/lib/catalog-supabase";
 
-export default function ArtisansPage() {
-  const t = useTranslations("artisansPage");
-  const locale = useLocale();
-  const isGerman = locale === "de";
+export default async function ArtisansPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const activeLocale = locale === "de" ? "de" : "en";
+
+  const [t, artisans] = await Promise.all([
+    getTranslations("artisansPage"),
+    getCatalogArtisans(activeLocale),
+  ]);
 
   return (
     <div className="pt-28 md:pt-36 pb-24">
@@ -21,8 +22,10 @@ export default function ArtisansPage() {
           {artisans.map((artisan) => (
             <ArtisanCard
               key={artisan.slug}
-              {...artisan}
-              craft={isGerman ? artisan.craftDe : artisan.craft}
+              slug={artisan.slug}
+              name={artisan.name}
+              location={artisan.location}
+              craft={artisan.craft}
               image={artisan.portrait}
             />
           ))}

@@ -6,9 +6,22 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "catalog:update": ".venv/bin/python scripts/scrape_partners.py --incremental",
+    "catalog:update:full": ".venv/bin/python scripts/scrape_partners.py",
+    "catalog:update:partner": ".venv/bin/python scripts/scrape_partners.py --incremental --partners",
+    "catalog:seed:sql": ".venv/bin/python scripts/generate_supabase_seed_sql.py",
+    "catalog:sync:supabase": ".venv/bin/python scripts/generate_supabase_seed_sql.py && supabase db push --yes",
+    "cms:setup-admin": "node scripts/setup-cms-admin.mjs",
+    "r2:setup": "node --env-file=.env.local scripts/setup-r2.mjs",
+    "r2:upload": "node --env-file=.env.local scripts/upload-partners-to-r2.mjs",
+    "r2:migrate-db": "node --env-file=.env.local scripts/migrate-supabase-asset-urls.mjs",
+    "r2:all": "node --env-file=.env.local scripts/r2-all.mjs",
+    "taxonomy:reclassify": "npx tsx --env-file=.env.local scripts/reclassify-products.ts"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1081.0",
+    "@supabase/supabase-js": "^2.110.1",
     "framer-motion": "^11.11.17",
     "next": "^15.3.9",
     "next-intl": "^3.26.5",

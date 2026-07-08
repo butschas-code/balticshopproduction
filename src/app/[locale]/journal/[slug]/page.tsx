@@ -1,14 +1,40 @@
 import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
+import { formatReadTime, formatStoryDate, getPublishedStoryBySlug } from "@/lib/cms/stories";
 import { journalPostBySlug } from "@/data/journal";
 
-export default async function JournalPostPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const post = journalPostBySlug[slug];
+export default async function JournalPostPage({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}) {
+  const { locale, slug } = await params;
+  const cmsPost = await getPublishedStoryBySlug(slug, locale);
+  const staticPost = journalPostBySlug[slug];
 
-  if (!post) {
+  if (!cmsPost && !staticPost) {
     notFound();
   }
+
+  const post = cmsPost
+    ? {
+        title: cmsPost.title,
+        category: cmsPost.category?.name ?? "Story",
+        date: formatStoryDate(cmsPost.published_at, locale),
+        readTime: formatReadTime(cmsPost.read_time_minutes, locale),
+        excerpt: cmsPost.excerpt ?? "",
+        image: cmsPost.hero_image_url ?? "/catalog/asset-974afdab4f55.jpg",
+        bodyHtml: cmsPost.body_html,
+      }
+    : {
+        title: staticPost.title,
+        category: staticPost.category,
+        date: staticPost.date,
+        readTime: staticPost.readTime,
+        excerpt: staticPost.excerpt,
+        image: staticPost.image,
+        bodyHtml: staticPost.body.map((p) => `<p>${p}</p>`).join(""),
+      };
 
   return (
     <article className="pt-28 md:pt-36 pb-24">
@@ -33,13 +59,10 @@ export default async function JournalPostPage({ params }: { params: Promise<{ sl
           <div className="w-full h-full bg-cover bg-center" style={{ backgroundImage: `url(${post.image})` }} />
         </div>
       </div>
-      <div className="max-w-3xl mx-auto px-6 md:px-12 mt-16 space-y-7">
-        {post.body.map((paragraph) => (
-          <p key={paragraph} className="text-forest/90 leading-relaxed text-lg">
-            {paragraph}
-          </p>
-        ))}
-      </div>
+      <div
+        className="max-w-3xl mx-auto px-6 md:px-12 mt-16 space-y-7 prose prose-lg prose-forest"
+        dangerouslySetInnerHTML={{ __html: post.bodyHtml }}
+      />
     </article>
   );
 }

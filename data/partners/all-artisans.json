@@ -1,0 +1,94 @@
+[
+  {
+    "slug": "vaidava-ceramics",
+    "name": "VAIDAVA CERAMICS",
+    "location": "Vaidava, Latvia",
+    "craft": "Handcrafted Latvian ceramics",
+    "craftDe": "Handgefertigte lettische Keramik",
+    "bio": "Vaidava Ceramics creates artisanal terracotta-inspired tableware with Nordic minimalism and Baltic heritage.",
+    "bioDe": "Vaidava Ceramics kreiert handwerklich von Terrakotta inspiriertes Geschirr mit nordischem Minimalismus und baltischem Erbe.",
+    "portrait": "/partners/vaidava-ceramics/images/media/vaidava-ceramics-portrait.jpg",
+    "workshopImages": [
+      "/partners/vaidava-ceramics/images/media/vaidava-ceramics-workshop-01.jpg",
+      "/partners/vaidava-ceramics/images/media/vaidava-ceramics-workshop-02.jpg"
+    ],
+    "isPartner": true
+  },
+  {
+    "slug": "cepli",
+    "name": "Cepļi",
+    "location": "Vidzemes jūrmalas piekraste, Latvia",
+    "craft": "Black ceramics and tableware",
+    "craftDe": "Schwarze Keramik und Geschirr",
+    "bio": "Cepļi is a Latvian black-ceramics workshop active since 1985, producing tableware and traditional clay objects.",
+    "bioDe": "Cepļi ist eine lettische Werkstatt für schwarze Keramik, die seit 1985 tätig ist und Geschirr und traditionelle Tongegenstände herstellt.",
+    "portrait": "/partners/cepli/images/media/cepli-portrait.jpg",
+    "workshopImages": [
+      "/partners/cepli/images/media/cepli-workshop-01.jpg",
+      "/partners/cepli/images/media/cepli-workshop-02.jpg",
+      "/partners/cepli/images/media/cepli-workshop-03.jpg"
+    ],
+    "isPartner": true
+  },
+  {
+    "slug": "cerannic",
+    "name": "cerannic",
+    "location": "Latvia",
+    "craft": "Handmade ceramics",
+    "craftDe": "Handgefertigte Keramik",
+    "bio": "cerannic creates handcrafted ceramics and giftable objects in limited runs.",
+    "bioDe": "Cerannic stellt handgefertigte Keramik und Geschenkartikel in limitierten Auflagen her.",
+    "portrait": "/partners/cerannic/images/media/cerannic-portrait.jpg",
+    "workshopImages": [
+      "/partners/cerannic/images/93b0b19bd9d005.jpg",
+      "/partners/cerannic/images/c4badaee2e25c1.png",
+      "/partners/cerannic/images/739141683668e9.jpeg"
+    ],
+    "isPartner": true
+  },
+  {
+    "slug": "latvijas-labumu-tirgus-mals",
+    "name": "Latvijas Labumu Tirgus: Māls",
+    "location": "Latvia",
+    "craft": "Clay and ceramics marketplace",
+    "craftDe": "Marktplatz für Ton und Keramik",
+    "bio": "The clay section of Latvijas Labumu Tirgus features many independent ceramic makers from across Latvia.",
+    "bioDe": "In der Tonabteilung von Latvijas Labumu Tirgus sind viele unabhängige Keramikhersteller aus ganz Lettland vertreten.",
+    "portrait": "/partners/latvijas-labumu-tirgus-mals/images/media/latvijas-labumu-tirgus-mals-portrait.jpg",
+    "workshopImages": [
+      "/partners/latvijas-labumu-tirgus-mals/images/media/latvijas-labumu-tirgus-mals-workshop-01.jpeg",
+      "/partners/latvijas-labumu-tirgus-mals/images/media/latvijas-labumu-tirgus-mals-workshop-02.jpeg"
+    ],
+    "isPartner": true
+  },
+  {
+    "slug": "raibi-koki",
+    "name": "Raibi Koki",
+    "location": "Ķekava, Latvia",
+    "craft": "Woodcraft objects and cutting boards",
+    "craftDe": "Holzhandwerksgegenstände und Schneidebretter",
+    "bio": "Raibi Koki crafts colorful end-grain cutting boards and small wooden lifestyle objects.",
+    "bioDe": "Raibi Koki fertigt farbenfrohe Schneidebretter aus Hirnholz und kleine Lifestyle-Objekte aus Holz.",
+    "portrait": "/partners/raibi-koki/images/raibi-koki-lielais-raibis-43x27-cm-03.png",
+    "workshopImages": [
+      "/partners/raibi-koki/images/raibi-koki-triskasu-32x23-cm-01.png",
+      "/partners/raibi-koki/images/raibi-koki-triskrasu-40x26-cm-02-01.png"
+    ],
+    "isPartner": true
+  },
+  {
+    "slug": "studio-natural",
+    "name": "Studio Natural",
+    "location": "Riga, Latvia",
+    "craft": "Handwoven linen textiles",
+    "craftDe": "Handgewebte Leinentextilien",
+    "bio": "Studio Natural produces handwoven linen home and apparel products made in Latvia.",
+    "bioDe": "Studio Natural produziert handgewebte Heim- und Bekleidungsprodukte aus Leinen, die in Lettland hergestellt werden.",
+    "portrait": "/partners/studio-natural/images/media/studio-natural-portrait.jpg",
+    "workshopImages": [
+      "/partners/studio-natural/images/media/studio-natural-workshop-01.jpg",
+      "/partners/studio-natural/images/media/studio-natural-workshop-02.jpg"
+    ],
+    "isPartner": true
+  }
+]

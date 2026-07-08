@@ -1,0 +1,15 @@
+{
+  "slug": "studio-natural",
+  "name": "Studio Natural",
+  "location": "Riga, Latvia",
+  "craft": "Handwoven linen textiles",
+  "craftDe": "Handgewebte Leinentextilien",
+  "bio": "Studio Natural produces handwoven linen home and apparel products made in Latvia.",
+  "bioDe": "Studio Natural produziert handgewebte Heim- und Bekleidungsprodukte aus Leinen, die in Lettland hergestellt werden.",
+  "portrait": "/partners/studio-natural/images/media/studio-natural-portrait.jpg",
+  "workshopImages": [
+    "/partners/studio-natural/images/media/studio-natural-workshop-01.jpg",
+    "/partners/studio-natural/images/media/studio-natural-workshop-02.jpg"
+  ],
+  "isPartner": true
+}
