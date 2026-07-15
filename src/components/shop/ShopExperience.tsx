@@ -125,7 +125,7 @@ export function ShopExperience({ products, locale }: ShopExperienceProps) {
 
   const filterLabels = {
     layerCollection: t("layerCollection"),
-    layerWithin: t("layerWithin"),
+    layerWithin: t("layerWithin", { collection: "{collection}" }),
     allCollections: t("allCollections"),
     chooseCollectionHint: t("chooseCollectionHint"),
     filterByType: t("filterByType"),
