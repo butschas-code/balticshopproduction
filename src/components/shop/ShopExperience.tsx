@@ -6,17 +6,23 @@ import { usePathname, useRouter } from "@/i18n/navigation";
 import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 
+import { ShopAmbient } from "@/components/shop/ShopAmbient";
 import { ShopCollectionChapter } from "@/components/shop/ShopCollectionChapter";
 import { ShopEditorialGrid } from "@/components/shop/ShopEditorialGrid";
 import { ShopFilters } from "@/components/shop/ShopFilters";
 import { EditorialProductCard } from "@/components/shop/EditorialProductCard";
+import { ScrollReveal, ScrollRevealItem, ScrollRevealStagger } from "@/components/shop/ScrollReveal";
+import { shopEase } from "@/lib/shop/motion";
 import {
   buildEditorialSections,
   countHiddenMatches,
   enrichShopProduct,
   filterShopProducts,
   getAvailableArtisans,
-  getAvailableTypes,
+  getAvailableTypesWithCounts,
+  getCollectionCounts,
+  getGroupedTypesWithCounts,
+  pickFlagshipProduct,
   type ShopCatalogProduct,
 } from "@/lib/shop/curation";
 import {
@@ -57,7 +63,13 @@ export function ShopExperience({ products, locale }: ShopExperienceProps) {
     view: viewParam === "all" ? ("all" as const) : ("curated" as const),
   };
 
-  const hasActiveFilter = Boolean(filters.collection || filters.type || filters.artisan);
+  const activeFilters = {
+    ...filters,
+    type: filters.collection ? filters.type : null,
+    artisan: filters.collection ? filters.artisan : null,
+  };
+
+  const hasActiveFilter = Boolean(activeFilters.collection || activeFilters.type || activeFilters.artisan);
   const isCuratedDefault = !hasActiveFilter && filters.view !== "all";
   const isBrowseMode = !isCuratedDefault;
 
@@ -66,26 +78,22 @@ export function ShopExperience({ products, locale }: ShopExperienceProps) {
     [products],
   );
 
-  const flagship = useMemo(() => {
-    return enriched
-      .filter((product) => product.isFeatured && product.shopVisible)
-      .sort((a, b) => a.shopRank - b.shopRank)[0];
-  }, [enriched]);
+  const flagship = useMemo(() => pickFlagshipProduct(enriched), [enriched]);
 
   const editorial = useMemo(
-    () => (filters.collection ? buildEditorialSections(enriched, filters.collection) : { hero: undefined, rest: [] }),
-    [enriched, filters.collection],
+    () => (activeFilters.collection ? buildEditorialSections(enriched, activeFilters.collection) : { hero: undefined, rest: [] }),
+    [enriched, activeFilters.collection],
   );
 
   const filtered = useMemo(() => {
-    const results = filterShopProducts(enriched, filters);
+    const results = filterShopProducts(enriched, activeFilters);
 
-    if (isCuratedDefault && filters.collection && editorial.hero) {
+    if (isCuratedDefault && activeFilters.collection && editorial.hero) {
       const spotlightSlugs = new Set([editorial.hero, ...editorial.rest.slice(0, 2)].map((product) => product.slug));
       return results.filter((product) => !spotlightSlugs.has(product.slug));
     }
 
-    if (isCuratedDefault && !filters.collection && flagship) {
+    if (isCuratedDefault && !activeFilters.collection && flagship) {
       const chapterSlugs = new Set<string>([flagship.slug]);
       for (const collection of SHOP_COLLECTIONS) {
         const section = buildEditorialSections(enriched, collection);
@@ -96,35 +104,45 @@ export function ShopExperience({ products, locale }: ShopExperienceProps) {
     }
 
     return results;
-  }, [enriched, filters, isCuratedDefault, editorial, flagship]);
+  }, [enriched, activeFilters, isCuratedDefault, editorial, flagship]);
 
   const availableTypes = useMemo(
-    () => getAvailableTypes(enriched, filters.collection),
-    [enriched, filters.collection],
+    () => getAvailableTypesWithCounts(enriched, activeFilters.collection),
+    [enriched, activeFilters.collection],
+  );
+  const typeGroups = useMemo(
+    () => (activeFilters.collection ? getGroupedTypesWithCounts(enriched, activeFilters.collection) : []),
+    [enriched, activeFilters.collection],
   );
   const availableArtisans = useMemo(
-    () => getAvailableArtisans(enriched, filters.collection),
-    [enriched, filters.collection],
+    () => getAvailableArtisans(enriched, activeFilters.collection),
+    [enriched, activeFilters.collection],
   );
-  const hiddenCount = useMemo(() => countHiddenMatches(enriched, filters), [enriched, filters]);
+  const collectionCounts = useMemo(() => getCollectionCounts(enriched), [enriched]);
+  const hiddenCount = useMemo(() => countHiddenMatches(enriched, activeFilters), [enriched, activeFilters]);
 
   const typeLabel = (type: string) => t(`types.${type}` as never);
 
   const filterLabels = {
+    layerCollection: t("layerCollection"),
+    layerWithin: t("layerWithin"),
     allCollections: t("allCollections"),
-    refine: t("refine"),
-    closeRefine: t("closeRefine"),
+    chooseCollectionHint: t("chooseCollectionHint"),
     filterByType: t("filterByType"),
     filterByArtisan: t("filterByArtisan"),
     allTypes: t("allTypes"),
     allArtisans: t("allArtisans"),
     clearFilters: t("clearFilters"),
-    collections: {
-      linen: tCollections("linen"),
-      woodcraft: tCollections("woodcraft"),
-      ceramics: tCollections("ceramics"),
-    },
-    types: Object.fromEntries(availableTypes.map((type) => [type, typeLabel(type)])),
+    collections: Object.fromEntries(
+      SHOP_COLLECTIONS.map((collection) => [collection, tCollections(collection)]),
+    ) as Record<ShopCollection, string>,
+    collectionDescriptions: Object.fromEntries(
+      SHOP_COLLECTIONS.map((collection) => [collection, t(`collectionDescriptions.${collection}` as never)]),
+    ) as Record<ShopCollection, string>,
+    types: Object.fromEntries(availableTypes.map((entry) => [entry.type, typeLabel(entry.type)])),
+    typeGroups: Object.fromEntries(
+      typeGroups.map((group) => [group.id, t(group.labelKey as never)]),
+    ),
   };
 
   const updateParams = (mutate: (params: URLSearchParams) => void) => {
@@ -156,43 +174,57 @@ export function ShopExperience({ products, locale }: ShopExperienceProps) {
     });
   };
 
-  const showFlagshipIntro = isCuratedDefault && !filters.collection && flagship;
-  const showCollectionChapters = isCuratedDefault && !filters.collection;
-  const showCollectionSpotlight = isCuratedDefault && Boolean(filters.collection && editorial.hero);
+  const showFlagshipIntro = isCuratedDefault && !activeFilters.collection && flagship;
+  const showCollectionChapters = isCuratedDefault && !activeFilters.collection;
+  const showCollectionSpotlight = isCuratedDefault && Boolean(activeFilters.collection && editorial.hero);
   const showCatalogGrid =
-    isBrowseMode || (isCuratedDefault && Boolean(filters.collection) && filtered.length > 0);
+    isBrowseMode || (isCuratedDefault && Boolean(activeFilters.collection) && filtered.length > 0);
 
   return (
-    <div className="pb-30 md:pb-40">
+    <div className="relative pb-30 md:pb-40">
+      <ShopAmbient />
+
       <section className="relative overflow-hidden">
         <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 pt-32 md:pt-40 lg:pt-44 pb-16 md:pb-20 lg:pb-24">
-          <motion.div
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-3xl"
-          >
-            <p className="text-[11px] uppercase tracking-[0.32em] text-driftwood">{t("eyebrow")}</p>
-            <h1 className="mt-6 font-serif text-5xl md:text-6xl lg:text-7xl text-forest tracking-tight leading-[1.02]">
-              {t("title")}
-            </h1>
-            <p className="mt-8 text-forest/65 text-lg md:text-xl leading-relaxed max-w-xl font-light">
-              {isCuratedDefault ? t("curatedIntro") : t("filteredIntro")}
-            </p>
-          </motion.div>
+          <ScrollRevealStagger className="max-w-3xl">
+            <ScrollRevealItem>
+              <p className="text-[11px] uppercase tracking-[0.32em] text-driftwood">{t("eyebrow")}</p>
+            </ScrollRevealItem>
+            <ScrollRevealItem>
+              <h1 className="mt-6 font-serif text-5xl md:text-6xl lg:text-7xl text-forest tracking-tight leading-[1.02]">
+                {t("title")}
+              </h1>
+            </ScrollRevealItem>
+            <ScrollRevealItem>
+              <motion.div
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 1.1, delay: 0.35, ease: shopEase }}
+                className="origin-left h-px w-20 bg-amber/30 mt-8"
+                aria-hidden
+              />
+            </ScrollRevealItem>
+            <ScrollRevealItem>
+              <p className="mt-8 text-forest/65 text-lg md:text-xl leading-relaxed max-w-xl font-light">
+                {isCuratedDefault ? t("curatedIntro") : t("filteredIntro")}
+              </p>
+            </ScrollRevealItem>
+          </ScrollRevealStagger>
         </div>
       </section>
 
       <ShopFilters
-        collection={filters.collection}
-        type={filters.type}
-        artisan={filters.artisan}
-        availableTypes={availableTypes}
+        collection={activeFilters.collection}
+        type={activeFilters.type}
+        artisan={activeFilters.artisan}
+        typeGroups={typeGroups}
         availableArtisans={availableArtisans}
+        collectionCounts={collectionCounts}
+        collectionTypeTotal={availableTypes.reduce((sum, entry) => sum + entry.count, 0)}
         onCollectionChange={setCollection}
         onTypeChange={setType}
         onArtisanChange={setArtisan}
-        onClearAll={() =>
+        onClearRefinements={() =>
           updateParams((params) => {
             params.delete("type");
             params.delete("artisan");
@@ -204,9 +236,9 @@ export function ShopExperience({ products, locale }: ShopExperienceProps) {
       {showFlagshipIntro ? (
         <section className="py-16 md:py-20 lg:py-24">
           <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16">
-            <div className="mb-8 md:mb-10">
+            <ScrollReveal className="mb-8 md:mb-10">
               <p className="text-[11px] uppercase tracking-[0.28em] text-driftwood">{t("signatureEdit")}</p>
-            </div>
+            </ScrollReveal>
             <EditorialProductCard
               product={flagship}
               locale={locale}
@@ -248,16 +280,25 @@ export function ShopExperience({ products, locale }: ShopExperienceProps) {
         : null}
 
       {showCollectionSpotlight && editorial.hero ? (
-        <section className="py-16 md:py-20 lg:py-24 border-b border-fog/50">
-          <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16">
+        <section className="relative py-16 md:py-20 lg:py-24 border-b border-fog/50 overflow-hidden">
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.35)_0%,transparent_55%)] pointer-events-none" aria-hidden />
+          <div className="relative max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-              <div className="lg:col-span-4">
+              <ScrollReveal className="lg:col-span-4 lg:sticky lg:top-32">
                 <p className="text-[11px] uppercase tracking-[0.28em] text-driftwood">{tCollections(filters.collection!)}</p>
-                <h2 className="mt-4 font-serif text-3xl md:text-4xl text-forest leading-tight">
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.9, delay: 0.1, ease: shopEase }}
+                  className="origin-left h-px w-14 bg-amber/30 mt-5"
+                  aria-hidden
+                />
+                <h2 className="mt-5 font-serif text-3xl md:text-4xl text-forest leading-tight">
                   {t(`${filters.collection}EditorialTitle` as never)}
                 </h2>
-                <p className="mt-5 text-forest/70 leading-relaxed">{t(`${filters.collection}EditorialSubtitle` as never)}</p>
-              </div>
+                <p className="mt-5 text-forest/70 leading-relaxed font-light">{t(`${filters.collection}EditorialSubtitle` as never)}</p>
+              </ScrollReveal>
               <div className="lg:col-span-8 space-y-12">
                 <EditorialProductCard
                   product={editorial.hero}
@@ -275,6 +316,7 @@ export function ShopExperience({ products, locale }: ShopExperienceProps) {
                         locale={locale}
                         variant="feature"
                         index={index}
+                        delay={0.08 * (index + 1)}
                         label={typeLabel(product.productType)}
                       />
                     ))}
@@ -289,7 +331,7 @@ export function ShopExperience({ products, locale }: ShopExperienceProps) {
       {showCatalogGrid ? (
         <section className="py-16 md:py-20 lg:py-24">
           <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16">
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14 md:mb-20">
+            <ScrollReveal className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14 md:mb-20">
               <div>
                 <p className="text-[11px] uppercase tracking-[0.28em] text-driftwood">
                   {isBrowseMode ? t("catalogView") : t("fromTheEdit")}
@@ -345,13 +387,13 @@ export function ShopExperience({ products, locale }: ShopExperienceProps) {
                   </button>
                 )}
               </div>
-            </div>
+            </ScrollReveal>
 
             {filtered.length === 0 ? (
-              <div className="py-24 md:py-32 text-center">
+              <ScrollReveal className="py-24 md:py-32 text-center">
                 <p className="font-serif text-3xl md:text-4xl text-forest">{t("emptyTitle")}</p>
                 <p className="mt-4 text-driftwood max-w-md mx-auto">{t("emptyBody")}</p>
-              </div>
+              </ScrollReveal>
             ) : (
               <ShopEditorialGrid products={filtered} locale={locale} typeLabel={typeLabel} />
             )}
@@ -359,28 +401,38 @@ export function ShopExperience({ products, locale }: ShopExperienceProps) {
         </section>
       ) : null}
 
-      {isCuratedDefault && !filters.collection ? (
-        <section className="py-20 md:py-28 border-t border-fog/50">
-          <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 text-center">
-            <p className="text-[11px] uppercase tracking-[0.28em] text-driftwood">{t("catalogView")}</p>
-            <p className="mt-4 font-serif text-2xl md:text-3xl text-forest max-w-lg mx-auto leading-snug">
-              {t("catalogClosing")}
-            </p>
-            <button
-              type="button"
-              onClick={() =>
-                updateParams((params) => {
-                  params.set("view", "all");
-                })
-              }
-              className="mt-8 inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.24em] text-forest hover:text-amber transition-colors group"
-            >
-              {t("browseFullCatalog")}
-              <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden>
-                →
-              </span>
-            </button>
-          </div>
+      {isCuratedDefault && !activeFilters.collection ? (
+        <section className="relative py-20 md:py-28 border-t border-fog/50 overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_100%,rgba(200,154,75,0.06)_0%,transparent_70%)] pointer-events-none" aria-hidden />
+          <ScrollRevealStagger className="relative max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 text-center">
+            <ScrollRevealItem>
+              <p className="text-[11px] uppercase tracking-[0.28em] text-driftwood">{t("catalogView")}</p>
+            </ScrollRevealItem>
+            <ScrollRevealItem>
+              <p className="mt-4 font-serif text-2xl md:text-3xl text-forest max-w-lg mx-auto leading-snug">
+                {t("catalogClosing")}
+              </p>
+            </ScrollRevealItem>
+            <ScrollRevealItem>
+              <motion.button
+                type="button"
+                onClick={() =>
+                  updateParams((params) => {
+                    params.set("view", "all");
+                  })
+                }
+                whileHover={{ y: -1 }}
+                whileTap={{ scale: 0.995 }}
+                transition={{ duration: 0.25, ease: shopEase }}
+                className="mt-8 inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.24em] text-forest hover:text-amber transition-colors group"
+              >
+                {t("browseFullCatalog")}
+                <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden>
+                  →
+                </span>
+              </motion.button>
+            </ScrollRevealItem>
+          </ScrollRevealStagger>
         </section>
       ) : null}
     </div>

@@ -36,6 +36,10 @@ const SLUG_TYPE_HINTS: Array<{ type: ProductType; patterns: RegExp[] }> = [
   { type: "painting", patterns: [/painting|glezno|studija/i] },
   { type: "game", patterns: [/solitaire|\bgame\b|marble|aromalampa/i] },
   { type: "board", patterns: [/cutting-board|brett/i] },
+  { type: "tray", patterns: [/paplate|tray/i] },
+  { type: "lamp", patterns: [/lampa|lamp/i] },
+  { type: "box", patterns: [/kaste|box|lade/i] },
+  { type: "basket", patterns: [/grozs|grozin|basket|wicker/i] },
 ];
 
 const TEXT_TYPE_RULES: Array<{ type: ProductType; patterns: RegExp[] }> = [
@@ -125,6 +129,10 @@ const TEXT_TYPE_RULES: Array<{ type: ProductType; patterns: RegExp[] }> = [
   { type: "painting", patterns: [/painting/i, /artwork/i, /glezno/i, /study of/i] },
   { type: "game", patterns: [/solitaire/i, /\bgame\b/i, /marble/i] },
   { type: "board", patterns: [/cutting board/i, /brett/i] },
+  { type: "tray", patterns: [/\btray\b/i, /paplā/i, /paplate/i, /tablett/i] },
+  { type: "lamp", patterns: [/\blamp\b/i, /lampa/i, /leuchte/i] },
+  { type: "box", patterns: [/\bbox\b/i, /kaste/i, /lade/i, /kasten/i] },
+  { type: "basket", patterns: [/\bbasket\b/i, /grozs/i, /groziņ/i, /wicker/i, /korb/i] },
 ];
 
 function buildHaystack(input: ClassifyProductInput): string {
@@ -153,9 +161,10 @@ function inferFromText(haystack: string): ProductType | null {
   return null;
 }
 
-function inferCollectionFromArtisan(artisanSlug: string): "linen" | "woodcraft" | "ceramics" {
+function inferCollectionFromArtisan(artisanSlug: string): "linen" | "woodcraft" | "ceramics" | "baskets" {
   if (artisanSlug === "studio-natural") return "linen";
   if (artisanSlug === "raibi-koki") return "woodcraft";
+  if (artisanSlug === "pinumu-pasaule") return "baskets";
   return "ceramics";
 }
 
@@ -170,6 +179,7 @@ export function classifyProductType(input: ClassifyProductInput): ProductType {
   const collection = inferCollectionFromArtisan(input.artisanSlug || "");
   if (collection === "linen") return "textile";
   if (collection === "woodcraft") return "object";
+  if (collection === "baskets") return "basket";
   return "other";
 }
 
@@ -177,6 +187,8 @@ export function resolveProductType(
   stored: ProductType | string | null | undefined,
   input: ClassifyProductInput,
 ): ProductType {
+  if (input.artisanSlug === "pinumu-pasaule" && stored && typeof stored === "string") return stored as ProductType;
+
   const inferred = classifyProductType(input);
   if (inferred !== "other") return inferred;
   if (stored && typeof stored === "string") return stored as ProductType;

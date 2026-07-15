@@ -6,6 +6,7 @@ type CollectionGridProps = {
     linen?: string;
     woodcraft?: string;
     ceramics?: string;
+    baskets?: string;
   };
 };
 
@@ -13,6 +14,7 @@ const collectionSlugs = [
   { slug: "linen", nameKey: "linen", descKey: "linenDesc" },
   { slug: "woodcraft", nameKey: "woodcraft", descKey: "woodcraftDesc" },
   { slug: "ceramics", nameKey: "ceramics", descKey: "ceramicsDesc" },
+  { slug: "baskets", nameKey: "baskets", descKey: "basketsDesc" },
 ] as const;
 
 export function CollectionGrid({ categoryImages }: CollectionGridProps) {
@@ -26,7 +28,7 @@ export function CollectionGrid({ categoryImages }: CollectionGridProps) {
           <p className="mt-4 text-driftwood text-lg max-w-xl mx-auto">{t("subtitle")}</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-8">
           {collectionSlugs.map((col) => (
             <div key={col.slug}>
               <Link href={`/shop?collection=${col.slug}`} className="group block relative aspect-[4/5] overflow-hidden bg-fog">

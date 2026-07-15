@@ -19,8 +19,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     getCatalogProducts(activeLocale),
   ]);
 
-  const featuredArtisans = artisans.filter((artisan) => artisan.isPartner).slice(0, 6);
-  const signatureProducts = buildSignatureProducts(featuredArtisans, products, 6);
+  const featuredArtisans = artisans.filter((artisan) => artisan.isPartner);
+  const signatureProducts = buildSignatureProducts(featuredArtisans, products, 8);
   const categoryImages = buildHomepageCategoryImages(artisans, products);
 
   return (

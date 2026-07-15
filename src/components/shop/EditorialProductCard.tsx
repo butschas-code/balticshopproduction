@@ -3,6 +3,7 @@
 import { Link } from "@/i18n/navigation";
 import { motion } from "framer-motion";
 import type { ShopCatalogProduct } from "@/lib/shop/curation";
+import { shopEase, viewportOnce } from "@/lib/shop/motion";
 
 type EditorialProductCardProps = {
   product: ShopCatalogProduct;
@@ -12,6 +13,7 @@ type EditorialProductCardProps = {
   label?: string;
   showDescription?: boolean;
   className?: string;
+  delay?: number;
 };
 
 export function EditorialProductCard({
@@ -21,6 +23,7 @@ export function EditorialProductCard({
   label,
   showDescription = false,
   className = "",
+  delay = 0,
 }: EditorialProductCardProps) {
   const isHero = variant === "hero";
   const isWide = variant === "wide";
@@ -38,25 +41,27 @@ export function EditorialProductCard({
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+      viewport={viewportOnce}
+      transition={{ duration: 0.75, delay, ease: shopEase }}
       className={`group ${className}`}
     >
       <Link href={`/shop/${product.slug}`} className="block">
-        <div className={`relative overflow-hidden bg-[#EBE8E2] ${aspectClass}`}>
+        <div className={`relative overflow-hidden bg-[#EBE8E2] shadow-[0_24px_60px_-40px_rgba(15,42,36,0.35)] ${aspectClass}`}>
           {product.image ? (
-            <div
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-[900ms] ease-out group-hover:scale-[1.02]"
+            <motion.div
+              className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${product.image})` }}
+              whileHover={{ scale: 1.025 }}
+              transition={{ duration: 0.9, ease: shopEase }}
             />
           ) : null}
 
           {isHero ? (
-            <div className="absolute inset-0 bg-gradient-to-t from-forest/70 via-forest/15 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-forest/72 via-forest/18 to-forest/[0.02]" />
           ) : (
-            <div className="absolute inset-0 bg-forest/0 group-hover:bg-forest/[0.03] transition-colors duration-500" />
+            <div className="absolute inset-0 bg-forest/0 group-hover:bg-forest/[0.025] transition-colors duration-500" />
           )}
 
           {isHero ? (
@@ -73,7 +78,7 @@ export function EditorialProductCard({
           ) : null}
 
           {!isHero && index != null ? (
-            <span className="absolute top-5 left-5 md:top-6 md:left-6 font-serif text-sm text-forest/25 group-hover:text-forest/40 transition-colors">
+            <span className="absolute top-5 left-5 md:top-6 md:left-6 font-serif text-base md:text-lg text-forest/20 group-hover:text-forest/35 transition-colors tabular-nums">
               {String(index + 1).padStart(2, "0")}
             </span>
           ) : null}

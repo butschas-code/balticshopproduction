@@ -1,0 +1,25 @@
+{
+  "slug": "pinumu-pasaule",
+  "name": "Pinumu Pasaule",
+  "location": "Rīga and Smārde parish, Latvia",
+  "craft": "Handwoven willow wicker baskets and objects",
+  "craftDe": "Handgeflochtene Körbe und Objekte aus Weide",
+  "bio": "Pinumu Pasaule is the wicker world of the Tutāns family. The family's weaving story began in 1985 as a shared passion and grew into a business in 1999, starting with small baskets and trays. Today the makers work with peeled and unpeeled home-grown willow, an ecologically clean material, and every step from preparing the wicker to the finished object is handmade. The workshop makes baskets, trays, cradles, furniture, lamps and custom wickerwork. Master weaver Pēteris Tutāns learned the craft as a child and has shown his work in Latvia, France, China, the United States and Japan.",
+  "bioDe": "Pinumu Pasaule ist die Flechtwelt der Familie Tutāns. Die Geschichte der Familie begann 1985 als gemeinsame Leidenschaft und wurde 1999 zu einem Betrieb, zunächst mit kleinen Körben und Tabletts. Heute arbeiten die Macher mit geschälten und ungeschälten, selbst angebauten Weidenruten, einem ökologisch sauberen Material; jeder Schritt von der Vorbereitung der Ruten bis zum fertigen Objekt ist Handarbeit. Die Werkstatt fertigt Körbe, Tabletts, Wiegen, Möbel, Lampen und individuelle Flechtarbeiten. Flechtmeister Pēteris Tutāns lernte das Handwerk als Kind und zeigte seine Arbeiten in Lettland, Frankreich, China, den USA und Japan.",
+  "portrait": "/partners/pinumu-pasaule/images/workshop-01.jpg",
+  "workshopImages": [
+    "/partners/pinumu-pasaule/images/workshop-02.jpg",
+    "/partners/pinumu-pasaule/images/workshop-03.jpg",
+    "/partners/pinumu-pasaule/images/workshop-04.jpg",
+    "/partners/pinumu-pasaule/images/workshop-05.jpg",
+    "/partners/pinumu-pasaule/images/workshop-06.jpg",
+    "/partners/pinumu-pasaule/images/workshop-07.jpg",
+    "/partners/pinumu-pasaule/images/workshop-08.jpg",
+    "/partners/pinumu-pasaule/images/workshop-09.jpg",
+    "/partners/pinumu-pasaule/images/workshop-10.jpg",
+    "/partners/pinumu-pasaule/images/workshop-11.jpg",
+    "/partners/pinumu-pasaule/images/workshop-12.jpg",
+    "/partners/pinumu-pasaule/images/workshop-13.jpg"
+  ],
+  "isPartner": true
+}

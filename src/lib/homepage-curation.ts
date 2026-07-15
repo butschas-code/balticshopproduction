@@ -1,6 +1,6 @@
 import type { CatalogArtisan, CatalogProduct } from "@/lib/catalog-supabase";
 
-type CategoryKey = "linen" | "woodcraft" | "ceramics";
+type CategoryKey = "linen" | "woodcraft" | "ceramics" | "baskets";
 
 const CATEGORY_RULES: Record<
   CategoryKey,
@@ -17,6 +17,10 @@ const CATEGORY_RULES: Record<
   ceramics: {
     artisanSlugs: ["vaidava-ceramics", "cepli", "cerannic", "latvijas-labumu-tirgus-mals"],
     preferredProductSlugs: ["vaidava-ceramics-plant-pot-with-saucer-s-soil", "cepli-zupas-zirnu-bloda"],
+  },
+  baskets: {
+    artisanSlugs: ["pinumu-pasaule"],
+    preferredProductSlugs: ["pinumu-pasaule-kg34-senu-grozs", "pinumu-pasaule-ig14-iepirkumu-grozs"],
   },
 };
 
@@ -87,6 +91,12 @@ export function buildHomepageCategoryImages(
       (product) => CATEGORY_RULES.ceramics.artisanSlugs.includes(product.artisanSlug),
       reserved,
       CATEGORY_RULES.ceramics.preferredProductSlugs,
+    ),
+    baskets: pickProductImage(
+      products,
+      (product) => CATEGORY_RULES.baskets.artisanSlugs.includes(product.artisanSlug),
+      reserved,
+      CATEGORY_RULES.baskets.preferredProductSlugs,
     ),
   };
 }
