@@ -82,7 +82,14 @@ export async function getCatalogArtisans(locale: Locale): Promise<CatalogArtisan
   }));
 }
 
-export async function getCatalogProducts(locale: Locale): Promise<CatalogProduct[]> {
+type CatalogProductQueryOptions = {
+  includeHidden?: boolean;
+};
+
+export async function getCatalogProducts(
+  locale: Locale,
+  options: CatalogProductQueryOptions = {},
+): Promise<CatalogProduct[]> {
   const extendedSelect = `
       id,
       slug,
@@ -119,18 +126,26 @@ export async function getCatalogProducts(locale: Locale): Promise<CatalogProduct
   let data: any[] | null = null;
   let error: { message?: string } | null = null;
 
-  ({ data, error } = await db
+  let query = db
     .from("products")
     .select(extendedSelect)
     .eq("product_translations.locale", locale)
-    .order("slug", { ascending: true }));
+    .order("slug", { ascending: true });
+
+  if (!options.includeHidden) {
+    query = query.eq("shop_visible", true);
+  }
+
+  ({ data, error } = await query);
 
   if (error?.message?.includes("collection_slug") || error?.message?.includes("product_type")) {
-    ({ data, error } = await db
+    const fallbackQuery = db
       .from("products")
       .select(basicSelect)
       .eq("product_translations.locale", locale)
-      .order("slug", { ascending: true }));
+      .order("slug", { ascending: true });
+
+    ({ data, error } = await fallbackQuery);
   }
 
   if (error) throw error;

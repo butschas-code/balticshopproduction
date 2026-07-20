@@ -1,5 +1,39 @@
 [
   {
+    "slug": "raibi-koki-galda-sp-le-marble-solitaire",
+    "name": "Board game Marble solitaire",
+    "nameDe": "Board game Marble solitaire",
+    "description": "Board game Marble solitaire",
+    "descriptionDe": "Board game Marble solitaire",
+    "price": "€ 48.00",
+    "image": "/partners/raibi-koki/images/raibi-koki-galda-sp-le-marble-solitaire-01.png",
+    "images": [
+      "/partners/raibi-koki/images/raibi-koki-galda-sp-le-marble-solitaire-01.png",
+      "/partners/raibi-koki/images/raibi-koki-galda-sp-le-marble-solitaire-02.png",
+      "/partners/raibi-koki/images/raibi-koki-galda-sp-le-marble-solitaire-03.png",
+      "/partners/raibi-koki/images/raibi-koki-galda-sp-le-marble-solitaire-04.png"
+    ],
+    "artisanSlug": "raibi-koki",
+    "artisanName": "Raibi Koki",
+    "location": "Ķekava, Latvia",
+    "craft": "Woodcraft",
+    "craftDe": "Woodcraft",
+    "materials": "Wood",
+    "materialsDe": "Wood",
+    "technique": "End-grain woodworking",
+    "techniqueDe": "End-grain woodworking",
+    "story": "Board game Marble solitaire",
+    "storyDe": "Board game Marble solitaire",
+    "details": [],
+    "isPartnerProduct": true,
+    "shopVisible": true,
+    "metadata": {
+      "sourceUrl": "https://raibikoki.lv/produkts/galda-spele-marble-solitaire/",
+      "reviewStatus": "approved",
+      "reviewSource": "product-review-with-images-2026-07-16_reviewed.xlsx"
+    }
+  },
+  {
     "slug": "raibi-koki-lielais-raibis-43x27-cm",
     "name": "Lielais raibis 43x27 cm",
     "nameDe": "Lielais raibis 43x27 cm",
@@ -26,7 +60,13 @@
     "story": "Lielais raibis 43x27 cm",
     "storyDe": "Lielais raibis 43x27 cm",
     "details": [],
-    "isPartnerProduct": true
+    "isPartnerProduct": true,
+    "shopVisible": true,
+    "metadata": {
+      "sourceUrl": "https://raibikoki.lv/produkts/liels-un-krasains-gala-skiedru-virtuves-delis-lielais-raibais-43x27-cm/",
+      "reviewStatus": "approved",
+      "reviewSource": "product-review-with-images-2026-07-16_reviewed.xlsx"
+    }
   },
   {
     "slug": "raibi-koki-triskasu-32x23-cm",
@@ -54,7 +94,13 @@
     "story": "Triskasu 32x23 cm",
     "storyDe": "Triskasu 32x23 cm",
     "details": [],
-    "isPartnerProduct": true
+    "isPartnerProduct": true,
+    "shopVisible": true,
+    "metadata": {
+      "sourceUrl": "https://raibikoki.lv/produkts/mazais-triskasu-virtuves-gala-skiedru-delitis-32x23-cm/",
+      "reviewStatus": "approved",
+      "reviewSource": "product-review-with-images-2026-07-16_reviewed.xlsx"
+    }
   },
   {
     "slug": "raibi-koki-triskrasu-40x26-cm",
@@ -83,7 +129,13 @@
     "story": "Triskrasu 40x26 cm",
     "storyDe": "Triskrasu 40x26 cm",
     "details": [],
-    "isPartnerProduct": true
+    "isPartnerProduct": true,
+    "shopVisible": true,
+    "metadata": {
+      "sourceUrl": "https://raibikoki.lv/produkts/liels-triskrasu-vienpuseji-lietojams-virtuves-delis-40x26cm/",
+      "reviewStatus": "approved",
+      "reviewSource": "product-review-with-images-2026-07-16_reviewed.xlsx"
+    }
   },
   {
     "slug": "raibi-koki-triskrasu-40x26-cm-02",
@@ -112,34 +164,12 @@
     "story": "Triskrasu 40x26 cm 02",
     "storyDe": "Triskrasu 40x26 cm 02",
     "details": [],
-    "isPartnerProduct": true
-  },
-  {
-    "slug": "raibi-koki-galda-sp-le-marble-solitaire",
-    "name": "Board game Marble solitaire",
-    "nameDe": "Board game Marble solitaire",
-    "description": "Board game Marble solitaire",
-    "descriptionDe": "Board game Marble solitaire",
-    "price": "€ 48.00",
-    "image": "/partners/raibi-koki/images/raibi-koki-galda-sp-le-marble-solitaire-01.png",
-    "images": [
-      "/partners/raibi-koki/images/raibi-koki-galda-sp-le-marble-solitaire-01.png",
-      "/partners/raibi-koki/images/raibi-koki-galda-sp-le-marble-solitaire-02.png",
-      "/partners/raibi-koki/images/raibi-koki-galda-sp-le-marble-solitaire-03.png",
-      "/partners/raibi-koki/images/raibi-koki-galda-sp-le-marble-solitaire-04.png"
-    ],
-    "artisanSlug": "raibi-koki",
-    "artisanName": "Raibi Koki",
-    "location": "Ķekava, Latvia",
-    "craft": "Woodcraft",
-    "craftDe": "Woodcraft",
-    "materials": "Wood",
-    "materialsDe": "Wood",
-    "technique": "End-grain woodworking",
-    "techniqueDe": "End-grain woodworking",
-    "story": "Board game Marble solitaire",
-    "storyDe": "Board game Marble solitaire",
-    "details": [],
-    "isPartnerProduct": true
+    "isPartnerProduct": true,
+    "shopVisible": true,
+    "metadata": {
+      "sourceUrl": "https://raibikoki.lv/produkts/triskrasu-divpusejs-gala-skiedru-delis-40x26cm/",
+      "reviewStatus": "approved",
+      "reviewSource": "product-review-with-images-2026-07-16_reviewed.xlsx"
+    }
   }
 ]
