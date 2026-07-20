@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import {
   getCatalogArtisanBySlug,
@@ -11,27 +12,7 @@ import { ProductGallery } from "@/components/shop/ProductGallery";
 import { enrichShopProduct, getRelatedProducts } from "@/lib/shop/curation";
 import { parseProductDescription } from "@/lib/shop/product-description";
 
-const fallbackProduct = {
-  id: "",
-  slug: "",
-  name: "Handcrafted Object",
-  description: "",
-  story: "",
-  artisanName: "Baltic Artisan",
-  artisanSlug: "",
-  location: "The Baltic",
-  craft: "Craft",
-  materials: "Natural materials",
-  technique: "Traditional craftsmanship",
-  price: "€ —",
-  image: "",
-  images: ["https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&q=80"],
-  details: [] as { label: string; value: string }[],
-  priceAmount: null as number | null,
-  currencyCode: "EUR",
-  collectionSlug: null as string | null,
-  productType: null as string | null,
-};
+const fallbackImages = ["https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&q=80"];
 
 export default async function ProductPage({
   params,
@@ -49,10 +30,12 @@ export default async function ProductPage({
     getCatalogProducts(activeLocale),
   ]);
 
-  const rawProduct = (await getCatalogProductBySlug(slug, activeLocale)) || fallbackProduct;
+  const rawProduct = await getCatalogProductBySlug(slug, activeLocale);
+  if (!rawProduct) notFound();
+
   const product = enrichShopProduct(rawProduct);
   const artisan = product.artisanSlug ? await getCatalogArtisanBySlug(product.artisanSlug, activeLocale) : null;
-  const images = product.images.length > 0 ? product.images : product.image ? [product.image] : fallbackProduct.images;
+  const images = product.images.length > 0 ? product.images : product.image ? [product.image] : fallbackImages;
   const related = getRelatedProducts(allProducts.map(enrichShopProduct), product.slug, 3);
   const { intro, specs } = parseProductDescription(product.description);
 
