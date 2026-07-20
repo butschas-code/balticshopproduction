@@ -69,8 +69,8 @@ export function ShopExperience({ products, locale }: ShopExperienceProps) {
     artisan: filters.collection ? filters.artisan : null,
   };
 
-  const hasActiveFilter = Boolean(activeFilters.collection || activeFilters.type || activeFilters.artisan);
-  const isCuratedDefault = !hasActiveFilter && filters.view !== "all";
+  const hasRefinement = Boolean(activeFilters.type || activeFilters.artisan);
+  const isCuratedDefault = !hasRefinement && filters.view !== "all";
   const isBrowseMode = !isCuratedDefault;
 
   const enriched = useMemo(

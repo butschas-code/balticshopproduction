@@ -20,6 +20,44 @@ const FLAGSHIP_PRIORITY = [
   "latvijas-labumu-tirgus-mals-b-oda-4",
 ];
 
+const COLLECTION_VISUAL_PRIORITY: Record<ShopCollection, string[]> = {
+  ceramics: [
+    "vaidava-ceramics-espresso-cup-set-eclipse",
+    "vaidava-ceramics-big-plate-earth",
+    "vaidava-ceramics-centerpiece-bowl-eclipse-gold",
+    "cepli-tejas-trauku-komplekts-tejkanna-04l-tejas-pialas-2-gb",
+    "cepli-vaze",
+    "cerannic-porcel-na-pl-ksn-te",
+    "latvijas-labumu-tirgus-mals-aug-u-vis-ar-ginka-lapu-mot-vu",
+    "latvijas-labumu-tirgus-mals-apgleznots-ogu-aug-u-trauks-ar-v-ti",
+  ],
+  linen: [
+    "studio-natural-british-style-linen-coat",
+    "studio-natural-boucle-linen-throw-in-black-160x220-cm",
+    "studio-natural-dev-crumpled-linen-shirt-jura",
+    "studio-natural-dev-dress-artdeco-size-m",
+    "studio-natural-bluish-linen-placemat-50x37-cm",
+    "studio-natural-dev-linen-bag-primit-brown",
+    "studio-natural-cashmere-scarf-80x200cm-1",
+  ],
+  woodcraft: [
+    "raibi-koki-lielais-raibis-43x27-cm",
+    "raibi-koki-galda-sp-le-marble-solitaire",
+    "raibi-koki-triskrasu-40x26-cm",
+    "raibi-koki-triskasu-32x23-cm",
+    "raibi-koki-triskrasu-40x26-cm-02",
+  ],
+  baskets: [
+    "pinumu-pasaule-ag1-avizu-grozs",
+    "pinumu-pasaule-cg1-celojuma-grozs",
+    "pinumu-pasaule-ig13-iepirkumu-grozs",
+    "pinumu-pasaule-kg1-senu-grozs",
+    "pinumu-pasaule-ap10-apals-grozs",
+    "pinumu-pasaule-pp15-pita-paplate-ar-rokturi",
+    "pinumu-pasaule-pl1-lampas-abazurs",
+  ],
+};
+
 export type ShopCatalogProduct = CatalogProduct & {
   collectionSlug: ShopCollection;
   productType: ProductType;
@@ -57,6 +95,32 @@ export function enrichShopProduct(product: CatalogProduct): ShopCatalogProduct {
   };
 }
 
+function imageKey(product: Pick<ShopCatalogProduct, "image">) {
+  return product.image.split("?")[0] || product.image;
+}
+
+function visualPriority(collection: ShopCollection, slug: string) {
+  const index = COLLECTION_VISUAL_PRIORITY[collection].indexOf(slug);
+  return index === -1 ? 10_000 : index;
+}
+
+function visualScore(product: ShopCatalogProduct) {
+  let score = visualPriority(product.collectionSlug, product.slug) * 100;
+  if (!product.image) score += 50_000;
+  if (!product.isFeatured) score += 2_000;
+  score += product.shopRank;
+
+  // Avoid letting a long run of near-identical bowls or baskets dominate the first screen.
+  if (["bowl", "round-basket", "magazine-basket"].includes(product.productType)) score += 30;
+  if (["set", "teapot", "vase", "lamp", "tray", "game"].includes(product.productType)) score -= 20;
+
+  return score;
+}
+
+function compareForEditorial(a: ShopCatalogProduct, b: ShopCatalogProduct) {
+  return visualScore(a) - visualScore(b) || a.name.localeCompare(b.name) || a.slug.localeCompare(b.slug);
+}
+
 export function filterShopProducts(products: ShopCatalogProduct[], filters: ShopFilters) {
   const hasActiveFilter = Boolean(filters.collection || filters.type || filters.artisan);
 
@@ -72,7 +136,12 @@ export function filterShopProducts(products: ShopCatalogProduct[], filters: Shop
 
       return product.isFeatured;
     })
-    .sort((a, b) => a.shopRank - b.shopRank || a.name.localeCompare(b.name));
+    .sort((a, b) => {
+      if (filters.collection && !filters.type && !filters.artisan) {
+        return compareForEditorial(a, b);
+      }
+      return a.shopRank - b.shopRank || visualScore(a) - visualScore(b) || a.name.localeCompare(b.name);
+    });
 }
 
 export function getAvailableTypes(products: ShopCatalogProduct[], collection?: ShopCollection | null) {
@@ -133,7 +202,7 @@ export function getCollectionCounts(products: ShopCatalogProduct[]) {
 function pickDiverseFeatured(products: ShopCatalogProduct[], collection: ShopCollection, limit: number) {
   const scoped = products
     .filter((product) => product.collectionSlug === collection && product.isFeatured && product.shopVisible)
-    .sort((a, b) => a.shopRank - b.shopRank || a.slug.localeCompare(b.slug));
+    .sort(compareForEditorial);
 
   const byArtisan = new Map<string, ShopCatalogProduct[]>();
   for (const product of scoped) {
@@ -151,6 +220,7 @@ function pickDiverseFeatured(products: ShopCatalogProduct[], collection: ShopCol
 
   const picks: ShopCatalogProduct[] = [];
   const used = new Set<string>();
+  const usedImages = new Set<string>();
   let round = 0;
 
   while (picks.length < limit) {
@@ -158,13 +228,28 @@ function pickDiverseFeatured(products: ShopCatalogProduct[], collection: ShopCol
     for (const artisan of artisans) {
       const candidate = (byArtisan.get(artisan) || [])[round];
       if (!candidate || used.has(candidate.slug)) continue;
+      const candidateImage = imageKey(candidate);
+      if (candidateImage && usedImages.has(candidateImage)) continue;
       picks.push(candidate);
       used.add(candidate.slug);
+      if (candidateImage) usedImages.add(candidateImage);
       added = true;
       if (picks.length >= limit) break;
     }
     if (!added) break;
     round += 1;
+  }
+
+  if (picks.length < limit) {
+    for (const candidate of scoped) {
+      if (used.has(candidate.slug)) continue;
+      const candidateImage = imageKey(candidate);
+      if (candidateImage && usedImages.has(candidateImage)) continue;
+      picks.push(candidate);
+      used.add(candidate.slug);
+      if (candidateImage) usedImages.add(candidateImage);
+      if (picks.length >= limit) break;
+    }
   }
 
   return picks;

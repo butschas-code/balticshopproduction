@@ -20,8 +20,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   ]);
 
   const featuredArtisans = artisans.filter((artisan) => artisan.isPartner);
-  const signatureProducts = buildSignatureProducts(featuredArtisans, products, 8);
   const categoryImages = buildHomepageCategoryImages(artisans, products);
+  const signatureProducts = buildSignatureProducts(
+    featuredArtisans,
+    products,
+    8,
+    Object.values(categoryImages).filter((image): image is string => Boolean(image)),
+  );
 
   return (
     <>
