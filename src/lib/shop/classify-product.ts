@@ -21,32 +21,25 @@ const SLUG_TYPE_HINTS: Array<{ type: ProductType; patterns: RegExp[] }> = [
     patterns: [/skivis|šķīv|paplate|servejamais|servejam|kuku-skivis|-plate|plate-/i],
   },
   { type: "vase", patterns: [/vaze|vase-/i] },
-  { type: "planter", patterns: [/plant-pot|flowerpot|puķu-pod/i] },
   { type: "teapot", patterns: [/teapot|tea-pot|tējkann/i] },
-  { type: "pitcher", patterns: [/pitcher|-jug\b|krūk/i] },
   { type: "scarf", patterns: [/scarf/i] },
   { type: "towel", patterns: [/towel|dviel/i] },
   { type: "apron", patterns: [/apron|priekšaut/i] },
   { type: "dress", patterns: [/dress|kleid/i] },
   { type: "shirt", patterns: [/shirt|blouse|-top\b/i] },
-  { type: "pants", patterns: [/pants|trousers|bikses/i] },
   { type: "jacket", patterns: [/jacket|coat/i] },
   { type: "blanket", patterns: [/blanket|throw|sega|decke/i] },
   { type: "bag", patterns: [/-bag\b|\bbag-/i] },
   { type: "painting", patterns: [/painting|glezno|studija/i] },
   { type: "game", patterns: [/solitaire|\bgame\b|marble|aromalampa/i] },
-  { type: "board", patterns: [/cutting-board|brett/i] },
   { type: "tray", patterns: [/paplate|tray/i] },
   { type: "lamp", patterns: [/lampa|lamp/i] },
   { type: "box", patterns: [/kaste|box|lade/i] },
-  { type: "basket", patterns: [/grozs|grozin|basket|wicker/i] },
 ];
 
 const TEXT_TYPE_RULES: Array<{ type: ProductType; patterns: RegExp[] }> = [
   { type: "set", patterns: [SET_TEXT_HINTS] },
   { type: "teapot", patterns: [/teapot/i, /tea pot/i, /tējkann/i] },
-  { type: "pitcher", patterns: [/pitcher/i, /\bjug\b/i, /krūk/i, /kanne/i] },
-  { type: "planter", patterns: [/plant pot/i, /flowerpot/i, /puķu pod/i] },
   { type: "vase", patterns: [/\bvase\b/i, /vāz/i, /vaze/i] },
   {
     type: "cup",
@@ -112,13 +105,11 @@ const TEXT_TYPE_RULES: Array<{ type: ProductType; patterns: RegExp[] }> = [
       /chopstick/i,
     ],
   },
-  { type: "sculpture", patterns: [/sculpture/i, /figurine/i, /statue/i, /dekor/i] },
   { type: "scarf", patterns: [/scarf/i, /šalle/i, /schal/i] },
   { type: "towel", patterns: [/towel/i, /dviel/i, /handtuch/i] },
   { type: "apron", patterns: [/apron/i, /priekšaut/i] },
   { type: "dress", patterns: [/dress/i, /kleid/i] },
   { type: "shirt", patterns: [/shirt/i, /blouse/i, /\btop\b/i] },
-  { type: "pants", patterns: [/pants/i, /trousers/i, /bikses/i] },
   { type: "jacket", patterns: [/jacket/i, /coat/i] },
   { type: "blanket", patterns: [/blanket/i, /throw/i, /sega/i, /decke/i] },
   { type: "bag", patterns: [/\bbag\b/i, /soma/i, /tasche/i] },
@@ -128,11 +119,9 @@ const TEXT_TYPE_RULES: Array<{ type: ProductType; patterns: RegExp[] }> = [
   },
   { type: "painting", patterns: [/painting/i, /artwork/i, /glezno/i, /study of/i] },
   { type: "game", patterns: [/solitaire/i, /\bgame\b/i, /marble/i] },
-  { type: "board", patterns: [/cutting board/i, /brett/i] },
   { type: "tray", patterns: [/\btray\b/i, /paplā/i, /paplate/i, /tablett/i] },
   { type: "lamp", patterns: [/\blamp\b/i, /lampa/i, /leuchte/i] },
   { type: "box", patterns: [/\bbox\b/i, /kaste/i, /lade/i, /kasten/i] },
-  { type: "basket", patterns: [/\bbasket\b/i, /grozs/i, /groziņ/i, /wicker/i, /korb/i] },
 ];
 
 function buildHaystack(input: ClassifyProductInput): string {
@@ -179,7 +168,6 @@ export function classifyProductType(input: ClassifyProductInput): ProductType {
   const collection = inferCollectionFromArtisan(input.artisanSlug || "");
   if (collection === "linen") return "textile";
   if (collection === "woodcraft") return "object";
-  if (collection === "baskets") return "basket";
   return "other";
 }
 

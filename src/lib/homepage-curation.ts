@@ -16,11 +16,11 @@ const CATEGORY_RULES: Record<
   },
   ceramics: {
     artisanSlugs: ["vaidava-ceramics", "cepli", "cerannic", "latvijas-labumu-tirgus-mals"],
-    preferredProductSlugs: ["vaidava-ceramics-plant-pot-with-saucer-s-soil", "cepli-zupas-zirnu-bloda"],
+    preferredProductSlugs: ["vaidava-ceramics-big-plate-earth", "cepli-alus-kauss-12l"],
   },
   baskets: {
     artisanSlugs: ["pinumu-pasaule"],
-    preferredProductSlugs: ["pinumu-pasaule-kg34-senu-grozs", "pinumu-pasaule-ig14-iepirkumu-grozs"],
+    preferredProductSlugs: ["pinumu-pasaule-ag1-avizu-grozs", "pinumu-pasaule-cg1-celojuma-grozs"],
   },
 };
 

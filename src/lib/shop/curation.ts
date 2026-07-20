@@ -11,13 +11,13 @@ import {
 } from "@/lib/shop/taxonomy";
 
 const FLAGSHIP_PRIORITY = [
-  "pinumu-pasaule-kg34-senu-grozs",
-  "vaidava-ceramics-plant-pot-with-saucer-s-soil",
+  "pinumu-pasaule-ag1-avizu-grozs",
+  "vaidava-ceramics-big-plate-earth",
   "raibi-koki-lielais-raibis-43x27-cm",
   "studio-natural-british-style-linen-coat",
-  "cerannic-slow-cup",
-  "cepli-zupas-zirnu-bloda",
-  "latvijas-labumu-tirgus-mals-b-oda",
+  "cerannic-amanda",
+  "cepli-alus-kauss-12l",
+  "latvijas-labumu-tirgus-mals-b-oda-4",
 ];
 
 export type ShopCatalogProduct = CatalogProduct & {
