@@ -55,9 +55,11 @@ export function ProductDetailPanel({
 
   return (
     <div className="lg:sticky lg:top-28 lg:self-start">
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-[11px] uppercase tracking-[0.24em] text-driftwood">
+      <div className="premium-shell">
+        <div className="premium-core px-6 py-8 md:px-8 md:py-10 lg:px-10 bg-white/35">
+      <div className="premium-eyebrow flex flex-wrap gap-x-3 gap-y-2">
         <span>{collectionLabel}</span>
-        <span aria-hidden className="text-fog">
+        <span aria-hidden className="text-forest/25">
           ·
         </span>
         <span>{typeLabel}</span>
@@ -118,6 +120,8 @@ export function ProductDetailPanel({
           </dl>
         </div>
       ) : null}
+        </div>
+      </div>
     </div>
   );
 }

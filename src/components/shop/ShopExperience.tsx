@@ -184,7 +184,7 @@ export function ShopExperience({ products, locale }: ShopExperienceProps) {
     <div className="relative pb-30 md:pb-40">
       <ShopAmbient />
 
-      <section className="relative overflow-hidden">
+      <section className="premium-section relative overflow-hidden">
         <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 pt-32 md:pt-40 lg:pt-44 pb-16 md:pb-20 lg:pb-24">
           <ScrollRevealStagger className="max-w-3xl">
             <ScrollRevealItem>
@@ -234,10 +234,10 @@ export function ShopExperience({ products, locale }: ShopExperienceProps) {
       />
 
       {showFlagshipIntro ? (
-        <section className="py-16 md:py-20 lg:py-24">
+        <section className="premium-section py-16 md:py-20 lg:py-24">
           <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16">
             <ScrollReveal className="mb-8 md:mb-10">
-              <p className="text-[11px] uppercase tracking-[0.28em] text-driftwood">{t("signatureEdit")}</p>
+              <p className="premium-eyebrow">{t("signatureEdit")}</p>
             </ScrollReveal>
             <EditorialProductCard
               product={flagship}
@@ -280,12 +280,11 @@ export function ShopExperience({ products, locale }: ShopExperienceProps) {
         : null}
 
       {showCollectionSpotlight && editorial.hero ? (
-        <section className="relative py-16 md:py-20 lg:py-24 border-b border-fog/50 overflow-hidden">
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.35)_0%,transparent_55%)] pointer-events-none" aria-hidden />
+        <section className="premium-section relative py-16 md:py-20 lg:py-24 overflow-hidden">
           <div className="relative max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
               <ScrollReveal className="lg:col-span-4 lg:sticky lg:top-32">
-                <p className="text-[11px] uppercase tracking-[0.28em] text-driftwood">{tCollections(filters.collection!)}</p>
+                <p className="premium-eyebrow">{tCollections(filters.collection!)}</p>
                 <motion.div
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
@@ -329,11 +328,11 @@ export function ShopExperience({ products, locale }: ShopExperienceProps) {
       ) : null}
 
       {showCatalogGrid ? (
-        <section className="py-16 md:py-20 lg:py-24">
+        <section className="premium-section py-16 md:py-20 lg:py-24">
           <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16">
             <ScrollReveal className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14 md:mb-20">
               <div>
-                <p className="text-[11px] uppercase tracking-[0.28em] text-driftwood">
+                <p className="premium-eyebrow">
                   {isBrowseMode ? t("catalogView") : t("fromTheEdit")}
                 </p>
                 {isBrowseMode ? (
@@ -352,7 +351,7 @@ export function ShopExperience({ products, locale }: ShopExperienceProps) {
                         params.set("view", "all");
                       })
                     }
-                    className="text-[11px] uppercase tracking-[0.24em] text-forest hover:text-amber transition-colors border-b border-forest/20 hover:border-amber/50 pb-1"
+                    className="inline-flex items-center rounded-full border border-forest/10 bg-white/35 px-5 py-3 text-xs font-semibold tracking-[0.18em] uppercase text-forest hover:text-amber transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
                   >
                     {t("showMoreSimilar", { count: hiddenCount })}
                   </button>
@@ -369,7 +368,7 @@ export function ShopExperience({ products, locale }: ShopExperienceProps) {
                         params.delete("collection");
                       })
                     }
-                    className="text-[11px] uppercase tracking-[0.24em] text-driftwood hover:text-forest transition-colors"
+                    className="inline-flex items-center rounded-full border border-forest/10 bg-white/35 px-5 py-3 text-xs font-semibold tracking-[0.18em] uppercase text-forest hover:text-amber transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
                   >
                     {t("backToCurated")}
                   </button>
@@ -381,7 +380,7 @@ export function ShopExperience({ products, locale }: ShopExperienceProps) {
                         params.set("view", "all");
                       })
                     }
-                    className="text-[11px] uppercase tracking-[0.24em] text-driftwood hover:text-forest transition-colors"
+                    className="inline-flex items-center rounded-full border border-forest/10 bg-white/35 px-5 py-3 text-xs font-semibold tracking-[0.18em] uppercase text-forest hover:text-amber transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
                   >
                     {t("browseFullCatalog")}
                   </button>
@@ -402,11 +401,10 @@ export function ShopExperience({ products, locale }: ShopExperienceProps) {
       ) : null}
 
       {isCuratedDefault && !activeFilters.collection ? (
-        <section className="relative py-20 md:py-28 border-t border-fog/50 overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_100%,rgba(200,154,75,0.06)_0%,transparent_70%)] pointer-events-none" aria-hidden />
+        <section className="premium-section relative py-20 md:py-28 overflow-hidden">
           <ScrollRevealStagger className="relative max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 text-center">
             <ScrollRevealItem>
-              <p className="text-[11px] uppercase tracking-[0.28em] text-driftwood">{t("catalogView")}</p>
+              <p className="premium-eyebrow mx-auto">{t("catalogView")}</p>
             </ScrollRevealItem>
             <ScrollRevealItem>
               <p className="mt-4 font-serif text-2xl md:text-3xl text-forest max-w-lg mx-auto leading-snug">
@@ -424,7 +422,7 @@ export function ShopExperience({ products, locale }: ShopExperienceProps) {
                 whileHover={{ y: -1 }}
                 whileTap={{ scale: 0.995 }}
                 transition={{ duration: 0.25, ease: shopEase }}
-                className="mt-8 inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.24em] text-forest hover:text-amber transition-colors group"
+                className="mt-8 inline-flex items-center gap-3 rounded-full border border-forest/10 bg-white/35 px-5 py-3 text-xs font-semibold tracking-[0.18em] uppercase text-forest hover:text-amber transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group"
               >
                 {t("browseFullCatalog")}
                 <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden>

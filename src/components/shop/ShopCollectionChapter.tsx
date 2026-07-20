@@ -49,7 +49,7 @@ export function ShopCollectionChapter({
   const pair = supporting.slice(0, 2);
 
   return (
-    <section className="relative py-20 md:py-28 lg:py-32 border-b border-fog/40 last:border-b-0 overflow-hidden">
+    <section className="premium-section relative py-20 md:py-28 lg:py-32 overflow-hidden">
       <div className={`absolute inset-0 ${CHAPTER_ATMOSPHERE[collection]}`} aria-hidden />
       <motion.div style={{ y: parallax }} className="absolute -right-[10%] top-[12%] h-64 w-64 rounded-full bg-amber/[0.04] blur-3xl" aria-hidden />
 
@@ -70,7 +70,7 @@ export function ShopCollectionChapter({
               transition={{ duration: 1, delay: 0.12, ease: shopEase }}
               className="origin-left h-px w-16 bg-amber/35 mt-6"
             />
-            <p className="mt-6 text-[11px] uppercase tracking-[0.28em] text-driftwood">{collectionLabel}</p>
+            <p className="premium-eyebrow mt-6">{collectionLabel}</p>
             <h2 className="mt-4 font-serif text-3xl md:text-4xl xl:text-[2.75rem] text-forest leading-[1.08] tracking-tight">
               {copy.title}
             </h2>
@@ -78,7 +78,7 @@ export function ShopCollectionChapter({
             <p className="mt-8 text-[11px] uppercase tracking-[0.22em] text-driftwood/80">{copy.mood}</p>
             <Link
               href={`/shop?collection=${collection}`}
-              className="inline-flex items-center gap-3 mt-10 text-[11px] uppercase tracking-[0.24em] text-forest hover:text-amber transition-colors group"
+              className="inline-flex items-center gap-3 mt-10 rounded-full border border-forest/10 bg-white/35 px-5 py-3 text-xs font-semibold tracking-[0.18em] uppercase text-forest hover:text-amber transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group"
             >
               {copy.explore}
               <motion.span className="inline-block group-hover:translate-x-1 transition-transform duration-300" aria-hidden>

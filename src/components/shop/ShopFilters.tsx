@@ -61,12 +61,12 @@ export function ShopFilters({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, delay: 0.2, ease: shopEase }}
-      className="relative border-y border-fog/50 bg-white/35 backdrop-blur-md"
+      className="premium-section relative py-8 md:py-10"
     >
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.45)_0%,rgba(246,243,238,0.15)_100%)] pointer-events-none" aria-hidden />
-
-      <div className="relative max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 py-8 md:py-10">
-        <p className="text-[11px] uppercase tracking-[0.28em] text-driftwood mb-5">{labels.layerCollection}</p>
+      <div className="relative max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16">
+        <div className="premium-shell">
+          <div className="premium-core px-5 py-6 md:px-8 md:py-8 lg:px-10 lg:py-10 bg-white/35">
+        <p className="premium-eyebrow mb-6">{labels.layerCollection}</p>
 
         <motion.div
           variants={staggerContainer}
@@ -108,7 +108,7 @@ export function ShopFilters({
               className="overflow-hidden"
             >
               <div className="pt-10 md:pt-12 mt-10 md:mt-12 border-t border-fog/40 space-y-10 md:space-y-12">
-                <p className="text-[11px] uppercase tracking-[0.28em] text-driftwood">
+                <p className="premium-eyebrow">
                   {labels.layerWithin.replace("{collection}", labels.collections[collection!])}
                 </p>
 
@@ -204,6 +204,8 @@ export function ShopFilters({
             </motion.p>
           )}
         </AnimatePresence>
+          </div>
+        </div>
       </div>
     </motion.div>
   );
@@ -231,12 +233,12 @@ function CollectionTile({
       whileHover={{ y: -2 }}
       whileTap={{ scale: 0.995 }}
       transition={{ duration: 0.25, ease: shopEase }}
-      className={`group w-full text-left min-h-[96px] md:min-h-[104px] px-5 md:px-6 py-5 border transition-colors duration-300 ${
+      className={`group w-full rounded-[1.05rem] text-left min-h-[96px] md:min-h-[104px] px-5 md:px-6 py-5 border transition-all duration-500 ${
         active
           ? "border-forest bg-forest text-linen shadow-[0_20px_50px_-36px_rgba(15,42,36,0.55)]"
           : subtle
-            ? "border-fog/70 bg-white/25 hover:border-forest/20 hover:bg-white/55"
-            : "border-fog/90 bg-white/45 hover:border-forest/25 hover:bg-white/70"
+            ? "border-forest/8 bg-white/25 hover:border-forest/18 hover:bg-white/55 hover:shadow-[0_18px_48px_-38px_rgba(15,42,36,0.45)]"
+            : "border-forest/10 bg-white/40 hover:border-forest/20 hover:bg-white/68 hover:shadow-[0_18px_48px_-38px_rgba(15,42,36,0.45)]"
       }`}
     >
       <div className="flex items-start justify-between gap-4">
@@ -270,12 +272,12 @@ function FilterTile({
       whileHover={{ y: active ? 0 : -1 }}
       whileTap={{ scale: 0.995 }}
       transition={{ duration: 0.2, ease: shopEase }}
-      className={`group flex items-center justify-between gap-4 w-full px-5 md:px-6 border text-left transition-colors duration-300 ${
+      className={`group flex items-center justify-between gap-4 w-full rounded-[0.95rem] px-5 md:px-6 border text-left transition-all duration-500 ${
         prominent ? "min-h-[64px] md:min-h-[68px]" : "min-h-[56px] md:min-h-[60px]"
       } ${
         active
           ? "border-forest bg-forest text-linen shadow-[0_16px_40px_-30px_rgba(15,42,36,0.5)]"
-          : "border-fog/90 bg-white/50 hover:border-forest/25 hover:bg-white/80"
+          : "border-forest/10 bg-white/46 hover:border-forest/22 hover:bg-white/78 hover:shadow-[0_14px_38px_-32px_rgba(15,42,36,0.4)]"
       }`}
     >
       <span className={`font-serif leading-snug ${prominent ? "text-lg md:text-xl" : "text-base md:text-lg"} ${active ? "text-linen" : "text-forest"}`}>

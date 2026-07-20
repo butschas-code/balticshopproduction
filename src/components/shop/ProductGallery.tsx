@@ -13,7 +13,11 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
   const activeImage = galleryImages[activeIndex] || galleryImages[0];
 
   if (!activeImage) {
-    return <div className="aspect-[4/5] bg-[#EBE8E2]" />;
+    return (
+      <div className="premium-shell">
+        <div className="premium-core aspect-[4/5]" />
+      </div>
+    );
   }
 
   return (
@@ -30,8 +34,8 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
                   aria-label={`${productName} ${index + 1}`}
                   aria-pressed={isActive}
                   onClick={() => setActiveIndex(index)}
-                  className={`relative shrink-0 w-[72px] h-[72px] lg:w-full lg:aspect-square overflow-hidden bg-[#EBE8E2] border transition-all duration-300 ${
-                    isActive ? "border-forest opacity-100" : "border-transparent opacity-55 hover:opacity-90"
+                  className={`relative shrink-0 w-[72px] h-[72px] lg:w-full lg:aspect-square overflow-hidden rounded-[0.85rem] bg-fog border transition-all duration-500 ${
+                    isActive ? "border-forest opacity-100 shadow-[0_14px_34px_-28px_rgba(15,42,36,0.55)]" : "border-forest/8 opacity-55 hover:opacity-90 hover:border-forest/18"
                   }`}
                 >
                   <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${image})` }} />
@@ -41,12 +45,16 @@ export function ProductGallery({ images, productName }: ProductGalleryProps) {
           </div>
         ) : null}
 
-        <div className={`order-1 lg:order-2 relative aspect-[4/5] lg:aspect-[3/4] bg-[#EBE8E2] overflow-hidden ${galleryImages.length > 1 ? "" : "lg:col-span-2"}`}>
-          <div
-            key={activeImage}
-            className="absolute inset-0 bg-cover bg-center animate-[galleryFadeIn_0.45s_ease-out]"
-            style={{ backgroundImage: `url(${activeImage})` }}
-          />
+        <div className={`order-1 lg:order-2 ${galleryImages.length > 1 ? "" : "lg:col-span-2"}`}>
+          <div className="premium-shell">
+            <div className="premium-core relative aspect-[4/5] lg:aspect-[3/4]">
+              <div
+                key={activeImage}
+                className="absolute inset-0 bg-cover bg-center animate-[galleryFadeIn_0.45s_ease-out]"
+                style={{ backgroundImage: `url(${activeImage})` }}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>

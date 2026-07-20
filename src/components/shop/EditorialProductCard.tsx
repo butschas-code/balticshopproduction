@@ -48,40 +48,42 @@ export function EditorialProductCard({
       className={`group ${className}`}
     >
       <Link href={`/shop/${product.slug}`} className="block">
-        <div className={`relative overflow-hidden bg-[#EBE8E2] shadow-[0_24px_60px_-40px_rgba(15,42,36,0.35)] ${aspectClass}`}>
-          {product.image ? (
-            <motion.div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${product.image})` }}
-              whileHover={{ scale: 1.025 }}
-              transition={{ duration: 0.9, ease: shopEase }}
-            />
-          ) : null}
+        <div className="premium-shell transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1">
+          <div className={`premium-core relative ${aspectClass}`}>
+            {product.image ? (
+              <motion.div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${product.image})` }}
+                whileHover={{ scale: isHero ? 1.018 : 1.045 }}
+                transition={{ duration: 1.05, ease: shopEase }}
+              />
+            ) : null}
 
-          {isHero ? (
-            <div className="absolute inset-0 bg-gradient-to-t from-forest/72 via-forest/18 to-forest/[0.02]" />
-          ) : (
-            <div className="absolute inset-0 bg-forest/0 group-hover:bg-forest/[0.025] transition-colors duration-500" />
-          )}
+            {isHero ? (
+              <div className="absolute inset-0 bg-gradient-to-t from-forest/76 via-forest/22 to-forest/[0.02]" />
+            ) : (
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_48%,rgba(15,42,36,0.12)_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            )}
 
-          {isHero ? (
-            <div className="absolute inset-x-0 bottom-0 p-8 md:p-12 lg:p-16">
-              {label ? (
-                <p className="text-linen/70 text-[11px] uppercase tracking-[0.28em]">{label}</p>
-              ) : null}
-              <p className="mt-3 text-linen/75 text-[11px] uppercase tracking-[0.24em]">{product.artisanName}</p>
-              <h3 className="mt-4 font-serif text-3xl md:text-5xl lg:text-6xl text-linen max-w-4xl leading-[1.05] tracking-tight">
-                {product.name}
-              </h3>
-              <p className="mt-6 text-linen/90 text-lg md:text-xl font-light">{product.price}</p>
-            </div>
-          ) : null}
+            {isHero ? (
+              <div className="absolute inset-x-0 bottom-0 p-8 md:p-12 lg:p-16">
+                {label ? (
+                  <p className="text-linen/70 text-[11px] uppercase tracking-[0.28em]">{label}</p>
+                ) : null}
+                <p className="mt-3 text-linen/75 text-[11px] uppercase tracking-[0.24em]">{product.artisanName}</p>
+                <h3 className="mt-4 font-serif text-3xl md:text-5xl lg:text-6xl text-linen max-w-4xl leading-[1.05] tracking-tight">
+                  {product.name}
+                </h3>
+                <p className="mt-6 text-linen/90 text-lg md:text-xl font-light">{product.price}</p>
+              </div>
+            ) : null}
 
-          {!isHero && index != null ? (
-            <span className="absolute top-5 left-5 md:top-6 md:left-6 font-serif text-base md:text-lg text-forest/20 group-hover:text-forest/35 transition-colors tabular-nums">
-              {String(index + 1).padStart(2, "0")}
-            </span>
-          ) : null}
+            {!isHero && index != null ? (
+              <span className="absolute top-5 left-5 md:top-6 md:left-6 rounded-full bg-linen/65 px-3 py-1 font-serif text-base md:text-lg text-forest/32 backdrop-blur-sm transition-colors group-hover:text-forest/55 tabular-nums">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+            ) : null}
+          </div>
         </div>
 
         {!isHero ? (
