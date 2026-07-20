@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
-import { Resend } from "resend";
 import { checkProductAvailability, fetchHtml, mapWithConcurrency } from "@/lib/product-monitor/availability";
-import { buildProductMonitorEmail } from "@/lib/product-monitor/email";
 import { discoverPartnerProducts } from "@/lib/product-monitor/partners";
 import type { MonitorProduct, MonitorReport, ProductAvailabilityResult } from "@/lib/product-monitor/types";
 
@@ -193,24 +191,12 @@ export async function GET(request: Request) {
 
   if (!dryRun) {
     await persistReport(db, products, results, report);
-
-    const resend = new Resend(requireEnv(process.env.RESEND_API_KEY, "RESEND_API_KEY"));
-    const email = buildProductMonitorEmail(report);
-    const { error } = await resend.emails.send({
-      from: process.env.PRODUCT_MONITOR_FROM_EMAIL || "Baltics Products <monitor@balticsproducts.com>",
-      to: process.env.PRODUCT_MONITOR_TO_EMAIL || "butschas@gmail.com",
-      subject: email.subject,
-      html: email.html,
-    });
-
-    if (error) {
-      return NextResponse.json({ ok: false, error }, { status: 500 });
-    }
   }
 
   return NextResponse.json({
     ok: true,
     dryRun,
+    delivery: dryRun ? "not_sent" : "stored_in_supabase",
     summary: {
       checkedCount: report.checkedCount,
       missingSourceCount: report.missingSourceCount,
