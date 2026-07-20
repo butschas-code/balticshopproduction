@@ -11,10 +11,10 @@ type ScrollRevealProps = HTMLMotionProps<"div"> & {
 export function ScrollReveal({ children, delay = 0, y = 24, className, ...props }: ScrollRevealProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y, filter: "blur(8px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       viewport={viewportOnce}
-      transition={{ duration: 0.75, delay, ease: shopEase }}
+      transition={{ duration: 0.9, delay, ease: shopEase }}
       className={className}
       {...props}
     >

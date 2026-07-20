@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
 import { getLocale, getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import "./globals.css";
@@ -10,9 +10,9 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
-const inter = Inter({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-jakarta",
   display: "swap",
 });
 
@@ -31,7 +31,7 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${playfair.variable} ${inter.variable}`}>
+    <html lang={locale} className={`${playfair.variable} ${jakarta.variable}`}>
       <body className="font-sans min-h-screen flex flex-col">
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}

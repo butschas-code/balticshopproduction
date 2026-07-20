@@ -26,11 +26,13 @@ export function Footer() {
   const t = useTranslations("footer");
   const tNav = useTranslations("nav");
   return (
-    <footer className="bg-forest text-linen">
-      <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 py-20 md:py-24">
+    <footer className="relative overflow-hidden bg-forest text-linen">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_22%_0%,rgba(200,154,75,0.18)_0%,transparent_34%),radial-gradient(circle_at_86%_26%,rgba(246,243,238,0.08)_0%,transparent_30%)]" aria-hidden />
+      <div className="relative max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 py-24 md:py-32">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-24">
           <div className="lg:col-span-2">
-            <p className="font-serif text-2xl md:text-3xl text-linen/95 tracking-tight">
+            <p className="premium-eyebrow border-linen/12 bg-linen/8 text-linen/68">{t("explore")}</p>
+            <p className="mt-7 font-serif text-3xl md:text-5xl text-linen/95 tracking-tight">
               {tNav("brand")}
             </p>
             <p className="mt-6 text-linen/70 text-sm leading-relaxed max-w-md">
@@ -44,7 +46,7 @@ export function Footer() {
                 <li key={link.href}>
                   <NavLink
                     href={link.href}
-                    className="text-linen/80 hover:text-amber transition-colors duration-300 text-sm"
+                    className="text-linen/80 hover:text-amber transition-colors duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] text-sm"
                   >
                     {tNav(link.key)}
                   </NavLink>
@@ -59,7 +61,7 @@ export function Footer() {
                 <li key={link.href}>
                   <NavLink
                     href={link.href}
-                    className="text-linen/80 hover:text-amber transition-colors duration-300 text-sm"
+                    className="text-linen/80 hover:text-amber transition-colors duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] text-sm"
                   >
                     {t(link.key)}
                   </NavLink>
@@ -77,7 +79,7 @@ export function Footer() {
               <a
                 key={social.label}
                 href={social.href}
-                className="text-linen/60 hover:text-amber transition-colors"
+                className="text-linen/60 hover:text-amber transition-colors duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
                 aria-label={social.label}
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

@@ -17,7 +17,7 @@ const config: Config = {
       },
       fontFamily: {
         serif: ["var(--font-playfair)", "Georgia", "serif"],
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        sans: ["var(--font-jakarta)", "system-ui", "sans-serif"],
       },
       spacing: {
         "18": "4.5rem",
@@ -36,8 +36,8 @@ const config: Config = {
         },
       },
       animation: {
-        "fade-in": "fadeIn 0.8s ease-out forwards",
-        "slow-zoom": "slowZoom 30s ease-in-out infinite",
+        "fade-in": "fadeIn 0.8s cubic-bezier(0.22,1,0.36,1) forwards",
+        "slow-zoom": "slowZoom 30s cubic-bezier(0.22,1,0.36,1) infinite",
       },
       transitionDuration: {
         "400": "400ms",
