@@ -70,7 +70,7 @@ export function AdminStoriesManager() {
       <div className="flex items-center justify-between gap-4">
         <div>
           <h2 className="font-serif text-3xl text-forest">Stories</h2>
-          <p className="mt-2 text-driftwood text-sm">Your blog content for the journal.</p>
+          <p className="mt-2 text-driftwood text-sm">Your story content for the site.</p>
         </div>
         <Link href="/admin/stories/new" className="admin-btn-primary">
           New story

@@ -26,7 +26,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
           </div>
           <div className="flex items-center gap-4 text-sm">
             <span className="text-[#D9D6CF] capitalize">{role}</span>
-            <Link href="/en/journal" className="hover:text-[#C89A4B] transition-colors">
+            <Link href="/en/stories" className="hover:text-[#C89A4B] transition-colors">
               View site
             </Link>
             <button type="button" onClick={() => void signOut()} className="hover:text-[#C89A4B] transition-colors">

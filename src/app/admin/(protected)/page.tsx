@@ -11,7 +11,7 @@ export default function AdminDashboardPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Link href="/admin/stories" className="admin-card hover:border-amber transition-colors">
           <h3 className="font-serif text-xl">Stories</h3>
-          <p className="mt-2 text-sm text-driftwood">Create, edit, and publish journal stories.</p>
+          <p className="mt-2 text-sm text-driftwood">Create, edit, and publish stories.</p>
         </Link>
         <Link href="/admin/social" className="admin-card hover:border-amber transition-colors">
           <h3 className="font-serif text-xl">Instagram</h3>

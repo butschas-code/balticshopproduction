@@ -21,7 +21,7 @@ export function buildInstagramCaptionDraft(input: {
     "",
     input.excerpt,
     "",
-    "Read the full story on our journal.",
+    "Read the full story on our stories page.",
     input.storyUrl,
     handle ? `\n@${handle.replace(/^@/, "")}` : "",
     "",

@@ -7,7 +7,7 @@ const footerLinkKeys = {
   shop: [
     { href: "/shop", key: "shop" },
     { href: "/artisans", key: "artisans" },
-    { href: "/journal", key: "journal" },
+    { href: "/stories", key: "stories" },
     { href: "/about", key: "about" },
   ],
   support: [

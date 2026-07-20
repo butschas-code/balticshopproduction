@@ -4,8 +4,6 @@
     "shop": "Shop",
     "artisans": "Handwerker",
     "stories": "Geschichten",
-    "theBaltic": "Das Baltikum",
-    "journal": "Journal",
     "about": "Über uns",
     "contact": "Kontakt",
     "brand": "Baltic Artisan",
@@ -57,7 +55,7 @@
     "subtitle": "Baltic Artisan"
   },
   "journal": {
-    "title": "Journal",
+    "title": "Geschichten",
     "subtitle": "Geschichten über Handwerkstraditionen, baltische Natur und entschleunigtes Leben.",
     "viewAll": "Alle anzeigen",
     "amberCoast": "Die Bernsteinküste",

@@ -187,7 +187,7 @@ export function StoryForm({ storyId }: StoryFormProps) {
       const { caption, shortCaption, hashtags } = buildInstagramCaptionDraft({
         title: form.title,
         excerpt: form.excerpt,
-        storyUrl: `${window.location.origin}/en/journal/${form.slug}`,
+        storyUrl: `${window.location.origin}/en/stories/${form.slug}`,
         brandVoice: settings?.brand_voice ?? "",
         instagramHandle: settings?.instagram_handle,
       });

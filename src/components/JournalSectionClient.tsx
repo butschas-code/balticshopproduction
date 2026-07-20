@@ -37,7 +37,7 @@ export function JournalSectionClient({ posts }: Props) {
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-forest tracking-tight">{t("title")}</h2>
             <p className="mt-4 text-driftwood text-lg max-w-xl">{t("subtitle")}</p>
           </div>
-          <Link href="/journal" className="text-forest font-medium hover:text-amber transition-colors inline-flex items-center gap-2">
+          <Link href="/stories" className="text-forest font-medium hover:text-amber transition-colors inline-flex items-center gap-2">
             {t("viewAll")}
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -48,7 +48,7 @@ export function JournalSectionClient({ posts }: Props) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
           {featured.map((post) => (
             <article key={post.slug}>
-              <Link href={`/journal/${post.slug}`} className="group block">
+              <Link href={`/stories/${post.slug}`} className="group block">
                 <div className="relative aspect-[4/5] overflow-hidden bg-fog mb-6">
                   <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"

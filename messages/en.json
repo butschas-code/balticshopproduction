@@ -4,8 +4,6 @@
     "shop": "Shop",
     "artisans": "Artisans",
     "stories": "Stories",
-    "theBaltic": "The Baltic",
-    "journal": "Journal",
     "about": "About",
     "contact": "Contact",
     "brand": "Baltic Artisan",
@@ -57,7 +55,7 @@
     "subtitle": "Baltic Artisan"
   },
   "journal": {
-    "title": "Journal",
+    "title": "Stories",
     "subtitle": "Stories about craft traditions, Baltic nature and slow living.",
     "viewAll": "View all",
     "amberCoast": "The Amber Coast",
