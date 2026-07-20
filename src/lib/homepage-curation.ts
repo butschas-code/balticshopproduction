@@ -43,7 +43,7 @@ const CATEGORY_RULES: Record<
 const SIGNATURE_PRODUCT_PRIORITY = [
   "vaidava-ceramics-espresso-cup-set-eclipse",
   "cepli-tejas-trauku-komplekts-tejkanna-04l-tejas-pialas-2-gb",
-  "cerannic-porcel-na-pl-ksn-te",
+  "cerannic-amanda",
   "latvijas-labumu-tirgus-mals-aug-u-vis-ar-ginka-lapu-mot-vu",
   "studio-natural-british-style-linen-coat",
   "studio-natural-dev-crumpled-linen-shirt-jura",

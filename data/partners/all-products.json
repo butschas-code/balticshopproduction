@@ -6394,7 +6394,8 @@
       "sourceUrl": "https://www.cerannic.com/veikals/item/amanda/",
       "reviewStatus": "approved",
       "reviewSource": "product-review-with-images-2026-07-16_reviewed.xlsx"
-    }
+    },
+    "isFeatured": true
   },
   {
     "slug": "cerannic-arnolds",
@@ -6914,12 +6915,14 @@
     "storyDe": "Porzellanteller",
     "details": [],
     "isPartnerProduct": true,
-    "shopVisible": true,
+    "shopVisible": false,
     "metadata": {
       "sourceUrl": "https://www.cerannic.com/veikals/item/porcel-na-pl-ksn-te/",
-      "reviewStatus": "approved",
-      "reviewSource": "product-review-with-images-2026-07-16_reviewed.xlsx"
-    }
+      "reviewStatus": "removed",
+      "reviewSource": "product-review-with-images-2026-07-16_reviewed.xlsx",
+      "hiddenReason": "Gift-card-like listing removed from visible shop items"
+    },
+    "isFeatured": false
   },
   {
     "slug": "cerannic-rebeka",

@@ -27,7 +27,7 @@ const COLLECTION_VISUAL_PRIORITY: Record<ShopCollection, string[]> = {
     "vaidava-ceramics-centerpiece-bowl-eclipse-gold",
     "cepli-tejas-trauku-komplekts-tejkanna-04l-tejas-pialas-2-gb",
     "cepli-vaze",
-    "cerannic-porcel-na-pl-ksn-te",
+    "cerannic-amanda",
     "latvijas-labumu-tirgus-mals-aug-u-vis-ar-ginka-lapu-mot-vu",
     "latvijas-labumu-tirgus-mals-apgleznots-ogu-aug-u-trauks-ar-v-ti",
   ],
