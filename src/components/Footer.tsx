@@ -31,10 +31,14 @@ export function Footer() {
       <div className="relative max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 py-24 md:py-32">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-24">
           <div className="lg:col-span-2">
-            <p className="premium-eyebrow border-linen/12 bg-linen/8 text-linen/68">{t("explore")}</p>
-            <p className="mt-7 font-serif text-3xl md:text-5xl text-linen/95 tracking-tight">
-              {tNav("brand")}
-            </p>
+            <p className="premium-eyebrow border-linen/10 bg-linen/10 text-linen/70">{t("explore")}</p>
+            <div className="mt-7 flex items-center gap-4">
+              <img src="/brand/delmara-logo-beige.png" alt="" className="h-14 w-14 object-contain" />
+              <p className="brand-lockup brand-lockup-footer text-linen/95">
+                <span className="brand-lockup-primary">Delmara</span>
+                <span className="brand-lockup-secondary">Baltic Living</span>
+              </p>
+            </div>
             <p className="mt-6 text-linen/70 text-sm leading-relaxed max-w-md">
               {t("tagline")}
             </p>

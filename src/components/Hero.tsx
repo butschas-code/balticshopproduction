@@ -18,52 +18,41 @@ export function Hero({
   subtitle = "Objects shaped by forests, sea and tradition.",
   ctaLabel = "Explore the collection",
   ctaHref = "/shop",
-  imageUrl = "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920&q=80",
+  imageUrl = "/hero/old-culture-modern-home-premium.png",
   overlay = true,
 }: HeroProps) {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+    <section className="relative flex min-h-[100dvh] items-end overflow-hidden bg-rye">
       <div className="absolute inset-0">
         <div
-          className="absolute inset-0 bg-cover bg-center scale-105 motion-safe:animate-slow-zoom"
-          style={{
-            backgroundImage: `url(${imageUrl})`,
-          }}
+          className="absolute inset-0 scale-105 bg-cover bg-center motion-safe:animate-slow-zoom"
+          style={{ backgroundImage: `url(${imageUrl})` }}
         />
         {overlay && (
           <div
-            className="absolute inset-0 bg-gradient-to-b from-forest/40 via-forest/30 to-forest/70"
+            className="absolute inset-0 bg-[linear-gradient(90deg,rgba(24,56,46,0.82)_0%,rgba(24,56,46,0.62)_34%,rgba(24,56,46,0.22)_66%,rgba(74,53,41,0.18)_100%),linear-gradient(180deg,rgba(24,56,46,0.12)_0%,rgba(24,56,46,0.18)_52%,rgba(44,33,24,0.64)_100%)]"
             aria-hidden
           />
         )}
       </div>
 
-      <div className="relative z-10 max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 py-32 text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-linen tracking-tight max-w-4xl mx-auto leading-[1.1]"
-        >
-          {title}
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-8 text-lg md:text-xl text-linen/90 max-w-xl mx-auto font-light tracking-wide"
-        >
-          {subtitle}
-        </motion.p>
+      <div className="relative z-10 mx-auto w-full max-w-[1600px] px-6 pb-10 pt-32 md:px-12 md:pb-14 lg:px-16 lg:pb-16">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 34 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-12"
+          transition={{ duration: 0.85, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-4xl"
         >
+          <p className="mb-5 text-[11px] font-bold uppercase tracking-[0.28em] text-beeswax">Baltic living from Latvia</p>
+          <h1 className="font-serif text-5xl font-bold leading-[0.96] tracking-tight text-linen text-balance sm:text-6xl md:text-7xl xl:text-8xl">
+            {title}
+          </h1>
+          <p className="mt-7 max-w-2xl text-base font-semibold leading-relaxed text-linen/95 md:text-lg">
+            {subtitle}
+          </p>
           <Link
             href={ctaHref}
-            className="inline-block px-10 py-4 bg-amber text-forest font-medium tracking-wide hover:bg-amber/90 transition-colors duration-300"
+            className="mt-9 inline-flex items-center justify-center bg-beeswax px-9 py-4 text-sm font-bold text-rye transition-colors duration-300 hover:bg-amber"
           >
             {ctaLabel}
           </Link>

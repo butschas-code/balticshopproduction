@@ -1,14 +1,8 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import { getLocale, getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import "./globals.css";
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-  display: "swap",
-});
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -17,9 +11,9 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Baltic Artisan — Crafted by Baltic Hands",
+  title: "Delmara Baltic Living — Baltic living from Latvia",
   description:
-    "Handcrafted objects from Baltic artisans. Woodcraft, linen, amber, ceramics — shaped by forests, sea and tradition.",
+    "Premium Baltic living from Latvia. Linen, ceramics, wood goods, amber, wool, wax and crafted natural objects for home, table, kitchen, wardrobe and ritual.",
 };
 
 export default async function RootLayout({
@@ -31,7 +25,7 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${playfair.variable} ${jakarta.variable}`}>
+    <html lang={locale} className={jakarta.variable}>
       <body className="font-sans min-h-screen flex flex-col">
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}

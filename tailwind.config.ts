@@ -9,15 +9,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        forest: "#0F2A24",
-        amber: "#C89A4B",
-        linen: "#F6F3EE",
-        driftwood: "#8A857A",
-        fog: "#D9D6CF",
+        forest: "#18382E",
+        pine: "#2E5144",
+        amber: "#C6862E",
+        linen: "#F4EFE4",
+        driftwood: "#6F746D",
+        fog: "#A7B8B4",
+        flax: "#D8C9AD",
+        rye: "#4A3529",
+        mist: "#A7B8B4",
+        steel: "#1F2727",
+        beeswax: "#E1B861",
       },
       fontFamily: {
-        serif: ["var(--font-playfair)", "Georgia", "serif"],
-        sans: ["var(--font-jakarta)", "system-ui", "sans-serif"],
+        serif: ["Georgia", "serif"],
+        sans: ["var(--font-jakarta)", "Arial", "Helvetica", "sans-serif"],
       },
       spacing: {
         "18": "4.5rem",

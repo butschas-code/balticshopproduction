@@ -3,10 +3,10 @@
     "home": "Home",
     "shop": "Shop",
     "artisans": "Artisans",
-    "stories": "Stories",
+    "stories": "Journal",
     "about": "About",
     "contact": "Contact",
-    "brand": "Baltic Artisan",
+    "brand": "Delmara Baltic Living",
     "cart": "Cart",
     "menu": "Menu",
     "login": "Login",
@@ -14,49 +14,49 @@
     "logout": "Logout"
   },
   "hero": {
-    "title": "Crafted by Baltic Hands",
-    "subtitle": "Objects shaped by forests, sea and tradition.",
-    "cta": "Explore the collection"
+    "title": "A home in tune with nature.",
+    "subtitle": "Delmara brings together Latvian pieces made from linen, clay, wood, wool and amber: objects shaped by the land, by hand, and by a culture that still knows how to live with the seasons.",
+    "cta": "Shop the collection"
   },
   "collections": {
-    "title": "Featured Collections",
-    "subtitle": "Curated categories of Baltic craft",
+    "title": "Shop by material and use",
+    "subtitle": "Natural goods for home, table, kitchen, wardrobe and daily ritual.",
     "explore": "Explore",
     "amber": "Amber",
     "amberDesc": "Baltic gold from ancient forests",
     "linen": "Linen",
-    "linenDesc": "Pure Nordic textiles",
-    "woodcraft": "Woodcraft",
-    "woodcraftDesc": "Forest-born objects",
+    "linenDesc": "Flax textiles for home and wardrobe",
+    "woodcraft": "Wood goods",
+    "woodcraftDesc": "Oak, boards, tools and crafted utility",
     "woolFelt": "Wool & Felt",
     "woolFeltDesc": "Warmth from the land",
     "ceramics": "Ceramics",
-    "ceramicsDesc": "Earth and fire",
+    "ceramicsDesc": "Tableware, vessels and clay objects",
     "baskets": "Baskets",
     "basketsDesc": "Willow baskets, trays, lamps, and woven home objects"
   },
   "artisans": {
-    "title": "Artisans",
-    "subtitle": "The hands and hearts behind every object.",
+    "title": "Latvian artisans",
+    "subtitle": "Material, origin and process behind every object.",
     "meetAll": "Meet all artisans"
   },
   "products": {
-    "signatureTitle": "Signature Products",
-    "signatureSubtitle": "Objects that carry the soul of the Baltic.",
+    "signatureTitle": "Bestsellers and new arrivals",
+    "signatureSubtitle": "Useful pieces chosen for material, origin and everyday beauty.",
     "addToCart": "Add to cart",
     "artisan": "Artisan",
     "materials": "Materials",
     "technique": "Technique",
-    "meetArtisan": "Meet the Artisan",
+    "meetArtisan": "Meet the artisan",
     "viewProfile": "View profile"
   },
   "story": {
-    "quote": "Born from forests, sea and quiet hands.",
-    "subtitle": "Baltic Artisan"
+    "quote": "Northern warmth, beautifully made.",
+    "subtitle": "Delmara Baltic Living"
   },
   "journal": {
-    "title": "Stories",
-    "subtitle": "Stories about craft traditions, Baltic nature and slow living.",
+    "title": "Journal",
+    "subtitle": "Material guides, artisan stories and Baltic rituals for home, table and wardrobe.",
     "viewAll": "View all",
     "amberCoast": "The Amber Coast",
     "amberCoastExcerpt": "A journey along the Baltic shore where amber washes up like gold from the sea.",
@@ -69,7 +69,7 @@
     "categoryArtisans": "Artisans"
   },
   "footer": {
-    "tagline": "Objects shaped by forests, sea and tradition. Handcrafted in Latvia, Lithuania and Estonia.",
+    "tagline": "Baltic living from Latvia: linen, wood, ceramics, wax, wool, amber and crafted natural objects for quieter daily rituals.",
     "explore": "Explore",
     "support": "Support",
     "shipping": "Shipping",
@@ -79,12 +79,12 @@
   },
   "shop": {
     "title": "Shop",
-    "subtitle": "A curated edit of Baltic craft — fewer objects, chosen with intention.",
+    "subtitle": "A curated edit of Baltic living from Latvia — fewer objects, chosen for material, origin and practical beauty.",
     "all": "All",
-    "eyebrow": "Curated collection",
-    "curatedIntro": "A quiet edit of Baltic craft — signature pieces, chosen slowly, shown with room to breathe.",
-    "filteredIntro": "Explore the full catalog by material, form, or maker.",
-    "signatureEdit": "Signature piece",
+    "eyebrow": "Baltic living store",
+    "curatedIntro": "A quiet edit of Latvian materials for home, table, kitchen, wardrobe and daily ritual.",
+    "filteredIntro": "Explore the catalog by category, form or artisan.",
+    "signatureEdit": "Seasonal edit",
     "fromTheEdit": "From the edit",
     "catalogView": "Catalog",
     "catalogClosing": "Every piece in the collection",
@@ -95,11 +95,11 @@
     "allCollections": "All collections",
     "layerCollection": "Collection",
     "layerWithin": "Within {collection}",
-    "chooseCollectionHint": "Choose a collection to browse by product type or maker.",
+    "chooseCollectionHint": "Choose a collection to browse by product type or artisan.",
     "collectionDescriptions": {
-      "ceramics": "Hand-thrown tableware, vessels, and objects",
+      "ceramics": "Tableware, vessels and clay objects",
       "linen": "Woven apparel and home textiles from Latvia",
-      "woodcraft": "Painted panels, games, and forest-born objects",
+      "woodcraft": "Wood goods, boards and crafted utility",
       "baskets": "Handwoven willow baskets, trays, lamps, and home objects"
     },
     "typeGroups": {
@@ -123,15 +123,15 @@
     "showMoreSimilar": "Show {count} more similar pieces",
     "emptyTitle": "No pieces match these filters",
     "emptyBody": "Try another product type or collection.",
-    "ceramicsEditorialTitle": "Earth, fire, and the quiet table",
-    "ceramicsEditorialSubtitle": "Bowls, cups, and vessels shaped by hand — each with its own glaze, weight, and story.",
+    "ceramicsEditorialTitle": "Earth, fire and the quiet table",
+    "ceramicsEditorialSubtitle": "Bowls, cups and vessels shaped for daily use, with visible glaze, weight and origin.",
     "ceramicsMood": "Tableware · Vases · Objects",
     "linenEditorialTitle": "Woven for slow mornings",
     "linenEditorialSubtitle": "Linen textiles and apparel from Latvia — breathable, honest, made to soften with time.",
     "linenMood": "Scarves · Apparel · Home textiles",
-    "woodcraftEditorialTitle": "Forest-born objects",
-    "woodcraftEditorialSubtitle": "Marble boards, painted panels, and playful forms carved from Baltic wood.",
-    "woodcraftMood": "Art · Games · Objects",
+    "woodcraftEditorialTitle": "Wood, weight and practical beauty",
+    "woodcraftEditorialSubtitle": "Boards, games and crafted wooden objects with a sharper Baltic utility.",
+    "woodcraftMood": "Boards · Games · Objects",
     "types": {
       "bowl": "Bowls",
       "cup": "Cups & mugs",
@@ -177,7 +177,7 @@
   },
   "artisansPage": {
     "title": "Artisans",
-    "subtitle": "The hands and hearts behind every object."
+    "subtitle": "The hands, places and materials behind every object."
   },
   "product": {
     "defaultStory": "A story of craft and place.",

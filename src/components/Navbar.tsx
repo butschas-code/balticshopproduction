@@ -57,23 +57,33 @@ export function Navbar() {
     <motion.header
       initial={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        useDarkNav ? "bg-linen/85 backdrop-blur-md shadow-sm nav-scrolled" : "bg-transparent"
+        useDarkNav ? "bg-linen/90 backdrop-blur-md shadow-sm nav-scrolled" : "bg-transparent"
       }`}
     >
-      <nav className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 py-5 flex items-center justify-between">
+      <nav className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 py-6 flex items-center justify-between">
         <Link
           href="/"
-          className="font-serif text-xl md:text-2xl tracking-tight transition-colors duration-300 text-linen hover:text-amber nav-link"
+          className="group flex items-center gap-4 transition-colors duration-300 nav-link"
         >
-          {t("brand")}
+          <span className="relative flex h-12 w-12 shrink-0 items-center justify-center md:h-14 md:w-14">
+            <img
+              src={useDarkNav ? "/brand/delmara-logo-green.png" : "/brand/delmara-logo-beige.png"}
+              alt=""
+              className="h-11 w-11 object-contain transition-transform duration-500 group-hover:scale-105 md:h-[3.25rem] md:w-[3.25rem]"
+            />
+          </span>
+          <span className="brand-lockup brand-lockup-nav hidden text-linen group-hover:text-beeswax nav-link sm:inline-flex">
+            <span className="brand-lockup-primary">Delmara</span>
+            <span className="brand-lockup-secondary">Baltic Living</span>
+          </span>
         </Link>
 
-        <ul className="hidden lg:flex items-center gap-10">
+        <ul className="hidden lg:flex items-center gap-11">
           {navKeys.map(({ href, key }) => (
             <li key={href}>
               <Link
                 href={href}
-                className="text-sm tracking-wide transition-colors duration-300 text-linen/95 hover:text-amber nav-link"
+                className="text-[15px] tracking-wide transition-colors duration-300 text-linen/95 hover:text-beeswax nav-link"
               >
                 {t(key)}
               </Link>
@@ -85,7 +95,7 @@ export function Navbar() {
           <LanguageSelector />
           <Link
             href={isAuthenticated ? "/account/orders" : "/login"}
-            className="hidden md:inline text-linen/95 hover:text-amber transition-colors duration-300 text-sm nav-link"
+            className="hidden md:inline text-linen/95 hover:text-beeswax transition-colors duration-300 text-[15px] nav-link"
           >
             {isAuthenticated ? t("account") : t("login")}
           </Link>
@@ -93,14 +103,14 @@ export function Navbar() {
             <button
               type="button"
               onClick={handleLogout}
-              className="hidden md:inline text-linen/95 hover:text-amber transition-colors duration-300 text-sm nav-link"
+              className="hidden md:inline text-linen/95 hover:text-beeswax transition-colors duration-300 text-[15px] nav-link"
             >
               {t("logout")}
             </button>
           )}
           <Link
             href="/cart"
-            className="text-linen hover:text-amber transition-colors duration-300 nav-link"
+            className="text-linen hover:text-beeswax transition-colors duration-300 nav-link"
             aria-label={t("cart")}
           >
             <svg

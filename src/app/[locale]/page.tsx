@@ -2,7 +2,6 @@ import { Hero } from "@/components/Hero";
 import { CollectionGrid } from "@/components/CollectionGrid";
 import { ArtisansSection } from "@/components/ArtisansSection";
 import { SignatureProducts } from "@/components/SignatureProducts";
-import { StorySection } from "@/components/StorySection";
 import { JournalSection } from "@/components/JournalSection";
 import { getTranslations } from "next-intl/server";
 import { getCatalogArtisans, getCatalogProducts } from "@/lib/catalog-supabase";
@@ -12,8 +11,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const activeLocale = locale === "de" ? "de" : "en";
 
-  const [tStory, tHero, artisans, products] = await Promise.all([
-    getTranslations("story"),
+  const [tHero, artisans, products] = await Promise.all([
     getTranslations("hero"),
     getCatalogArtisans(activeLocale),
     getCatalogProducts(activeLocale),
@@ -30,15 +28,15 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
   return (
     <>
-      <Hero title={tHero("title")} subtitle={tHero("subtitle")} ctaLabel={tHero("cta")} />
+      <Hero
+        title={tHero("title")}
+        subtitle={tHero("subtitle")}
+        ctaLabel={tHero("cta")}
+        imageUrl="/hero/old-culture-modern-home-premium.png"
+      />
       <CollectionGrid categoryImages={categoryImages} />
       <ArtisansSection artisans={featuredArtisans} />
       <SignatureProducts products={signatureProducts} />
-      <StorySection
-        imageUrl="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920&q=80"
-        quote={tStory("quote")}
-        subtitle={tStory("subtitle")}
-      />
       <JournalSection locale={activeLocale} />
     </>
   );

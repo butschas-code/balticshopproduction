@@ -63,7 +63,7 @@ export function AddToCartButton({
         type="button"
         disabled={loading}
         onClick={onAdd}
-        className="w-full md:w-auto rounded-full px-10 py-4 bg-forest text-linen text-sm font-semibold tracking-[0.12em] uppercase hover:bg-forest/90 hover:-translate-y-0.5 active:scale-[0.99] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] disabled:opacity-60 disabled:hover:translate-y-0"
+        className="w-full md:w-auto rounded-sm px-10 py-4 bg-forest text-linen text-sm font-extrabold tracking-[0.12em] uppercase hover:bg-rye hover:-translate-y-0.5 active:scale-[0.99] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] disabled:opacity-60 disabled:hover:translate-y-0"
       >
         {loading ? "..." : label}
       </button>

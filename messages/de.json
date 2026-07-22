@@ -6,7 +6,7 @@
     "stories": "Geschichten",
     "about": "Über uns",
     "contact": "Kontakt",
-    "brand": "Baltic Artisan",
+    "brand": "Delmara Baltic Living",
     "cart": "Warenkorb",
     "menu": "Menü",
     "login": "Anmelden",
@@ -14,8 +14,8 @@
     "logout": "Abmelden"
   },
   "hero": {
-    "title": "Gefertigt von baltischen Händen",
-    "subtitle": "Objekte geformt von Wald, Meer und Tradition.",
+    "title": "Baltisches Wohnen aus Lettland.",
+    "subtitle": "Leinen, Holz, Keramik und natürliche Objekte für ein ruhigeres Zuhause.",
     "cta": "Kollektion entdecken"
   },
   "collections": {
@@ -52,7 +52,7 @@
   },
   "story": {
     "quote": "Entstanden aus Wald, Meer und stillen Händen.",
-    "subtitle": "Baltic Artisan"
+    "subtitle": "Delmara Baltic Living"
   },
   "journal": {
     "title": "Geschichten",
@@ -83,7 +83,7 @@
     "all": "Alle",
     "eyebrow": "Kuratierte Kollektion",
     "curatedIntro": "Eine stille Auswahl baltischen Handwerks — Signaturen-Stücke, langsam gewählt, mit Raum zum Atmen.",
-    "filteredIntro": "Entdecken Sie den vollständigen Katalog nach Material, Form oder Maker.",
+    "filteredIntro": "Entdecken Sie den vollständigen Katalog nach Material, Form oder Handwerker.",
     "signatureEdit": "Signaturen-Stück",
     "fromTheEdit": "Aus der Auswahl",
     "catalogView": "Katalog",
@@ -95,7 +95,7 @@
     "allCollections": "Alle Kollektionen",
     "layerCollection": "Kollektion",
     "layerWithin": "In {collection}",
-    "chooseCollectionHint": "Wählen Sie eine Kollektion, um nach Produkttyp oder Maker zu filtern.",
+    "chooseCollectionHint": "Wählen Sie eine Kollektion, um nach Produkttyp oder Handwerker zu filtern.",
     "collectionDescriptions": {
       "ceramics": "Handgedrehtes Geschirr, Gefäße und Objekte",
       "linen": "Gewebte Bekleidung und Heimtextilien aus Lettland",

@@ -22,7 +22,7 @@ export function CollectionGrid({ categoryImages }: CollectionGridProps) {
   const t = useTranslations("collections");
 
   return (
-    <section className="premium-section py-24 md:py-32 lg:py-40 bg-linen/70 relative z-10">
+    <section className="premium-section py-24 md:py-32 lg:py-40 bg-linen/75 relative z-10">
       <div className="relative max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16">
         <ScrollRevealStagger className="text-center mb-16 md:mb-24">
           <ScrollRevealItem>
@@ -36,26 +36,32 @@ export function CollectionGrid({ categoryImages }: CollectionGridProps) {
           </ScrollRevealItem>
         </ScrollRevealStagger>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 xl:grid-cols-4">
           {collectionSlugs.map((col, index) => (
-            <ScrollReveal key={col.slug} delay={index * 0.06} y={36}>
-              <div className="premium-shell group transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1">
-                <Link href={`/shop?collection=${col.slug}`} className="premium-core block relative aspect-[4/5] bg-fog">
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-[1300ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
-                    style={{ backgroundImage: `url(${categoryImages[col.slug] || ""})` }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-forest/85 via-forest/22 to-transparent opacity-90 group-hover:opacity-95 transition-opacity duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]" />
-                  <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-10">
-                    <span className="font-serif text-2xl md:text-3xl text-linen">{t(col.nameKey)}</span>
-                    <span className="mt-1 text-linen/80 text-sm">{t(col.descKey)}</span>
-                    <span className="mt-5 inline-flex items-center gap-2 text-amber text-sm font-semibold group-hover:gap-3 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]">
+            <ScrollReveal
+              key={col.slug}
+              delay={index * 0.06}
+              y={36}
+            >
+              <article className="premium-shell group transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1">
+                <Link href={`/shop?collection=${col.slug}`} className="premium-core relative block aspect-[4/5] bg-fog">
+                  <div className="absolute inset-0 overflow-hidden">
+                    <div
+                      className="h-full w-full bg-cover bg-center transition-transform duration-[1300ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
+                      style={{ backgroundImage: `url(${categoryImages[col.slug] || ""})` }}
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,42,36,0.06)_0%,rgba(15,42,36,0.12)_42%,rgba(15,42,36,0.72)_100%)]" />
+                  <div className="absolute inset-x-0 bottom-0 p-6 md:p-7">
+                    <h3 className="font-serif text-3xl leading-none text-linen md:text-4xl">{t(col.nameKey)}</h3>
+                    <p className="mt-2 min-h-[2.5rem] text-sm leading-relaxed text-linen/80">{t(col.descKey)}</p>
+                    <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-beeswax transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:gap-3">
                       {t("explore")}
                       <span aria-hidden>→</span>
                     </span>
                   </div>
                 </Link>
-              </div>
+              </article>
             </ScrollReveal>
           ))}
         </div>

@@ -56,7 +56,7 @@ export function ProductDetailPanel({
   return (
     <div className="lg:sticky lg:top-28 lg:self-start">
       <div className="premium-shell">
-        <div className="premium-core px-6 py-8 md:px-8 md:py-10 lg:px-10 bg-white/35">
+        <div className="premium-core px-6 py-8 md:px-8 md:py-10 lg:px-10 bg-white/40">
       <div className="premium-eyebrow flex flex-wrap gap-x-3 gap-y-2">
         <span>{collectionLabel}</span>
         <span aria-hidden className="text-forest/25">
@@ -76,14 +76,14 @@ export function ProductDetailPanel({
         <span className="text-driftwood/60"> · {product.location}</span>
       </p>
 
-      <h1 className="mt-4 font-serif text-[2.35rem] md:text-5xl lg:text-[3.25rem] text-forest tracking-tight leading-[1.04]">
+      <h1 className="mt-4 font-serif text-[2.35rem] font-bold md:text-5xl lg:text-[3.25rem] text-forest tracking-tight leading-[1.04]">
         {product.name}
       </h1>
 
-      <p className="mt-7 text-[1.65rem] md:text-[1.85rem] text-forest font-light tabular-nums tracking-tight">{product.price}</p>
+      <p className="mt-7 text-[1.65rem] md:text-[1.85rem] text-forest font-extrabold tabular-nums tracking-tight">{product.price}</p>
 
       {intro ? (
-        <p className="mt-10 text-[17px] md:text-lg leading-[1.85] text-forest/72 font-light max-w-md">{intro}</p>
+        <p className="mt-10 text-[17px] md:text-lg leading-[1.85] text-forest/70 font-light max-w-md">{intro}</p>
       ) : null}
 
       <div className="mt-12 pt-10 border-t border-fog/70">
@@ -100,7 +100,7 @@ export function ProductDetailPanel({
           <button
             type="button"
             disabled
-            className="w-full sm:w-auto min-w-[220px] px-10 py-4 bg-forest text-linen text-sm font-medium tracking-[0.14em] uppercase opacity-60"
+            className="w-full sm:w-auto min-w-[220px] rounded-sm px-10 py-4 bg-forest text-linen text-sm font-medium tracking-[0.14em] uppercase opacity-60"
           >
             {labels.addToCart}
           </button>

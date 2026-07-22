@@ -21,7 +21,7 @@ export function ArtisansSection({ artisans }: ArtisansSectionProps) {
   return (
     <section className="premium-section py-24 md:py-32 lg:py-40 bg-fog/25 relative z-10">
       <div className="relative max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 md:mb-24">
+        <div className="mb-16 flex flex-col gap-6 md:mb-24 md:flex-row md:items-end md:justify-between">
           <ScrollRevealStagger>
             <ScrollRevealItem>
               <p className="premium-eyebrow">{t("meetAll")}</p>
@@ -43,7 +43,7 @@ export function ArtisansSection({ artisans }: ArtisansSectionProps) {
           </ScrollReveal>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3 md:gap-12">
           {artisans.map((artisan) => (
             <ArtisanCard
               key={artisan.slug}

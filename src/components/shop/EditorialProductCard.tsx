@@ -60,9 +60,9 @@ export function EditorialProductCard({
             ) : null}
 
             {isHero ? (
-              <div className="absolute inset-0 bg-gradient-to-t from-forest/76 via-forest/22 to-forest/[0.02]" />
+              <div className="absolute inset-0 bg-gradient-to-t from-rye/80 via-forest/20 to-forest/[0.02]" />
             ) : (
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_48%,rgba(15,42,36,0.12)_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_54%,rgba(18,52,45,0.14)_100%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             )}
 
             {isHero ? (
@@ -71,7 +71,7 @@ export function EditorialProductCard({
                   <p className="text-linen/70 text-[11px] uppercase tracking-[0.28em]">{label}</p>
                 ) : null}
                 <p className="mt-3 text-linen/75 text-[11px] uppercase tracking-[0.24em]">{product.artisanName}</p>
-                <h3 className="mt-4 font-serif text-3xl md:text-5xl lg:text-6xl text-linen max-w-4xl leading-[1.05] tracking-tight">
+                <h3 className="mt-4 font-serif text-3xl font-bold md:text-5xl lg:text-6xl text-linen max-w-4xl leading-[1.05] tracking-tight">
                   {product.name}
                 </h3>
                 <p className="mt-6 text-linen/90 text-lg md:text-xl font-light">{product.price}</p>
@@ -79,7 +79,7 @@ export function EditorialProductCard({
             ) : null}
 
             {!isHero && index != null ? (
-              <span className="absolute top-5 left-5 md:top-6 md:left-6 rounded-full bg-linen/65 px-3 py-1 font-serif text-base md:text-lg text-forest/32 backdrop-blur-sm transition-colors group-hover:text-forest/55 tabular-nums">
+              <span className="absolute top-5 left-5 md:top-6 md:left-6 rounded-sm bg-linen/70 px-3 py-1 font-serif text-base md:text-lg text-forest/40 backdrop-blur-sm transition-colors group-hover:text-forest/60 tabular-nums">
                 {String(index + 1).padStart(2, "0")}
               </span>
             ) : null}
@@ -95,7 +95,7 @@ export function EditorialProductCard({
               {product.artisanName}
             </p>
             <h3
-              className={`font-serif text-forest group-hover:text-amber transition-colors duration-300 tracking-tight ${
+              className={`font-serif font-bold text-forest group-hover:text-amber transition-colors duration-300 tracking-tight ${
                 isFeature ? "text-2xl md:text-3xl mt-2 leading-tight" : "text-xl md:text-2xl mt-1.5 leading-snug"
               }`}
             >
@@ -104,7 +104,7 @@ export function EditorialProductCard({
             {showDescription ? (
               <p className="mt-3 text-forest/65 text-sm leading-relaxed line-clamp-2 max-w-md">{product.description}</p>
             ) : null}
-            <p className={`text-forest/90 ${isFeature ? "mt-4 text-base" : "mt-3 text-sm"}`}>{product.price}</p>
+            <p className={`text-forest/90 font-extrabold tabular-nums ${isFeature ? "mt-4 text-base" : "mt-3 text-sm"}`}>{product.price}</p>
           </div>
         ) : null}
       </Link>

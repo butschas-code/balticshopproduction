@@ -233,12 +233,12 @@ function CollectionTile({
       whileHover={{ y: -2 }}
       whileTap={{ scale: 0.995 }}
       transition={{ duration: 0.25, ease: shopEase }}
-      className={`group w-full rounded-[1.05rem] text-left min-h-[96px] md:min-h-[104px] px-5 md:px-6 py-5 border transition-all duration-500 ${
+      className={`group w-full rounded-sm text-left min-h-[96px] md:min-h-[104px] px-5 md:px-6 py-5 border transition-all duration-500 ${
         active
-          ? "border-forest bg-forest text-linen shadow-[0_20px_50px_-36px_rgba(15,42,36,0.55)]"
+          ? "border-forest bg-forest text-linen shadow-[0_20px_50px_-36px_rgba(18,52,45,0.55)]"
           : subtle
-            ? "border-forest/8 bg-white/25 hover:border-forest/18 hover:bg-white/55 hover:shadow-[0_18px_48px_-38px_rgba(15,42,36,0.45)]"
-            : "border-forest/10 bg-white/40 hover:border-forest/20 hover:bg-white/68 hover:shadow-[0_18px_48px_-38px_rgba(15,42,36,0.45)]"
+            ? "border-forest/10 bg-white/25 hover:border-forest/20 hover:bg-white/60 hover:shadow-[0_18px_48px_-38px_rgba(15,42,36,0.45)]"
+            : "border-forest/10 bg-white/40 hover:border-forest/20 hover:bg-white/70 hover:shadow-[0_18px_48px_-38px_rgba(15,42,36,0.45)]"
       }`}
     >
       <div className="flex items-start justify-between gap-4">
@@ -272,12 +272,12 @@ function FilterTile({
       whileHover={{ y: active ? 0 : -1 }}
       whileTap={{ scale: 0.995 }}
       transition={{ duration: 0.2, ease: shopEase }}
-      className={`group flex items-center justify-between gap-4 w-full rounded-[0.95rem] px-5 md:px-6 border text-left transition-all duration-500 ${
+      className={`group flex items-center justify-between gap-4 w-full rounded-sm px-5 md:px-6 border text-left transition-all duration-500 ${
         prominent ? "min-h-[64px] md:min-h-[68px]" : "min-h-[56px] md:min-h-[60px]"
       } ${
         active
-          ? "border-forest bg-forest text-linen shadow-[0_16px_40px_-30px_rgba(15,42,36,0.5)]"
-          : "border-forest/10 bg-white/46 hover:border-forest/22 hover:bg-white/78 hover:shadow-[0_14px_38px_-32px_rgba(15,42,36,0.4)]"
+          ? "border-forest bg-forest text-linen shadow-[0_16px_40px_-30px_rgba(18,52,45,0.5)]"
+          : "border-forest/10 bg-white/50 hover:border-forest/20 hover:bg-white/80 hover:shadow-[0_14px_38px_-32px_rgba(15,42,36,0.4)]"
       }`}
     >
       <span className={`font-serif leading-snug ${prominent ? "text-lg md:text-xl" : "text-base md:text-lg"} ${active ? "text-linen" : "text-forest"}`}>

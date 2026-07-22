@@ -7,7 +7,7 @@ const fallbackArtisan = {
   name: "Baltic Artisan",
   location: "The Baltic",
   craft: "Craft",
-  bio: "A maker from the Baltic region.",
+  bio: "An artisan from the Baltic region.",
   portrait: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80",
   workshopImages: [] as string[],
   isPartner: false,
